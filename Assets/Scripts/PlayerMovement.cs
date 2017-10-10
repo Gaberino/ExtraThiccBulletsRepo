@@ -25,16 +25,15 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         myCamera.rotation = myCameraInitRot;
-        float horizontal = Input.GetAxis(inputControllerHorizontal);
-        float vertical = Input.GetAxis(inputControllerVertical);
+        float horizontal = Input.GetAxisRaw(inputControllerHorizontal);
+        float vertical = Input.GetAxisRaw(inputControllerVertical);
 
         if(horizontal != 0 || vertical != 0)
         {
             Vector3 moveDir = new Vector3(horizontal, vertical, 0);
             rbody.MovePosition(transform.position + moveDir * speed * Time.deltaTime);
             // transform.rotation = Quaternion.LookRotation(Vector3.forward, moveDir);
-            // myShipBody.rotation = Quaternion.LookRotation(Vector3.forward, moveDir);
-            // transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z);
+            myShipBody.rotation = Quaternion.LookRotation(Vector3.forward, moveDir);
         }
 	}
 }
