@@ -20,7 +20,9 @@ public class SpaceBullet : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
-		//if the other object is a player and has aa different ownerID call the kill method
+		if (other.GetComponent<PlayerMovement>() != null){
+			//if (other.GetComponent<PlayerMovement>().playerNumber != ownerID) other.GetComponent<PlayerMovement>().
+		}
 		Destroy(this.gameObject);
 	}
 }

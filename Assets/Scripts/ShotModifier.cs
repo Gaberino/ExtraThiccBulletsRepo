@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShotModifier : ScriptableObject {
 
-	public SpaceGun myGun;
+	protected SpaceGun myGun;
 
 	public int maxUpgradeLevel = 0; //0 is infinity
 	public int currentLevel = 1;

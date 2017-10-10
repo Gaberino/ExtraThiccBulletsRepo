@@ -14,6 +14,8 @@ public class SpaceGun : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//get the player script player id and set myownerID to it
+		currentShotMod.InitializeMod(this);
+		myOwnerID = this.GetComponent<PlayerMovement>().playerNumber;
 	}
 	
 	// Update is called once per frame
@@ -28,7 +30,8 @@ public class SpaceGun : MonoBehaviour {
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
 
-			Transform newBullet = Instantiate(bulletPrefab, new Vector3(this.transform.position.x + (spawnOffset.x * this.transform.right), this.gameObject.transform.position.y + (spawnOffset.y * this.transform.up)), Quaternion.identity);
+			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
+			newBullet.transform.localScale = Vector3.one * scaling;
 			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();
 			newBB.velocity = moveVector;
 			newBB.life = bulletLife;
