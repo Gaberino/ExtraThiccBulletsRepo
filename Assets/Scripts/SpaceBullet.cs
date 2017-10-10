@@ -10,19 +10,26 @@ public class SpaceBullet : MonoBehaviour {
 	public float life;
 	public int ownerID = 0;
 	private float elapsedLife = 0;
+	Rigidbody2D myRB;
+
+	void Start(){
+		myRB = this.GetComponent<Rigidbody2D>();
+	}
 
 	// Update is called once per frame
 	void Update () {
 		elapsedLife += Time.deltaTime;
 
 		if (elapsedLife > life) Destroy (this.gameObject);
-		this.transform.Translate(velocity.x * Time.deltaTime, velocity.y * Time.deltaTime, 0);
+		myRB.position += velocity * Time.deltaTime;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if (other.GetComponent<PlayerMovement>() != null){
-			//if (other.GetComponent<PlayerMovement>().playerNumber != ownerID) other.GetComponent<PlayerMovement>().
+			if (other.GetComponent<PlayerMovement>().playerNumber != ownerID) {
+				other.GetComponent<PlayerMovement>().Die(ownerID);
+				Destroy(this.gameObject);
+			}
 		}
-		Destroy(this.gameObject);
 	}
 }

@@ -14,7 +14,6 @@ public class SpaceGun : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//get the player script player id and set myownerID to it
-		currentShotMod.InitializeMod(this);
 		myOwnerID = this.GetComponent<PlayerMovement>().playerNumber;
 	}
 	
@@ -26,7 +25,7 @@ public class SpaceGun : MonoBehaviour {
 	}
 
 	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling){
-		if (cooldownElapsed > cooldownTime){
+		if (cooldownElapsed >= cooldownTime){
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
 

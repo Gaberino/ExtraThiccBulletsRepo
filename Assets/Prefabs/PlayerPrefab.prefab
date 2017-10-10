@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50067419938167688}
   - component: {fileID: 114177608118846816}
   - component: {fileID: 58474411662711994}
+  - component: {fileID: 114345421084070646}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -131,6 +132,20 @@ MonoBehaviour:
   myScore: {fileID: 0}
   explosionPrefab: {fileID: 4351143469828082, guid: 305e6463302aab842ab7073618406168,
     type: 2}
+--- !u!114 &114345421084070646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111452813903226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d4aa3bf2de7bf14ab0f6b98ead2d64e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
+    type: 2}
+  currentShotMod: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
 --- !u!212 &212753851196911136
 SpriteRenderer:
   m_ObjectHideFlags: 1
