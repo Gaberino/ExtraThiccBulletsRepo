@@ -39,4 +39,22 @@ public class SpaceGun : MonoBehaviour {
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
 		}
 	}
+
+	//added a separate method instead of just adding pierce as an option to shootbullet because it won't fuck other peoples work up this way
+	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, bool pierce){
+		if (cooldownElapsed >= cooldownTime){
+			cooldownElapsed = 0;
+			cooldownTime = cooldown;
+
+			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
+			newBullet.transform.localScale = Vector3.one * scaling;
+			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();
+			newBB.pierceTerrain = pierce;
+			newBB.velocity = moveVector;
+			newBB.life = bulletLife;
+			newBB.ownerID = myOwnerID;
+
+			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
+		}
+	}
 }
