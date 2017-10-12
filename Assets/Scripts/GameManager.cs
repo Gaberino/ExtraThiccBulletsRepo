@@ -42,13 +42,15 @@ public class GameManager : MonoBehaviour {
                 newPlayer.playerNumber = players.Count;
                 newPlayer.inputControllerHorizontal = "Horizontal_P" + newPlayer.playerNumber;
                 newPlayer.inputControllerVertical = "Vertical_P" + newPlayer.playerNumber;
+                newPlayer.inputControllerHorizontalLook = "HorizontalLook_P" + newPlayer.playerNumber;
+                newPlayer.inputControllerVerticalLook = "VerticalLook_P" + newPlayer.playerNumber;
                 newPlayer.inputControllerFire = "Shoot_P" + newPlayer.playerNumber;
                 newPlayer.transform.name = "Player " + newPlayer.playerNumber;
                 newPlayer.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.5f, 0.8f), Random.Range(0.5f, 0.8f), Random.Range(0.5f, 0.8f));
                 GameObject newScoreCard = Instantiate(playerScoreCard);
                 newScoreCard.transform.SetParent(scoreBoard.transform, false);
                 newPlayer.myScore = newScoreCard.GetComponent<Text>();
-                newPlayer.myScore.text = "0";
+				newPlayer.myScore.text = "Lv.1 Score 0";
             }
         }
 	}

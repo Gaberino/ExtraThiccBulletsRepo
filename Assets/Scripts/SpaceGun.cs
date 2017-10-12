@@ -30,7 +30,7 @@ public class SpaceGun : MonoBehaviour {
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
 
-			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
+			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.right * spawnOffset.x, Quaternion.identity);
 			newBullet.transform.localScale = Vector3.one * scaling;
 			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();
 			newBB.velocity = moveVector;

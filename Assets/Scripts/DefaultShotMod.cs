@@ -11,9 +11,7 @@ public class DefaultShotMod : ShotModifier {
 
 	public override void ModifyAndShoot (float playerLife, SpaceGun originGun, Color bColor)
 	{
-		currentLevel = Mathf.RoundToInt(playerLife / timeToLevelRatio);
-		if (currentLevel < 1) currentLevel = 1;
-		if (maxUpgradeLevel != 0 && currentLevel > maxUpgradeLevel) currentLevel = maxUpgradeLevel;
+		base.ModifyAndShoot(playerLife, originGun, bColor);
 
 		float cooldownToSet = shotCooldown - (perLevelCooldownReduction * currentLevel);
 		float scaleToSet = bulletScale + (perLevelSizeBonus * currentLevel);
