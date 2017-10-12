@@ -6,6 +6,7 @@ public class SpaceGun : MonoBehaviour {
 
 	public Transform bulletPrefab;
 	public ShotModifier currentShotMod;
+	public Transform sinBulletPrefab;
 
 	private int myOwnerID = 0;
 	private float cooldownTime = 1;
@@ -50,6 +51,22 @@ public class SpaceGun : MonoBehaviour {
 			newBullet.transform.localScale = Vector3.one * scaling;
 			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();
 			newBB.pierceTerrain = pierce;
+			newBB.velocity = moveVector;
+			newBB.life = bulletLife;
+			newBB.ownerID = myOwnerID;
+
+			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
+		}
+	}
+
+	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, string isSin){
+		if (cooldownElapsed >= cooldownTime){
+			cooldownElapsed = 0;
+			cooldownTime = cooldown;
+
+			Transform newBullet = Instantiate(sinBulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
+			newBullet.transform.localScale = Vector3.one * scaling;
+			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();
 			newBB.velocity = moveVector;
 			newBB.life = bulletLife;
 			newBB.ownerID = myOwnerID;
