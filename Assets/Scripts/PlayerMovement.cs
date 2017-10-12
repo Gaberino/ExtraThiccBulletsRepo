@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
     public string inputControllerFire;
     public int playerNumber;
     
+	public bool shootHeld = false;
+
     public float timeAlive;
     public int killCount;
     public int currentLifeKillCount;
@@ -23,18 +25,27 @@ public class PlayerMovement : MonoBehaviour {
     bool dead;
     public Transform explosionPrefab;
 
+	private SpaceGun myPlayerGun;
+	private SpriteRenderer mySR;
 	// Use this for initialization
 	void Start () {
+		myPlayerGun = this.GetComponent<SpaceGun>();
+		mySR = this.GetComponent<SpriteRenderer>();
         rbody = GetComponent<Rigidbody2D>();
         dead = false;
-        timeAlive += Time.deltaTime;
+        timeAlive = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		float shooting = Input.GetAxisRaw(inputControllerFire);
         if (!dead)
         {
             timeAlive += Time.deltaTime;
+
+			shootHeld = (shooting != 0);
+			if (shootHeld) myPlayerGun.currentShotMod.ModifyAndShoot(timeAlive, myPlayerGun, mySR.color);
+
             processMovement();
         }
 	}
@@ -44,10 +55,10 @@ public class PlayerMovement : MonoBehaviour {
         rbody.velocity = Vector2.zero;
         float horizontal = Input.GetAxisRaw(inputControllerHorizontal);
         float vertical = Input.GetAxisRaw(inputControllerVertical);
-        float shooting = Input.GetAxisRaw(inputControllerFire);
+        
         if (horizontal != 0 || vertical != 0)
         {
-            if (shooting != 0)
+			if (shootHeld)
             {
                 Vector3 lookDir = new Vector3(horizontal, vertical, 0);
                 transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDir);
@@ -92,13 +103,13 @@ public class PlayerMovement : MonoBehaviour {
         myScore.text = killCount.ToString();
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        int killerID = -1;
-        if(coll.collider.tag == "Bullet")
-        {
-            // killerID = coll.collider.GetComponent<Bullet>().owner;
-        }
-        Die(killerID);
-    }
+//    void OnCollisionEnter2D(Collision2D coll)
+//    {
+//        int killerID = -1;
+//        if(coll.collider.tag == "Bullet")
+//        {
+//            // killerID = coll.collider.GetComponent<Bullet>().owner;
+//        }
+//        Die(killerID);
+//    }
 }
