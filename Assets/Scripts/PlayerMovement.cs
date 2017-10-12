@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         {
-            if(tempFlyDir.x != 0 || tempFlyDir.x != 0) { transform.rotation = Quaternion.LookRotation(Vector3.forward, tempFlyDir); }
+            if(tempFlyDir.x != 0 || tempFlyDir.y != 0) { transform.rotation = Quaternion.LookRotation(Vector3.forward, tempFlyDir); }
         }
         
         rbody.MovePosition(transform.position + tempFlyDir * speed * Time.deltaTime);
