@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour {
 		float shooting = Input.GetAxisRaw(inputControllerFire);
         if (!dead)
         {
-            timeAlive += Time.deltaTime;
+			timeAlive += Time.deltaTime * (currentLifeKillCount + 1);
 
 			shootHeld = (shooting != 0);
 			if (shootHeld) myPlayerGun.currentShotMod.ModifyAndShoot(timeAlive, myPlayerGun, mySR.color);
