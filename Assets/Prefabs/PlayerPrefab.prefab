@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
     type: 2}
-  currentShotMod: {fileID: 11400000, guid: 4c2cd5de4321db941ac06161c96e7d38, type: 2}
+  currentShotMod: {fileID: 11400000, guid: f58cb3ff91798a743976c1dfa470666a, type: 2}
 --- !u!212 &212753851196911136
 SpriteRenderer:
   m_ObjectHideFlags: 1
