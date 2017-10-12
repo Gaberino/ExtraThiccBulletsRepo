@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ab3b096856fa7d40aea7e613bc1ab0b, type: 3}
+  m_Name: ParallelShot
+  m_EditorClassIdentifier: 
+  maxUpgradeLevel: 10
+  currentLevel: 5
+  timeToLevelRatio: 10
+  bulletLifeTimes: 4
+  bulletSpeeds: 10
+  shotCooldown: 2
+  bulletScale: 0.5
+  bulletShootOffset: {x: 0.35, y: 0.75}
+  perLevelShotBonus: 2
+  perLevelCooldownReduction: 0.1
+  spreadAmount: 0.75
