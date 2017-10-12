@@ -19,8 +19,11 @@ public class TriangleShotMod: ShotModifier {
 		float cooldownToSet = shotCooldown - (perLevelCooldownReduction * currentLevel);
 		float scaleToSet = bulletScale;
 
-		originGun.ShootBullet(bulletShootOffset, (originGun.transform.up * bulletSpeeds) + (originGun.transform.right * sideShotAngle), bColor, bulletLifeTimes, cooldownToSet, scaleToSet);
-		originGun.ShootBullet(bulletShootOffset, (originGun.transform.up * bulletSpeeds) + (originGun.transform.right * -sideShotAngle), bColor, bulletLifeTimes, cooldownToSet, scaleToSet);
+		originGun.ShootBullet(bulletShootOffset, (originGun.transform.up * bulletSpeeds) + (originGun.transform.right * sideShotAngle), bColor, bulletLifeTimes, 0, scaleToSet);
+		//Debug.Log ("shot1");
+		originGun.ShootBullet(bulletShootOffset, (originGun.transform.up * bulletSpeeds) + (originGun.transform.right * -sideShotAngle), bColor, bulletLifeTimes, 0, scaleToSet);
+		//Debug.Log ("shot2");
 		originGun.ShootBullet(bulletShootOffset, originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet);
+		//Debug.Log ("Shot3");
 	}
 }

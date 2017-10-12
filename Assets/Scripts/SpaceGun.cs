@@ -65,11 +65,12 @@ public class SpaceGun : MonoBehaviour {
 			cooldownTime = cooldown;
 
 			Transform newBullet = Instantiate(sinBulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
-			newBullet.transform.localScale = Vector3.one * scaling;
-			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();
+			newBullet.transform.localScale = Vector3.one;
+			SinWaveBullet newBB = newBullet.GetComponent<SinWaveBullet>();
 			newBB.velocity = moveVector;
 			newBB.life = bulletLife;
 			newBB.ownerID = myOwnerID;
+			newBB.scale = scaling;
 
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
 		}

@@ -15,6 +15,9 @@ public class SinWaveBullet : MonoBehaviour {
 	public bool pierceTerrain = false;
 	public int ownerID = 0;
 	public float elapsedLife = 0;
+
+	public float scale;
+
 	Rigidbody2D myRB;
 
 
@@ -22,8 +25,8 @@ public class SinWaveBullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		myRB = this.GetComponent<Rigidbody2D>();
-		float sinwave = Mathf.Sin (Time.timeSinceLevelLoad) + 1;
-		origScale = this.transform.localScale;
+		origScale = new Vector3(1, 1, 1);
+		this.transform.localScale = origScale;
 	}
 	
 	// Update is called once per frame
@@ -35,10 +38,12 @@ public class SinWaveBullet : MonoBehaviour {
 			Destroy (newParticle, 1f);
 			Destroy (this.gameObject);
 		}
-		myRB.position += velocity * Time.deltaTime;
 
-		float sinwave = Mathf.Sin (elapsedLife) + 1;
-		this.transform.localScale = origScale + Vector3.one * sinwave;
+		myRB.velocity = velocity;
+
+		float sinwave = Mathf.Sin (elapsedLife * 10) + 1;
+		Debug.Log (sinwave);
+		this.transform.localScale = origScale * sinwave * scale;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){

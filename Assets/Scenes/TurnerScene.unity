@@ -284,8 +284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
     type: 2}
-  currentShotMod: {fileID: 11400000, guid: eb2ceac2cf7624a28ac70157dfdbef51, type: 2}
-  sinBulletPrefab: {fileID: 0}
+  currentShotMod: {fileID: 11400000, guid: 69d6a55f4b4ee4417b52bfdc375426e1, type: 2}
+  sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
+    type: 2}
 --- !u!58 &586928887
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -323,7 +324,8 @@ MonoBehaviour:
   currentLifeKillCount: 0
   respawnTime: 0
   myScore: {fileID: 0}
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 4351143469828082, guid: 305e6463302aab842ab7073618406168,
+    type: 2}
 --- !u!50 &586928889
 Rigidbody2D:
   serializedVersion: 4
