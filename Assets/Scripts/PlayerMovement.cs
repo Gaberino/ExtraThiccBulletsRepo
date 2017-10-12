@@ -55,26 +55,25 @@ public class PlayerMovement : MonoBehaviour {
         rbody.velocity = Vector2.zero;
         float horizontal = Input.GetAxisRaw(inputControllerHorizontal);
         float vertical = Input.GetAxisRaw(inputControllerVertical);
-        
-        if (horizontal != 0 || vertical != 0)
+
+        Vector3 tempMoveDir = new Vector3(horizontal, vertical, 0);
+
+        if (shootHeld)
         {
-			if (shootHeld)
-            {
-                Vector3 lookDir = new Vector3(horizontal, vertical, 0);
-                transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDir);
-            }
-            else
-            {
-                moveDir = new Vector3(horizontal, vertical, 0);
-                transform.rotation = Quaternion.LookRotation(Vector3.forward, moveDir);
-            }
-            rbody.MovePosition(transform.position + moveDir * speed * Time.deltaTime);
+            if (moveDir == Vector3.zero) { moveDir = tempMoveDir; }
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, tempMoveDir);
         }
+        else
+        {
+            moveDir = tempMoveDir;
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, moveDir);
+        }
+        rbody.MovePosition(transform.position + moveDir * speed * Time.deltaTime);
     }
 
     public void Die(int killerID)
     {
-        if(killerID >= 0 && killerID < GameManager.Instance.players.Count)
+        if(killerID > 0 && killerID <= GameManager.Instance.players.Count)
         {
             PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
             myKiller.AddScore();
