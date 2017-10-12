@@ -30,7 +30,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1500221935098004
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   inputControllerVertical: Vertical_P1
   inputControllerFire: Shoot_P1
   playerNumber: 1
+  shootHeld: 0
   timeAlive: 0
   killCount: 0
   currentLifeKillCount: 0
@@ -145,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
     type: 2}
-  currentShotMod: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
+  currentShotMod: {fileID: 11400000, guid: 4c2cd5de4321db941ac06161c96e7d38, type: 2}
 --- !u!212 &212753851196911136
 SpriteRenderer:
   m_ObjectHideFlags: 1
