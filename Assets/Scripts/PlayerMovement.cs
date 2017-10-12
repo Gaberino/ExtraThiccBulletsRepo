@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
 		float shooting = Input.GetAxisRaw(inputControllerFire);
         if (!dead)
         {
-            timeAlive += Time.deltaTime;
+			timeAlive += Time.deltaTime * (currentLifeKillCount + 1);
 
             if (strafeControls)
             {
@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         killCount++;
         currentLifeKillCount++;
-        myScore.text = killCount.ToString();
+		myScore.text = "Lv." + myPlayerGun.currentShotMod.currentLevel + " Score: " + killCount.ToString();
     }
 
 //    void OnCollisionEnter2D(Collision2D coll)

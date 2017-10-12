@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
                 GameObject newScoreCard = Instantiate(playerScoreCard);
                 newScoreCard.transform.SetParent(scoreBoard.transform, false);
                 newPlayer.myScore = newScoreCard.GetComponent<Text>();
-                newPlayer.myScore.text = "0";
+				newPlayer.myScore.text = "Lv.1 Score 0";
             }
         }
 	}
