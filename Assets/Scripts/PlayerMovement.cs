@@ -8,10 +8,13 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
     public string inputControllerHorizontal;
     public string inputControllerVertical;
+    public string inputControllerHorizontalLook;
+    public string inputControllerVerticalLook;
     public string inputControllerFire;
     public int playerNumber;
     
 	public bool shootHeld = false;
+    public bool strafeControls;
 
     public float timeAlive;
     public int killCount;
@@ -21,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
 
     Rigidbody2D rbody;
     Vector3 moveDir;
+    Vector3 lookDir;
 
     bool dead;
     public Transform explosionPrefab;
@@ -43,10 +47,16 @@ public class PlayerMovement : MonoBehaviour {
         {
             timeAlive += Time.deltaTime;
 
-			shootHeld = (shooting != 0);
-			if (shootHeld) myPlayerGun.currentShotMod.ModifyAndShoot(timeAlive, myPlayerGun, mySR.color);
-
-            processMovement();
+            if (strafeControls)
+            {
+                shootHeld = (shooting != 0);
+                processMovement();
+            }
+            else
+            {
+                processMovementDualStick();
+            }
+            if (shootHeld) myPlayerGun.currentShotMod.ModifyAndShoot(timeAlive, myPlayerGun, mySR.color);
         }
 	}
 
@@ -65,10 +75,33 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         {
+            if(horizontal != 0 || vertical != 0) { lookDir = tempMoveDir; }
             moveDir = tempMoveDir;
-            transform.rotation = Quaternion.LookRotation(Vector3.forward, moveDir);
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDir);
         }
         rbody.MovePosition(transform.position + moveDir * speed * Time.deltaTime);
+    }
+
+    void processMovementDualStick()
+    {
+        rbody.velocity = Vector2.zero;
+        float horizontal = Input.GetAxisRaw(inputControllerHorizontal);
+        float vertical = Input.GetAxisRaw(inputControllerVertical);
+        float horizontalLook = Input.GetAxisRaw(inputControllerHorizontalLook);
+        float verticalLook = Input.GetAxisRaw(inputControllerVerticalLook);
+        shootHeld = horizontalLook != 0 || verticalLook != 0;
+        Vector3 tempFlyDir = new Vector3(horizontal, vertical, 0);
+        Vector3 tempLookDir = new Vector3(horizontalLook, verticalLook, 0f);
+        if (shootHeld)
+        {
+            if(tempLookDir.x != 0 || tempLookDir.y != 0) { transform.rotation = Quaternion.LookRotation(Vector3.forward, tempLookDir); }
+        }
+        else
+        {
+            if(tempFlyDir.x != 0 || tempFlyDir.x != 0) { transform.rotation = Quaternion.LookRotation(Vector3.forward, tempFlyDir); }
+        }
+        
+        rbody.MovePosition(transform.position + tempFlyDir * speed * Time.deltaTime);
     }
 
     public void Die(int killerID)
