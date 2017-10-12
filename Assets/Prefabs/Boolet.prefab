@@ -119,8 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7adddcf8585e591478e6d87354f84857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticlePrefab: {fileID: 1560619582693536, guid: 390fa8fb98f35824da78679bfe2a68ef,
+    type: 2}
   velocity: {x: 0, y: 0}
   life: 0
+  pierceTerrain: 0
   ownerID: 0
 --- !u!212 &212644062281625116
 SpriteRenderer:
