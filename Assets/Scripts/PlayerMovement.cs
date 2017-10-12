@@ -132,7 +132,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         killCount++;
         currentLifeKillCount++;
-		myScore.text = "Lv." + myPlayerGun.currentShotMod.currentLevel + "Score: " + killCount.ToString();
+		myScore.text = "Lv." + myPlayerGun.currentShotMod.currentLevel + " Score: " + killCount.ToString();
     }
 
 //    void OnCollisionEnter2D(Collision2D coll)
