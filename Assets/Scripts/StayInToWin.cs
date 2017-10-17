@@ -31,7 +31,7 @@ public class StayInToWin : MonoBehaviour {
 			if (currentGainingPlayer == null) {
 
 				currentGainingPlayer = col.gameObject;
-				gainingPlayerID = col.gameObject.GetComponent<PlayerMovementInControl> ().playerNumber; //may need to change the script being grabbed here
+				gainingPlayerID = col.gameObject.GetComponent<PlayerMovement> ().playerNumber; //may need to change the script being grabbed here
 			} else if (currentGainingPlayer != col.gameObject){
 				pointContested = true;
 			}

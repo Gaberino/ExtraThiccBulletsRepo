@@ -27,7 +27,9 @@ public class HoldToWinItem : MonoBehaviour {
 				currentHolderTransform = null;
 				currentHolderID = 0;
 			}
-		}
+
+            this.transform.position = Vector3.Lerp(this.transform.position, currentHolderTransform.position, Time.deltaTime * lerpSpeed);
+        }
 	}
 	void OnTriggerEnter2D(Collider2D col){
 		if (col.tag.Contains ("Player")) {
