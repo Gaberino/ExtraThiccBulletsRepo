@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: SprayFire
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 1
+  currentLevel: 7
   timeToLevelRatio: 5
   bulletLifeTimes: 3
   bulletSpeeds: 6
-  shotCooldown: 0.1
+  shotCooldown: 0.2
   bulletScale: 0.3
   bulletShootOffset: {x: 0, y: 0.75}
   maxAngleOffset: 5
