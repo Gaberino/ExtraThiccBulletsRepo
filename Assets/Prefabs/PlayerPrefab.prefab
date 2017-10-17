@@ -231,7 +231,7 @@ MonoBehaviour:
   weapExp1: 0
   weapon2: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
   weapExp2: 0
-  dashTime: 0.5
+  dashTime: 0.3
   myTip: {fileID: 212753851196911136}
 --- !u!114 &114345421084070646
 MonoBehaviour:

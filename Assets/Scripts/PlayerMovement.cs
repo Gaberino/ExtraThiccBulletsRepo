@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour {
         float startTime = Time.time;
         while(Time.time - startTime < dashTime)
         {
-            rbody.velocity = lookDir * (speed * 2 + 0.1f * powerMod);
+            rbody.velocity = lookDir * (speed * 3 + 0.1f * powerMod);
             yield return new WaitForEndOfFrame();
         }
         dashRoutine = null;
