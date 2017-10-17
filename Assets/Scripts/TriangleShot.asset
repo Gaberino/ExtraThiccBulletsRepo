@@ -8,17 +8,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d09515bc505bed47985188b4b5af439, type: 3}
-  m_Name: Piercing
+  m_Script: {fileID: 11500000, guid: 07eb645bfbf324cd2a8a37b440b43da7, type: 3}
+  m_Name: TriangleShot
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 5
+  currentLevel: 4
   timeToLevelRatio: 5
   bulletLifeTimes: 2
-  bulletSpeeds: 25
-  shotCooldown: 0.9
-  bulletScale: 0.6
+  bulletSpeeds: 12
+  shotCooldown: 0.6
+  bulletScale: 0.4
   bulletShootOffset: {x: 0, y: 0.75}
-  perLevelSizeBonus: 0.1
-  perLevelCooldownReduction: 0.1
-  perLevelSpeedBonus: 2
+  sideShotAngle: 5
+  perLevelSizeBonus: 2
+  perLevelCooldownReduction: 0.04

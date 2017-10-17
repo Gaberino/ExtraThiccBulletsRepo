@@ -2,22 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceBullet : MonoBehaviour {
+public class SinWaveBullet : MonoBehaviour {
+
+	public float sinVal;
+	private Vector3 origScale;
 
 	//spacebullets have kinematic 2d rigidbodies
 
 	public GameObject hitParticlePrefab;
 	public Vector2 velocity;
 	public float life;
-	public bool pierceTerrain = false;
+	public bool pierceTerrain = true;
 	public int ownerID = 0;
 	public float elapsedLife = 0;
+
+	public float scale;
+
 	Rigidbody2D myRB;
 
-	void Start(){
-		myRB = this.GetComponent<Rigidbody2D>();
-	}
 
+
+	// Use this for initialization
+	void Start () {
+		myRB = this.GetComponent<Rigidbody2D>();
+		origScale = new Vector3(1, 1, 1);
+		this.transform.localScale = origScale;
+	}
+	
 	// Update is called once per frame
 	void Update () {
 		elapsedLife += Time.deltaTime;
@@ -27,7 +38,12 @@ public class SpaceBullet : MonoBehaviour {
 			Destroy (newParticle, 1f);
 			Destroy (this.gameObject);
 		}
-		myRB.position += velocity * Time.deltaTime;
+
+		myRB.velocity = velocity;
+
+		float sinwave = Mathf.Sin (elapsedLife * 10) + 1;
+		Debug.Log (sinwave);
+		this.transform.localScale = origScale * sinwave * scale;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
