@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620a23ab1c24d42b0b7f84112f8972a6, type: 3}
   m_Name: SinShotMod
   m_EditorClassIdentifier: 
-  maxUpgradeLevel: 3
-  currentLevel: 1
-  timeToLevelRatio: 6
-  bulletLifeTimes: 3
-  bulletSpeeds: 12
-  shotCooldown: 2
-  bulletScale: 0.2
+  maxUpgradeLevel: 10
+  currentLevel: 10
+  timeToLevelRatio: 5
+  bulletLifeTimes: 2.5
+  bulletSpeeds: 15
+  shotCooldown: 1.1
+  bulletScale: 0.0004
   bulletShootOffset: {x: 0, y: 1.25}
-  perLevelSizeBonus: 1
-  perLevelCooldownReduction: 0.1
+  perLevelSizeBonus: 0.3
+  perLevelCooldownReduction: 0.01

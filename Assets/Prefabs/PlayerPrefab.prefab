@@ -123,9 +123,12 @@ MonoBehaviour:
   speed: 7
   inputControllerHorizontal: Horizontal_P1
   inputControllerVertical: Vertical_P1
+  inputControllerHorizontalLook: 
+  inputControllerVerticalLook: 
   inputControllerFire: Shoot_P1
   playerNumber: 1
   shootHeld: 0
+  strafeControls: 0
   timeAlive: 0
   killCount: 0
   currentLifeKillCount: 0
@@ -147,6 +150,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
     type: 2}
   currentShotMod: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
+  sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
+    type: 2}
 --- !u!212 &212753851196911136
 SpriteRenderer:
   m_ObjectHideFlags: 1

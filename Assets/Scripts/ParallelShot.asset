@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: ParallelShot
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 5
-  timeToLevelRatio: 10
+  currentLevel: 10
+  timeToLevelRatio: 5
   bulletLifeTimes: 4
-  bulletSpeeds: 10
-  shotCooldown: 2
+  bulletSpeeds: 9
+  shotCooldown: 1.1
   bulletScale: 0.5
   bulletShootOffset: {x: 0.35, y: 0.75}
   perLevelShotBonus: 2
-  perLevelCooldownReduction: 0.1
-  spreadAmount: 0.75
+  perLevelCooldownReduction: 0.01
+  spreadAmount: 0.5

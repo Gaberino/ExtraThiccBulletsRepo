@@ -124,9 +124,10 @@ MonoBehaviour:
     type: 2}
   velocity: {x: 0, y: 0}
   life: 0
-  pierceTerrain: 0
+  pierceTerrain: 1
   ownerID: 0
   elapsedLife: 0
+  scale: 0
 --- !u!212 &212644062281625116
 SpriteRenderer:
   m_ObjectHideFlags: 1

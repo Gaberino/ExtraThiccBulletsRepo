@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21e12441f2c04b4ba058f14e365d3d0, type: 3}
   m_Name: DefMod
   m_EditorClassIdentifier: 
-  maxUpgradeLevel: 15
-  currentLevel: 15
+  maxUpgradeLevel: 10
+  currentLevel: 1
   timeToLevelRatio: 5
   bulletLifeTimes: 2
-  bulletSpeeds: 10
-  shotCooldown: 1.5
+  bulletSpeeds: 11
+  shotCooldown: 0.4
   bulletScale: 0.5
   bulletShootOffset: {x: 0, y: 1}
   perLevelSizeBonus: 0
-  perLevelCooldownReduction: 0.09
+  perLevelCooldownReduction: 0.002

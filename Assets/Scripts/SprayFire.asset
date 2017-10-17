@@ -11,13 +11,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fd3ed8d07cbb945a8e4cae083edd6f, type: 3}
   m_Name: SprayFire
   m_EditorClassIdentifier: 
-  maxUpgradeLevel: 95
-  currentLevel: 95
-  timeToLevelRatio: 0.5
+  maxUpgradeLevel: 10
+  currentLevel: 1
+  timeToLevelRatio: 5
   bulletLifeTimes: 3
-  bulletSpeeds: 5
-  shotCooldown: 1
+  bulletSpeeds: 6
+  shotCooldown: 0.1
   bulletScale: 0.3
   bulletShootOffset: {x: 0, y: 0.75}
   maxAngleOffset: 5
-  perLevelCooldownReduction: 0.01
+  perLevelCooldownReduction: 0.001

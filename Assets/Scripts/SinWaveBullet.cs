@@ -12,7 +12,7 @@ public class SinWaveBullet : MonoBehaviour {
 	public GameObject hitParticlePrefab;
 	public Vector2 velocity;
 	public float life;
-	public bool pierceTerrain = false;
+	public bool pierceTerrain = true;
 	public int ownerID = 0;
 	public float elapsedLife = 0;
 
