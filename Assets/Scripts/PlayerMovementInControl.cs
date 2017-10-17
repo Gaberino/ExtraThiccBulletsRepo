@@ -36,7 +36,6 @@ public class PlayerMovementInControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		myInput = this.GetComponent<PlayerInput> ();
-		myInput.playerNum = playerNumber - 1;
 		myPlayerGun = this.GetComponent<SpaceGun>();
 		mySR = this.GetComponent<SpriteRenderer>();
         rbody = GetComponent<Rigidbody2D>();
