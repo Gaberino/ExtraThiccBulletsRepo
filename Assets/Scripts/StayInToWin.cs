@@ -13,16 +13,15 @@ public class StayInToWin : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		myCollider = this.GetComponent<Collider2D> ();
-		currentGainingPlayer = new GameObject ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (currentGainingPlayer != null && !pointContested) {
-			if (currentGainingPlayer == 1) {
+			if (gainingPlayerID == 1) {
 				WinManager.instance.p1StayTime += Time.deltaTime;
 			} else {
-				WinManager.instance.p2StayTIme += Time.deltaTime;
+				WinManager.instance.p2StayTime += Time.deltaTime;
 			}
 		}
 	}

@@ -15,7 +15,7 @@ public class WinManager : MonoBehaviour {
 	public float p2HoldTime;
 	public float timeInZoneToWin;
 	public float p1StayTime;
-	public float p2StayTIme;
+	public float p2StayTime;
 
 	// Use this for initialization
 	void Start () {
@@ -26,10 +26,25 @@ public class WinManager : MonoBehaviour {
 	void Update () {
 		if (p1HoldTime >= timeObjHeldToWin || p2HoldTime >= timeObjHeldToWin) {
 			//win via hold
+			if (p1HoldTime > p2HoldTime)
+				DisplayWinmessage(1, "holding the McGuffin");
+			
+			else
+				DisplayWinmessage(2, "holding the McGuffin");
 		} else if (p1Kills >= numOfKillsToWin || p2Kills >= numOfKillsToWin) {
 			//win via kills
-		} else if (p1StayTime >= timeInZoneToWin || p2StayTIme >= timeInZoneToWin) {
+			if (p1Kills > p2Kills)
+				DisplayWinmessage(1, "absolute slaughter!");
+
+			else
+				DisplayWinmessage(2, "absolute slaughter");
+		} else if (p1StayTime >= timeInZoneToWin || p2StayTime >= timeInZoneToWin) {
 			//win via king of the hill
+			if (p1StayTime > p2StayTime)
+				DisplayWinmessage(1, "capturing the point!");
+
+			else
+				DisplayWinmessage(2, "capturing the point!");
 		}
 	}
 
