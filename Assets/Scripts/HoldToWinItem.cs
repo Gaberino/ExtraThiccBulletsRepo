@@ -17,7 +17,12 @@ public class HoldToWinItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if  (currentHolderTransform != null){
+			if (currentHolderID == 1)
+			WinManager.instance.p1HoldTime += Time.deltaTime;
+			else
+				WinManager.instance.p2HoldTime += Time.deltaTime;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
