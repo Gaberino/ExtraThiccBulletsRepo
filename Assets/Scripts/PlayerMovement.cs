@@ -84,6 +84,10 @@ public class PlayerMovement : MonoBehaviour {
                 equip = !equip;
             }
         }
+		if (playerNumber == 1)
+			myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.currentLevel + " Kills: " + WinManager.instance.p1Kills + " HoldTime: " + Mathf.RoundToInt(WinManager.instance.p1HoldTime).ToString() + " HillTime " + Mathf.RoundToInt(WinManager.instance.p1StayTime).ToString();
+		else
+			myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.currentLevel + " Kills: " + WinManager.instance.p2Kills + " HoldTime: " + Mathf.RoundToInt(WinManager.instance.p2HoldTime).ToString() + " HillTime " + Mathf.RoundToInt(WinManager.instance.p2StayTime).ToString();
 	}
 
     void processShooting()
@@ -169,6 +173,10 @@ public class PlayerMovement : MonoBehaviour {
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
                 myKiller.AddScore();
+				if (killerID == 1)
+					WinManager.instance.p1Kills += 1;
+				else if (killerID == 2)
+					WinManager.instance.p2Kills += 1;
             }
             weapExp1 *= 0.5f;
             weapExp2 *= 0.5f;
