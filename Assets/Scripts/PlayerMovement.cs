@@ -92,6 +92,7 @@ public class PlayerMovement : MonoBehaviour {
             else { powerMod = Mathf.RoundToInt(weapExp2 / myPlayerGun.currentShotMod.timeToLevelRatio); }
             if (powerMod < 1) { powerMod = 1; }
             speed = normalSpeed / powerMod;
+            if(speed < 1f) { speed = 1f; }
             if (equip) { myPlayerGun.currentShotMod.ModifyAndShoot(weapExp1, myPlayerGun, mySR.color); }
             else { myPlayerGun.currentShotMod.ModifyAndShoot(weapExp2, myPlayerGun, mySR.color); }
         }
@@ -167,6 +168,8 @@ public class PlayerMovement : MonoBehaviour {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
                 myKiller.AddScore();
             }
+            weapExp1 *= 0.5f;
+            weapExp2 *= 0.5f;
             currentLifeKillCount = 0;
             timeAlive = 0;
             StartCoroutine(respawn());

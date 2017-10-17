@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4d325708443e4ca52cb7d076f8e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  normalSpeed: 8
+  speed: 10
+  normalSpeed: 10
   playerNumber: 1
   myInput: {fileID: 0}
   shootHeld: 0
