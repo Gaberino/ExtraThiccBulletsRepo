@@ -15,9 +15,9 @@ MonoBehaviour:
   currentLevel: 10
   timeToLevelRatio: 5
   bulletLifeTimes: 2.5
-  bulletSpeeds: 15
+  bulletSpeeds: 5
   shotCooldown: 1.1
-  bulletScale: 0.0004
+  bulletScale: 0.04
   bulletShootOffset: {x: 0, y: 1.25}
   perLevelSizeBonus: 0.3
   perLevelCooldownReduction: 0.01
