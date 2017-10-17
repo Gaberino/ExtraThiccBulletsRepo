@@ -32,8 +32,6 @@ public class PlayerInput : MonoBehaviour {
 			shootButtonHeld = inputDevice.RightBumper.IsPressed;
 
 			dashButtonPressed = inputDevice.LeftBumper.WasPressed;
-			if (dashButtonPressed)
-				Debug.Log ("Dash");
 
 			weaponSwapButtonPressed = inputDevice.Action1.WasPressed;
 		}
