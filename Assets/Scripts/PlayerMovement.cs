@@ -49,6 +49,8 @@ public class PlayerMovement : MonoBehaviour {
     Coroutine iframesRoutine;
 
 	private SpriteRenderer mySR;
+    [SerializeField] SpriteRenderer myTip;
+
 	// Use this for initialization
 	void Start () {
         myInput = this.GetComponent<PlayerInput>();
@@ -192,12 +194,14 @@ public class PlayerMovement : MonoBehaviour {
         // Deactivate collider(s) and spriterenderer(s)
         GetComponent<Collider2D>().enabled = false;
         mySR.enabled = false;
+        myTip.enabled = false;
         yield return new WaitForSeconds(respawnTime);
         // reactivate collider(s) and spriterenderer(s)
         dead = false;
         transform.position = GameManager.Instance.getNewSpawnLoc(this);
         GetComponent<Collider2D>().enabled = true;
         mySR.enabled = true;
+        myTip.enabled = true;
         iframesRoutine = StartCoroutine(freshSpawn());
     }
 
@@ -207,11 +211,15 @@ public class PlayerMovement : MonoBehaviour {
         int frameCount = 0;
         while(Time.time - startTime < iframes)
         {
-            if(frameCount%3 == 0) { mySR.enabled = !mySR.enabled; }
+            if(frameCount%3 == 0) {
+                mySR.enabled = !mySR.enabled;
+                myTip.enabled = !myTip.enabled;
+            }
             frameCount++;
             yield return new WaitForEndOfFrame();
         }
         mySR.enabled = true;
+        myTip.enabled = true;
         iframesRoutine = null;
     }
 
@@ -220,7 +228,7 @@ public class PlayerMovement : MonoBehaviour {
         float startTime = Time.time;
         while(Time.time - startTime < dashTime)
         {
-            rbody.velocity = lookDir * (speed * 2 + 0.1f * powerMod);
+            rbody.velocity = lookDir * (speed * 3 + 0.1f * powerMod);
             yield return new WaitForEndOfFrame();
         }
         dashRoutine = null;
