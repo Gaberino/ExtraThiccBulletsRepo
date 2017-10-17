@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Piercing
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 5
+  currentLevel: 10
   timeToLevelRatio: 5
   bulletLifeTimes: 2
-  bulletSpeeds: 25
+  bulletSpeeds: 20
   shotCooldown: 0.9
   bulletScale: 0.6
   bulletShootOffset: {x: 0, y: 0.75}
   perLevelSizeBonus: 0.1
-  perLevelCooldownReduction: 0.1
+  perLevelCooldownReduction: 0.002
   perLevelSpeedBonus: 2

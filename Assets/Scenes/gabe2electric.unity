@@ -444,6 +444,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
   - {fileID: 11400000, guid: 4c2cd5de4321db941ac06161c96e7d38, type: 2}
   - {fileID: 11400000, guid: f58cb3ff91798a743976c1dfa470666a, type: 2}
+  - {fileID: 11400000, guid: a7fc68d3b7ffac844b8017d4fa6e57a7, type: 2}
   chargeTime: 10
   startChargingColor: {r: 0, g: 0, b: 0, a: 1}
   endChargingColor: {r: 1, g: 1, b: 1, a: 1}

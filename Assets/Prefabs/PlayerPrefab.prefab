@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114177608118846816}
   - component: {fileID: 58474411662711994}
   - component: {fileID: 114345421084070646}
+  - component: {fileID: 114658805319711308}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -120,22 +121,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4d325708443e4ca52cb7d076f8e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  inputControllerHorizontal: Horizontal_P1
-  inputControllerVertical: Vertical_P1
-  inputControllerHorizontalLook: 
-  inputControllerVerticalLook: 
-  inputControllerFire: Shoot_P1
+  speed: 10
+  normalSpeed: 10
   playerNumber: 1
+  myInput: {fileID: 0}
   shootHeld: 0
   strafeControls: 0
   timeAlive: 0
   killCount: 0
   currentLifeKillCount: 0
-  respawnTime: 0
+  respawnTime: 3
+  iframes: 3
   myScore: {fileID: 0}
   explosionPrefab: {fileID: 4351143469828082, guid: 305e6463302aab842ab7073618406168,
     type: 2}
+  weapon1: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
+  weapExp1: 0
+  weapon2: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
+  weapExp2: 0
+  dashTime: 0.5
 --- !u!114 &114345421084070646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,6 +156,23 @@ MonoBehaviour:
   currentShotMod: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
   sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
     type: 2}
+--- !u!114 &114658805319711308
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111452813903226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff72cef1bf23de4693f65148ee547eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNum: 0
+  leftStickInput: {x: 0, y: 0}
+  rightStickInput: {x: 0, y: 0}
+  shootButtonHeld: 0
+  dashButtonPressed: 0
+  weaponSwapButtonPressed: 0
 --- !u!212 &212753851196911136
 SpriteRenderer:
   m_ObjectHideFlags: 1
