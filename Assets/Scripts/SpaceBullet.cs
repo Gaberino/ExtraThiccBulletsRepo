@@ -39,7 +39,9 @@ public class SpaceBullet : MonoBehaviour {
 					Destroy (newParticle, 1f);
 					Destroy (this.gameObject);
 				}
-			} else if (!pierceTerrain) {
+			}
+			else if (other.tag == "WinZone") {
+			}else if (!pierceTerrain) {
 				GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
 				Destroy (newParticle, 1f);
 				Destroy (this.gameObject);
