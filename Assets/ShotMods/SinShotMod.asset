@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: SinShotMod
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 10
+  currentLevel: 2
   timeToLevelRatio: 5
-  bulletLifeTimes: 2.5
-  bulletSpeeds: 3
+  bulletLifeTimes: 1.5
+  bulletSpeeds: 11
   shotCooldown: 3
   bulletScale: 0.04
   bulletShootOffset: {x: 0, y: 1.25}
