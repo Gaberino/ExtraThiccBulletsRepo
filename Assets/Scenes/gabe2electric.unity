@@ -405,7 +405,7 @@ MonoBehaviour:
   p2HoldTime: 0
   timeInZoneToWin: 0
   p1StayTime: 0
-  p2StayTIme: 0
+  p2StayTime: 0
 --- !u!1 &509887304
 GameObject:
   m_ObjectHideFlags: 0
