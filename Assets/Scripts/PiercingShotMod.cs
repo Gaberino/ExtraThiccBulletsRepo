@@ -19,6 +19,6 @@ public class PiercingShotMod : ShotModifier {
 		float cooldownToSet = shotCooldown - (perLevelCooldownReduction * currentLevel);
 		float scaleToSet = bulletScale + (perLevelSizeBonus * currentLevel);
 
-		originGun.ShootBullet(bulletShootOffset, originGun.transform.up * (bulletSpeeds + (currentLevel * perLevelSizeBonus)), bColor, bulletLifeTimes, cooldownToSet, scaleToSet, true);
+		originGun.ShootBullet(bulletShootOffset, originGun.transform.up * (bulletSpeeds + (currentLevel * perLevelSizeBonus)), bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet, true);
 	}
 }

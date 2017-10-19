@@ -25,7 +25,7 @@ public class SpaceGun : MonoBehaviour {
 		}
 	}
 
-	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling){
+	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, Sprite bulletSprite){
 		if (cooldownElapsed >= cooldownTime){
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
@@ -38,11 +38,12 @@ public class SpaceGun : MonoBehaviour {
 			newBB.ownerID = myOwnerID;
 
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
+			newBullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
 		}
 	}
 
 	//added a separate method instead of just adding pierce as an option to shootbullet because it won't fuck other peoples work up this way
-	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, bool pierce){
+	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, Sprite bulletSprite, bool pierce){
 		if (cooldownElapsed >= cooldownTime){
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
@@ -59,7 +60,7 @@ public class SpaceGun : MonoBehaviour {
 		}
 	}
 
-	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, string isSin){
+	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, Sprite bulletSprite, string isSin){
 		if (cooldownElapsed >= cooldownTime){
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;

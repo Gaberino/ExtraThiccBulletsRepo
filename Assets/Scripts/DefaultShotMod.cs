@@ -16,6 +16,6 @@ public class DefaultShotMod : ShotModifier {
 		float cooldownToSet = shotCooldown - (perLevelCooldownReduction * currentLevel);
 		float scaleToSet = bulletScale + (perLevelSizeBonus * currentLevel);
 
-		originGun.ShootBullet(bulletShootOffset, originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet);
+		originGun.ShootBullet(bulletShootOffset, originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet);
 	}
 }

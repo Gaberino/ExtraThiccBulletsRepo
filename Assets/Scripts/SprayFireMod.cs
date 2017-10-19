@@ -18,6 +18,6 @@ public class SprayFireMod : ShotModifier {
 		float cooldownToSet = shotCooldown - (perLevelCooldownReduction * currentLevel);
 		float scaleToSet = bulletScale;
 
-		originGun.ShootBullet(bulletShootOffset, (originGun.transform.up * bulletSpeeds) + (originGun.transform.right * Random.Range(-maxAngleOffset, maxAngleOffset)), bColor, bulletLifeTimes, cooldownToSet, scaleToSet);
+		originGun.ShootBullet(bulletShootOffset, (originGun.transform.up * bulletSpeeds) + (originGun.transform.right * Random.Range(-maxAngleOffset, maxAngleOffset)), bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet);
 	}
 }
