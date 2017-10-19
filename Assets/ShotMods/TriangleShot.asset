@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: TriangleShot
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 4
+  currentLevel: 10
   timeToLevelRatio: 5
   bulletLifeTimes: 2
-  bulletSpeeds: 12
+  bulletSpeeds: 16
   shotCooldown: 0.6
   bulletScale: 0.4
   bulletShootOffset: {x: 0, y: 0.75}
