@@ -21,8 +21,8 @@ public class ParallelShot : ShotModifier {
 
 		for (int i = -numToShoot / 2; i < numToShoot / 2; i++){
 			if (i < (numToShoot / 2) - 1)
-			originGun.ShootBullet(bulletShootOffset + (Vector2.right * spreadAmount * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, 0, scaleToSet);
-			else originGun.ShootBullet(bulletShootOffset + (Vector2.right * spreadAmount * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet);
+				originGun.ShootBullet(bulletShootOffset + (Vector2.right * spreadAmount * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, 0, scaleToSet, bulletSpriteToSet);
+			else originGun.ShootBullet(bulletShootOffset + (Vector2.right * spreadAmount * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet);
 		}
 	}
 }
