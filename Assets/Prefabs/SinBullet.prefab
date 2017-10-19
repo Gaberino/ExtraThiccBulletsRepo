@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4009500576563870}
   - component: {fileID: 212953680805671960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: OutlineBoolet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 58428649841908502}
   - component: {fileID: 50501595878724848}
   - component: {fileID: 114756284951904680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SinBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

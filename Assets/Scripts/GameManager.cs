@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public int playerCount;
     public PlayerMovement playerPrefab;
     public Transform[] playerSpawns;
+    public Color[] playerColors;
     public Transform[] weaponSpawns;
     public ShotModifier[] shotMods;
     public Sprite[] shotSprites;
@@ -57,7 +58,8 @@ public class GameManager : MonoBehaviour {
                 newPlayer.transform.name = "Player " + newPlayer.playerNumber;
                 PlayerInput newPlayerInput = newPlayer.gameObject.GetComponent<PlayerInput>();
                 newPlayerInput.playerNum = newPlayer.playerNumber - 1;
-                newPlayer.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f));
+                // newPlayer.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f));
+                newPlayer.GetComponent<SpriteRenderer>().color = playerColors[i];
                 GameObject newScoreCard = Instantiate(playerScoreCard);
                 newScoreCard.transform.SetParent(scoreBoard.transform, false);
                 newPlayer.myScore = newScoreCard.GetComponent<Text>();
