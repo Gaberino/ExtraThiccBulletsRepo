@@ -42,10 +42,15 @@ public class PlayerMovement : MonoBehaviour {
     public float weapExp2;
     bool equip;
 
-    public float dashTime;
+    public Transform upgradeObject;
+
     int powerMod = 1;
 
-    Coroutine dashRoutine;
+    public float dashTime;
+    public float dashRecoverTime;
+    public bool canDash;
+    public bool dashing;
+
     Coroutine iframesRoutine;
 
 	private SpriteRenderer mySR;
@@ -58,6 +63,8 @@ public class PlayerMovement : MonoBehaviour {
 		mySR = this.GetComponent<SpriteRenderer>();
         rbody = GetComponent<Rigidbody2D>();
         dead = false;
+        canDash = true;
+        dashing = false;
         timeAlive = 0;
         weapExp1 = 0;
         weapExp2 = 0;
@@ -71,10 +78,13 @@ public class PlayerMovement : MonoBehaviour {
         if (!dead)
         {
 			timeAlive += Time.deltaTime * (currentLifeKillCount + 1);
-            if (equip) { weapExp1 += Time.deltaTime * (currentLifeKillCount + 1); }
-            else { weapExp2 += Time.deltaTime * (currentLifeKillCount + 1); }
-            processMovement();
+            if(upgradeObject != null)
+            {
+                if (equip) { weapExp1 += Time.deltaTime; }
+                else { weapExp2 += Time.deltaTime; }
+            }
 
+            processMovement();
             processShooting();
 
             if (myInput.weaponSwapButtonPressed)
@@ -84,29 +94,30 @@ public class PlayerMovement : MonoBehaviour {
                 equip = !equip;
             }
         }
-		if (playerNumber == 1)
-			myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.currentLevel + " Kills: " + WinManager.instance.p1Kills + " HoldTime: " + Mathf.RoundToInt(WinManager.instance.p1HoldTime).ToString() + " HillTime " + Mathf.RoundToInt(WinManager.instance.p1StayTime).ToString();
-		else
-			myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.currentLevel + " Kills: " + WinManager.instance.p2Kills + " HoldTime: " + Mathf.RoundToInt(WinManager.instance.p2HoldTime).ToString() + " HillTime " + Mathf.RoundToInt(WinManager.instance.p2StayTime).ToString();
+        myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.currentLevel + " Kills: " + killCount;
 	}
 
     void processShooting()
     {
         if (myInput.shootButtonHeld)
         {
+            /*
             if (equip) { powerMod = Mathf.RoundToInt(weapExp1 / myPlayerGun.currentShotMod.timeToLevelRatio); }
             else { powerMod = Mathf.RoundToInt(weapExp2 / myPlayerGun.currentShotMod.timeToLevelRatio); }
             if (powerMod < 1) { powerMod = 1; }
             speed = normalSpeed / powerMod;
             if(speed < 1f) { speed = 1f; }
+            */
             if (equip) { myPlayerGun.currentShotMod.ModifyAndShoot(weapExp1, myPlayerGun, mySR.color); }
             else { myPlayerGun.currentShotMod.ModifyAndShoot(weapExp2, myPlayerGun, mySR.color); }
         }
+        /*
         else
         {
             speed = normalSpeed;
             powerMod = 1;
         }
+        */
     }
 
     void processMovement()
@@ -122,8 +133,10 @@ public class PlayerMovement : MonoBehaviour {
 
         float currSpeed = speed;
 
-        if(dashRoutine == null)
+        if(!dashing)
         {
+            if (horizontal != 0 || vertical != 0) { lookDir = tempMoveDir; }
+            else if(horizontalLook != 0 || verticalLook != 0) { lookDir = tempLookDir; }
             if (tempLookDir.magnitude > 0)
             {
                 // if (moveDir == Vector3.zero) { moveDir = tempMoveDir; }if(tempLookDir.x != 0 || tempLookDir.y != 0) 
@@ -132,12 +145,11 @@ public class PlayerMovement : MonoBehaviour {
             }
             else
             {
-                if (horizontal != 0 || vertical != 0) { lookDir = tempMoveDir; }
                 moveDir = tempMoveDir;
                 transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDir);
                 rbody.MovePosition(transform.position + tempMoveDir * speed * Time.deltaTime);
             }
-            if (myInput.dashButtonPressed) { dashRoutine = StartCoroutine(dash()); }
+            if (myInput.dashButtonPressed && canDash) { StartCoroutine(dash()); }
         }
     }
 
@@ -178,10 +190,11 @@ public class PlayerMovement : MonoBehaviour {
 				else if (killerID == 2)
 					WinManager.instance.p2Kills += 1;
             }
-            weapExp1 *= 0.5f;
-            weapExp2 *= 0.5f;
+            weapExp1 = 0f;
+            weapExp2 = 0f;
             currentLifeKillCount = 0;
             timeAlive = 0;
+            dropUpgradeObject();
             StartCoroutine(respawn());
         }
     }
@@ -226,12 +239,17 @@ public class PlayerMovement : MonoBehaviour {
     IEnumerator dash()
     {
         float startTime = Time.time;
+        dashing = true;
+        canDash = false;
+        dropUpgradeObject();
         while(Time.time - startTime < dashTime)
         {
             rbody.velocity = lookDir * (speed * 3 + 0.1f * powerMod);
             yield return new WaitForEndOfFrame();
         }
-        dashRoutine = null;
+        dashing = false;
+        yield return new WaitForSeconds(dashRecoverTime);
+        canDash = true;
     }
 
     public void AddScore()
@@ -244,23 +262,44 @@ public class PlayerMovement : MonoBehaviour {
     public void pickUpWeapon(ShotModifier newShotMod)
     { // Replace currently held weapon and reset experience points
         if (equip) {
+            if(weapon1 == newShotMod) { return; }
             weapon1 = newShotMod;
             weapExp1 = 0;
         }
         else {
+            if (weapon2 == newShotMod) { return; }
             weapon2 = newShotMod;
             weapExp2 = 0;
         }
         myPlayerGun.currentShotMod = newShotMod;
     }
 
-//    void OnCollisionEnter2D(Collision2D coll)
-//    {
-//        int killerID = -1;
-//        if(coll.collider.tag == "Bullet")
-//        {
-//            // killerID = coll.collider.GetComponent<Bullet>().owner;
-//        }
-//        Die(killerID);
-//    }
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if(coll.GetComponent<HoldToWinItem>() && upgradeObject == null)
+        {
+            pickUpUpgrader(coll.GetComponent<HoldToWinItem>());
+        }
+    }
+
+    void pickUpUpgrader(HoldToWinItem upgrader)
+    {
+        if(upgrader.currentHolderTransform != null) { return; } // if someone's already holding this
+        upgradeObject = upgrader.transform;
+        upgrader.currentHolderTransform = transform;
+        // upgradeObject.parent = transform;
+        // upgradeObject.localPosition = Vector3.zero;
+        // upgradeObject.GetComponent<Collider2D>().enabled = false;
+    }
+
+    void dropUpgradeObject()
+    {
+        if (upgradeObject != null)
+        {
+            // upgradeObject.GetComponent<Collider2D>().enabled = true;
+            // upgradeObject.parent = null;
+            upgradeObject.GetComponent<HoldToWinItem>().currentHolderTransform = null;
+            upgradeObject = null;
+        }
+    }
 }

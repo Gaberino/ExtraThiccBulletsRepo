@@ -18,6 +18,7 @@ public class HoldToWinItem : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if  (currentHolderTransform != null){
+            /*
 			if (currentHolderID == 1)
 			WinManager.instance.p1HoldTime += Time.deltaTime;
 			else if (currentHolderID == 2)
@@ -27,11 +28,12 @@ public class HoldToWinItem : MonoBehaviour {
 				currentHolderTransform = null;
 				currentHolderID = 0;
 			}
-
+            */
             this.transform.position = Vector3.Lerp(this.transform.position, currentHolderTransform.position, Time.deltaTime * lerpSpeed);
         }
 	}
 	void OnTriggerEnter2D(Collider2D col){
+        /*
 		if (col.tag.Contains ("Player")) {
 			if (currentHolderTransform == null) {
 
@@ -44,5 +46,6 @@ public class HoldToWinItem : MonoBehaviour {
 			currentHolderTransform = null;
 			this.transform.position = gameStartPos;
 		}
+        */
 	}
 }
