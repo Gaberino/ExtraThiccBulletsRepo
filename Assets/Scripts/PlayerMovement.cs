@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour {
     public Transform upgradeObject;
 
     int powerMod = 1;
+    public float upgradeFactor;
 
     public float dashTime;
     public float dashRecoverTime;
@@ -80,8 +81,8 @@ public class PlayerMovement : MonoBehaviour {
 			timeAlive += Time.deltaTime * (currentLifeKillCount + 1);
             if(upgradeObject != null)
             {
-                if (equip) { weapExp1 += Time.deltaTime; }
-                else { weapExp2 += Time.deltaTime; }
+                if (equip) { weapExp1 += Time.deltaTime * upgradeFactor; }
+                else { weapExp2 += Time.deltaTime * upgradeFactor; }
             }
 
             processMovement();
