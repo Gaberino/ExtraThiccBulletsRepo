@@ -21,7 +21,7 @@ public class SinShotMod : ShotModifier {
 		float cooldownToSet = shotCooldown - (perLevelCooldownReduction * currentLevel);
 		float scaleToSet = bulletScale + (perLevelSizeBonus * currentLevel);
 
-		originGun.ShootBullet (bulletShootOffset, originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet, "addOnBehavior");
+		originGun.ShootBullet (bulletShootOffset, originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet, "addOnBehavior");
 
 	}
 }

@@ -19,5 +19,6 @@ MonoBehaviour:
   shotCooldown: 0.2
   bulletScale: 0.3
   bulletShootOffset: {x: 0, y: 0.75}
+  bulletSpriteToSet: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   maxAngleOffset: 5
   perLevelCooldownReduction: 0.001
