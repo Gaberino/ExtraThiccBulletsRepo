@@ -49,6 +49,7 @@ public class SpaceGun : MonoBehaviour {
 			cooldownTime = cooldown;
 
 			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
+			newBullet.transform.eulerAngles = this.transform.eulerAngles;
 			newBullet.transform.localScale = Vector3.one * scaling;
 			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();
 			newBB.pierceTerrain = pierce;
