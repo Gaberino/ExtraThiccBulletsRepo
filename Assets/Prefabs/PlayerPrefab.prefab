@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114345421084070646}
   - component: {fileID: 114658805319711308}
   - component: {fileID: 96532629939611088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4735338016533764}
   - component: {fileID: 212753851196911136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,11 @@ MonoBehaviour:
   weapExp1: 0
   weapon2: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
   weapExp2: 0
-  dashTime: 0.3
+  upgradeObject: {fileID: 0}
+  dashTime: 0.15
+  dashRecoverTime: 0.3
+  canDash: 0
+  dashing: 0
   myTip: {fileID: 212753851196911136}
 --- !u!114 &114345421084070646
 MonoBehaviour:
