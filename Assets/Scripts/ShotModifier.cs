@@ -20,5 +20,13 @@ public class ShotModifier : ScriptableObject {
 		if (currentLevel < 1) currentLevel = 1;
 		if (maxUpgradeLevel != 0 && currentLevel > maxUpgradeLevel) currentLevel = maxUpgradeLevel;
 	}
+
+	public virtual int GetLevel(float lifeToMeasure){
+		currentLevel = Mathf.RoundToInt(lifeToMeasure / timeToLevelRatio);
+		if (currentLevel < 1) currentLevel = 1;
+		if (maxUpgradeLevel != 0 && currentLevel > maxUpgradeLevel) currentLevel = maxUpgradeLevel;
+
+		return currentLevel;
+	}
 }
 
