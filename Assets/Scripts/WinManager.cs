@@ -9,6 +9,7 @@ public class WinManager : MonoBehaviour {
 
 	public Transform parentCanvas;
 	public Slider winSliderPrefab;
+	public Image slidersBG;
 
 	public int numOfKillsToWin;
 
@@ -31,16 +32,23 @@ public class WinManager : MonoBehaviour {
 			///winSliders[i].colors.normalColor = Players[i].GetComponent<SpriteRenderer>().color;
 			winSliders[i].minValue = 0;
 			winSliders[i].maxValue = numOfKillsToWin;
+			//winSliders[i].transform.Find("Background").GetComponent<Image>().color = winSliders[i].image.color;
 		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		int bestPlayerKills = 0;
 		for (int i = 0; i < Players.Length; i++) {
+			if (Players[i].killCount > bestPlayerKills){
+				slidersBG.color = winSliders[i].image.color;
+				bestPlayerKills = Players[i].killCount;
+				}
 			if (Players[i].killCount >= numOfKillsToWin){
 				DisplayWinmessage(i + 1);
 			}
 			winSliders[i].value = Players[i].killCount;
+
 		}
 	}
 
