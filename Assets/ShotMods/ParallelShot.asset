@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
   currentLevel: 10
-  timeToLevelRatio: 5
+  timeToLevelRatio: 8
   bulletLifeTimes: 4
   bulletSpeeds: 16
   shotCooldown: 1.1
