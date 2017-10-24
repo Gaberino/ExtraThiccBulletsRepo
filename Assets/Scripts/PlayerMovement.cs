@@ -195,10 +195,10 @@ public class PlayerMovement : MonoBehaviour {
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
                 myKiller.AddScore();
-				if (killerID == 1) { }
-					// WinManager.instance.p1Kills += 1;
-				else if (killerID == 2) { }
-					// WinManager.instance.p2Kills += 1;
+				//if (killerID == 1)
+					//WinManager.instance.p1Kills += 1;
+				//else if (killerID == 2)
+					//WinManager.instance.p2Kills += 1;
             }
             int weap1Level = weapon1.GetLevel(weapExp1);
             int weap2Level = weapon2.GetLevel(weapExp2);
