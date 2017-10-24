@@ -30,6 +30,7 @@ public class WeaponBax : MonoBehaviour {
         if(player != null)
         {
             player.pickUpWeapon(weaponHeld);
+            ParticleOverlord.instance.SpawnParticle(this.transform.position, "PickUpParticle", player.GetComponent<SpriteRenderer>().color);
             Destroy(gameObject);
         }
     }

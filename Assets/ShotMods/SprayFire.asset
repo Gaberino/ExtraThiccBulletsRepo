@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: SprayFire
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 10
-  timeToLevelRatio: 5
+  currentLevel: 1
+  timeToLevelRatio: 8
   bulletLifeTimes: 3
   bulletSpeeds: 12
   shotCooldown: 0.2

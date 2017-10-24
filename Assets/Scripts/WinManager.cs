@@ -41,16 +41,16 @@ public class WinManager : MonoBehaviour {
 		int bestPlayerKills = 0;
 		for (int i = 0; i < Players.Length; i++) {
 			if (Players[i].killCount > bestPlayerKills){
-				slidersBG.color = winSliders[i].image.color;
+				// slidersBG.color = winSliders[i].image.color;
 				bestPlayerKills = Players[i].killCount;
 				}
 			if (Players[i].killCount >= numOfKillsToWin){
 				DisplayWinmessage(i + 1);
 			}
 			winSliders[i].value = Players[i].killCount;
-			if (winSliders[i].image.sprite != Players[i].GetComponent<SpriteRenderer>().sprite)
-				winSliders[i].image.sprite = Players[i].GetComponent<SpriteRenderer>().sprite;
-		}
+            if (winSliders[i].image.sprite != Players[i].GetComponent<SpriteRenderer>().sprite)
+                winSliders[i].image.sprite = Players[i].GetComponent<SpriteRenderer>().sprite;
+        }
 	}
 
 	void DisplayWinmessage(int playerInt){
