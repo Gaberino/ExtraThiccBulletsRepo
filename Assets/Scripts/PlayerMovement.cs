@@ -204,7 +204,7 @@ public class PlayerMovement : MonoBehaviour {
             int weap2Level = weapon2.GetLevel(weapExp2);
             totalDeaths++;
 
-            float kd = (float)killCount / (float)totalDeaths;
+            float kd = (float)killCount / (float)totalDeaths / 2;
             if(kd > 1) { kd = 1; }
             int levelsToSubtract = Mathf.CeilToInt(weap1Level * kd);
             int weap1NewLevel = weap1Level - levelsToSubtract;
