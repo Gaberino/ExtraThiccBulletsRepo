@@ -208,10 +208,13 @@ public class PlayerMovement : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         mySR.enabled = false;
         myTip.enabled = false;
+		Vector3 newSpawnVector  = GameManager.Instance.getNewSpawnLoc(this);
+		ParticleOverlord.instance.SpawnParticle(newSpawnVector, "PlayerSpawnParticle", mySR.color);
+
         yield return new WaitForSeconds(respawnTime);
         // reactivate collider(s) and spriterenderer(s)
         dead = false;
-        transform.position = GameManager.Instance.getNewSpawnLoc(this);
+		transform.position = newSpawnVector;
         GetComponent<Collider2D>().enabled = true;
         mySR.enabled = true;
         myTip.enabled = true;
