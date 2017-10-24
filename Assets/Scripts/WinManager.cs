@@ -1,54 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinManager : MonoBehaviour {
 
 	public static WinManager instance;
 
 	public int numOfKillsToWin;
-	public int p1Kills;
-	public int p2Kills;
 
-	public float timeObjHeldToWin;
-	public float p1HoldTime;
-	public float p2HoldTime;
-	public float timeInZoneToWin;
-	public float p1StayTime;
-	public float p2StayTime;
+
+	public Text WinText;
+	PlayerMovement[] Players;
+
 
 	// Use this for initialization
 	void Start () {
 		instance = this;
+		GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+		Players = new PlayerMovement[playerObjects.Length];
+		for (int i = 0; i < Players.Length; i++) {
+			Players[i] = playerObjects[i].GetComponent<PlayerMovement>();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (p1HoldTime >= timeObjHeldToWin || p2HoldTime >= timeObjHeldToWin) {
-			//win via hold
-			if (p1HoldTime > p2HoldTime)
-				DisplayWinmessage(1, "holding the McGuffin");
-			
-			else
-				DisplayWinmessage(2, "holding the McGuffin");
-		} else if (p1Kills >= numOfKillsToWin || p2Kills >= numOfKillsToWin) {
-			//win via kills
-			if (p1Kills > p2Kills)
-				DisplayWinmessage(1, "absolute slaughter!");
-
-			else
-				DisplayWinmessage(2, "absolute slaughter");
-		} else if (p1StayTime >= timeInZoneToWin || p2StayTime >= timeInZoneToWin) {
-			//win via king of the hill
-			if (p1StayTime > p2StayTime)
-				DisplayWinmessage(1, "capturing the point!");
-
-			else
-				DisplayWinmessage(2, "capturing the point!");
+		for (int i = 0; i < Players.Length; i++) {
+			if (Players[i].killCount >= numOfKillsToWin){
+				DisplayWinmessage(i + 1);
+			}
 		}
 	}
 
 	void DisplayWinmessage(int playerInt, string method){
-		Debug.Log("Player " + playerInt + " has won via " + method); 
+		//Debug.Log("Player " + playerInt + " has won via " + method);
+		WinText.transform.parent.gameObject.SetActive(true);
+		WinText.text = "Congrutalations player " + playerInt + "! You're the best at killing! Press R to restart and let your lesser pals have another shot.";
 	}
 }
