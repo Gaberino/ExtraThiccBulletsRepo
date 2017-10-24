@@ -5,7 +5,8 @@ using UnityEngine;
 public class ShipSpriteManager : MonoBehaviour {
 
 	public Sprite[] shipSprites; //must be size 10
-
+	public float perSpriteSizeBuff = .05f;
+	private Vector3 originalScale;
 	private PlayerMovement myPlayer;
 	private SpriteRenderer mySR;
 
@@ -16,6 +17,7 @@ public class ShipSpriteManager : MonoBehaviour {
 	void Start () {
 		myPlayer = this.GetComponent<PlayerMovement>();
 		mySR = this.GetComponent<SpriteRenderer>();
+		originalScale = this.transform.localScale;
 	}
 	
 	// Update is called once per frame
@@ -32,6 +34,6 @@ public class ShipSpriteManager : MonoBehaviour {
 
 	void UpdateSprite(){
 		mySR.sprite = shipSprites[(totalPlayerLevel / 2) - 1];
-
+		this.transform.localScale = originalScale * ((totalPlayerLevel / 2) * perSpriteSizeBuff);
 	}
 }
