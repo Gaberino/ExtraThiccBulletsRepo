@@ -29,6 +29,7 @@ public class SpaceGun : MonoBehaviour {
 		if (cooldownElapsed >= cooldownTime){
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
+			this.transform.Find("aim").GetComponent<ShotCooldownVisualizer>().ResetCharge(cooldown);
 
 			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.right * spawnOffset.x, Quaternion.identity);
 			newBullet.transform.eulerAngles = this.transform.eulerAngles;
@@ -48,6 +49,8 @@ public class SpaceGun : MonoBehaviour {
 		if (cooldownElapsed >= cooldownTime){
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
+			this.transform.Find("aim").GetComponent<ShotCooldownVisualizer>().ResetCharge(cooldown);
+
 
 			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
 			newBullet.transform.eulerAngles = this.transform.eulerAngles;
@@ -66,6 +69,8 @@ public class SpaceGun : MonoBehaviour {
 		if (cooldownElapsed >= cooldownTime){
 			cooldownElapsed = 0;
 			cooldownTime = cooldown;
+
+			this.transform.Find("aim").GetComponent<ShotCooldownVisualizer>().ResetCharge(cooldown);
 
 			Transform newBullet = Instantiate(sinBulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
 			newBullet.transform.eulerAngles = this.transform.eulerAngles;

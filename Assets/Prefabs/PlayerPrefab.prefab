@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114658805319711308}
   - component: {fileID: 96532629939611088}
   - component: {fileID: 114514471345407456}
+  - component: {fileID: 114692962347593534}
   m_Layer: 8
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -59,6 +60,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4468489656363398}
   - component: {fileID: 212741927101306312}
+  - component: {fileID: 114993906122461406}
   m_Layer: 0
   m_Name: aim
   m_TagString: Untagged
@@ -74,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 1111452813903226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 4468489656363398}
   - {fileID: 4735338016533764}
@@ -152,6 +154,7 @@ TrailRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
@@ -167,6 +170,7 @@ TrailRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -316,6 +320,42 @@ MonoBehaviour:
   shootButtonHeld: 0
   dashButtonPressed: 0
   weaponSwapButtonPressed: 0
+--- !u!114 &114692962347593534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111452813903226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946a4d3141692f844a706b54f34c07b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipSprites:
+  - {fileID: 21300000, guid: ee0a142a1c303c947804f5dc4f340802, type: 3}
+  - {fileID: 21300000, guid: f364533ee9e9b79468af30dda981cd6f, type: 3}
+  - {fileID: 21300000, guid: f6aa2db063c9e8b4698be1002cabaf32, type: 3}
+  - {fileID: 21300000, guid: d83bf5e1461dcf1429d9f31dadfd9552, type: 3}
+  - {fileID: 21300000, guid: 2c04019969da9af4b81d64327e431414, type: 3}
+  - {fileID: 21300000, guid: de3137ef0f8092545aa327a8734f72ca, type: 3}
+  - {fileID: 21300000, guid: f08a7287b6705b34c925098f39b386cb, type: 3}
+  - {fileID: 21300000, guid: 8a1f27da5bf76e3428b92be721efd626, type: 3}
+  - {fileID: 21300000, guid: da7be2f170962ff42b2de929b6495e1b, type: 3}
+  - {fileID: 21300000, guid: d165cda6a21353b42a881875be0674ae, type: 3}
+--- !u!114 &114993906122461406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1822742512084052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372fc71ab87eae043b49ce35623e9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startChargingColor: {r: 0, g: 0, b: 0, a: 0}
+  endChargingColor: {r: 1, g: 1, b: 1, a: 1}
+  fullyChargedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!212 &212741927101306312
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -325,6 +365,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -340,6 +381,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -367,6 +409,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -382,6 +425,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -409,6 +453,7 @@ SpriteRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -424,6 +469,7 @@ SpriteRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -432,7 +478,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 60
-  m_Sprite: {fileID: 21300000, guid: 942258bc82463a0489454e70bd88665e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee0a142a1c303c947804f5dc4f340802, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

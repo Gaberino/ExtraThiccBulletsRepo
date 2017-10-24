@@ -36,9 +36,9 @@ public class PlayerMovement : MonoBehaviour {
     public Transform explosionPrefab;
 
 	private SpaceGun myPlayerGun;
-    [SerializeField] private ShotModifier weapon1;
+	[SerializeField] public ShotModifier weapon1;
     public float weapExp1;
-    [SerializeField] private ShotModifier weapon2;
+	[SerializeField] public ShotModifier weapon2;
     public float weapExp2;
     bool equip;
 
@@ -209,10 +209,13 @@ public class PlayerMovement : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         mySR.enabled = false;
         myTip.enabled = false;
+		Vector3 newSpawnVector  = GameManager.Instance.getNewSpawnLoc(this);
+		ParticleOverlord.instance.SpawnParticle(newSpawnVector, "PlayerSpawnParticle", mySR.color);
+
         yield return new WaitForSeconds(respawnTime);
         // reactivate collider(s) and spriterenderer(s)
         dead = false;
-        transform.position = GameManager.Instance.getNewSpawnLoc(this);
+		transform.position = newSpawnVector;
         GetComponent<Collider2D>().enabled = true;
         mySR.enabled = true;
         myTip.enabled = true;
