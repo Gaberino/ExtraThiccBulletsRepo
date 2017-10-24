@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4735338016533764}
   - component: {fileID: 212753851196911136}
+  - component: {fileID: 114348269351053014}
   m_Layer: 8
   m_Name: Forward
   m_TagString: Untagged
@@ -288,6 +289,20 @@ MonoBehaviour:
   currentShotMod: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
   sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
     type: 2}
+--- !u!114 &114348269351053014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500221935098004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372fc71ab87eae043b49ce35623e9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startChargingColor: {r: 0, g: 0, b: 0, a: 0}
+  endChargingColor: {r: 1, g: 1, b: 1, a: 1}
+  fullyChargedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114514471345407456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,6 +357,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: da7be2f170962ff42b2de929b6495e1b, type: 3}
   - {fileID: 21300000, guid: d165cda6a21353b42a881875be0674ae, type: 3}
   perSpriteSizeBuff: 0.05
+  audio_fx: {fileID: 1384093166755910, guid: 38a44bf9637b6407088dafa236008e48, type: 2}
 --- !u!114 &114993906122461406
 MonoBehaviour:
   m_ObjectHideFlags: 1
