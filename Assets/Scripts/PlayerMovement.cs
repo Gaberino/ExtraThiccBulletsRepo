@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     public float timeAlive;
     public int killCount;
     public int currentLifeKillCount;
+    public int totalDeaths;
     public float respawnTime;
     public float iframes;
     public Text myScore;
@@ -95,7 +96,15 @@ public class PlayerMovement : MonoBehaviour {
                 equip = !equip;
             }
         }
-        myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.currentLevel + " Kills: " + killCount;
+        int currLevel = 0;
+        if (equip)
+        {
+            myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp1) + " Kills: " + killCount;
+        }
+        else
+        {
+            myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp2) + " Kills: " + killCount;
+        }
 	}
 
     void processShooting()
@@ -186,13 +195,31 @@ public class PlayerMovement : MonoBehaviour {
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
                 myKiller.AddScore();
-				if (killerID == 1)
-					WinManager.instance.p1Kills += 1;
-				else if (killerID == 2)
-					WinManager.instance.p2Kills += 1;
+				if (killerID == 1) { }
+					// WinManager.instance.p1Kills += 1;
+				else if (killerID == 2) { }
+					// WinManager.instance.p2Kills += 1;
             }
+            int weap1Level = weapon1.GetLevel(weapExp1);
+            int weap2Level = weapon2.GetLevel(weapExp2);
+            totalDeaths++;
+
+            float kd = (float)killCount / (float)totalDeaths;
+            if(kd > 1) { kd = 1; }
+            int levelsToSubtract = Mathf.CeilToInt(weap1Level * kd);
+            int weap1NewLevel = weap1Level - levelsToSubtract;
+            weapExp1 = weapon1.timeToLevelRatio * weap1NewLevel;
+            if(weapExp1 < 0) { weapExp1 = 0; }
+
+            /*
             weapExp1 = 0f;
             weapExp2 = 0f;
+            */
+            levelsToSubtract = Mathf.CeilToInt(weap2Level * kd);
+            int weap2NewLevel = weap2Level - levelsToSubtract;
+            weapExp2 = weapon2.timeToLevelRatio * weap2NewLevel;
+            if (weapExp2 < 0) { weapExp2 = 0; }
+
             currentLifeKillCount = 0;
             timeAlive = 0;
             dropUpgradeObject();
@@ -260,7 +287,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         killCount++;
         currentLifeKillCount++;
-		myScore.text = "Lv." + myPlayerGun.currentShotMod.currentLevel + " Score: " + killCount.ToString();
+		// myScore.text = "Lv." + myPlayerGun.currentShotMod.currentLevel + " Score: " + killCount.ToString();
     }
 
     public void pickUpWeapon(ShotModifier newShotMod)
