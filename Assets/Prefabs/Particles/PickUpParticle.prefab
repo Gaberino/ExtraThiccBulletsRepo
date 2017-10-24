@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 198795533561549408}
   - component: {fileID: 199789277065405068}
   m_Layer: 0
-  m_Name: LevelUpParticle
+  m_Name: PickUpParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823766843722596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.105104, y: 4.436288, z: -0.15625}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4290294441524628}
@@ -211,7 +211,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1261395529
+  randomSeed: -1890359303
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -299,9 +299,9 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 2
+      minMaxState: 0
       minColor: {r: 0.94347477, g: 0, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.72413826, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
