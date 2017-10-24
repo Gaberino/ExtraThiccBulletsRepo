@@ -36,9 +36,9 @@ public class PlayerMovement : MonoBehaviour {
     public Transform explosionPrefab;
 
 	private SpaceGun myPlayerGun;
-    [SerializeField] private ShotModifier weapon1;
+	[SerializeField] public ShotModifier weapon1;
     public float weapExp1;
-    [SerializeField] private ShotModifier weapon2;
+	[SerializeField] public ShotModifier weapon2;
     public float weapExp2;
     bool equip;
 
