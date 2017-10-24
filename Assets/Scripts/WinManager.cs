@@ -48,7 +48,8 @@ public class WinManager : MonoBehaviour {
 				DisplayWinmessage(i + 1);
 			}
 			winSliders[i].value = Players[i].killCount;
-
+			if (winSliders[i].image.sprite != Players[i].GetComponent<SpriteRenderer>().sprite)
+				winSliders[i].image.sprite = Players[i].GetComponent<SpriteRenderer>().sprite;
 		}
 	}
 
