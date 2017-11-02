@@ -455,7 +455,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8a1f27da5bf76e3428b92be721efd626, type: 3}
   - {fileID: 21300000, guid: da7be2f170962ff42b2de929b6495e1b, type: 3}
   - {fileID: 21300000, guid: d165cda6a21353b42a881875be0674ae, type: 3}
-  perSpriteSizeBuff: 0.05
+  perSpriteSizeBuff: 0.1
   audio_fx: {fileID: 1384093166755910, guid: 38a44bf9637b6407088dafa236008e48, type: 2}
 --- !u!114 &114993906122461406
 MonoBehaviour:
