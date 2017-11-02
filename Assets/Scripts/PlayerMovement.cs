@@ -29,9 +29,9 @@ public class PlayerMovement : MonoBehaviour {
     public float iframes;
     public Text myScore;
 
-    Rigidbody2D rbody;
-    Vector3 moveDir;
-    Vector3 lookDir;
+    public Rigidbody2D rbody;
+    public Vector3 moveDir;
+    public Vector3 lookDir;
 
     bool dead;
     public Transform explosionPrefab;
