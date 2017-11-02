@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: TriangleShot
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 10
-  timeToLevelRatio: 8
+  currentLevel: 7
+  timeToLevelRatio: 4
   bulletLifeTimes: 2
   bulletSpeeds: 16
   shotCooldown: 0.6

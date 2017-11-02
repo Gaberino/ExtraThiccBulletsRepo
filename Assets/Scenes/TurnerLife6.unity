@@ -1004,15 +1004,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25e684e7c97ad140a5795c589ce8ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentCanvas: {fileID: 0}
+  winSliderPrefab: {fileID: 0}
+  slidersBG: {fileID: 0}
   numOfKillsToWin: 5
-  p1Kills: 0
-  p2Kills: 0
-  timeObjHeldToWin: 75
-  p1HoldTime: 0
-  p2HoldTime: 0
-  timeInZoneToWin: 25
-  p1StayTime: 0
-  p2StayTime: 0
+  WinText: {fileID: 0}
 --- !u!114 &540182769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3059,8 +3055,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1637003016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 267, y: 167, z: 0}
-  m_LocalScale: {x: 0.6675, y: 0.6675, z: 0.6675}
+  m_LocalPosition: {x: 254, y: 143, z: 0}
+  m_LocalScale: {x: 0.635, y: 0.635, z: 0.635}
   m_Children:
   - {fileID: 1466207421}
   m_Father: {fileID: 0}
