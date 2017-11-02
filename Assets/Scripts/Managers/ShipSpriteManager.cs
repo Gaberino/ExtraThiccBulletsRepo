@@ -27,9 +27,15 @@ public class ShipSpriteManager : MonoBehaviour {
 
 		totalPlayerLevel = myPlayer.weapon1.GetLevel(myPlayer.weapExp1) + myPlayer.weapon2.GetLevel(myPlayer.weapExp2);
 
-		if (lastPlayerLevel != totalPlayerLevel && totalPlayerLevel % 2 == 0){
+		if (lastPlayerLevel != totalPlayerLevel){
 			PlayFX ();
-			UpdateSprite();
+
+			if (totalPlayerLevel > lastPlayerLevel){
+				ParticleOverlord.instance.SpawnParticle(this.transform.position, "LevelUpParticle");
+			}
+			if (totalPlayerLevel % 2 == 0){
+				UpdateSprite();
+			}
 			lastPlayerLevel = totalPlayerLevel;
 		}
 

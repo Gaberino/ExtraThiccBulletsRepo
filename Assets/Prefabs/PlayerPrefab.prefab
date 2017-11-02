@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 96532629939611088}
   - component: {fileID: 114514471345407456}
   - component: {fileID: 114692962347593534}
+  - component: {fileID: 82527073747752242}
   m_Layer: 8
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -45,6 +46,7 @@ GameObject:
   - component: {fileID: 4735338016533764}
   - component: {fileID: 212753851196911136}
   - component: {fileID: 114348269351053014}
+  - component: {fileID: 114138532362440632}
   m_Layer: 8
   m_Name: Forward
   m_TagString: Untagged
@@ -145,6 +147,86 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!82 &82527073747752242
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111452813903226}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9396bc1dc16e69749a04c59dc1f2ae8e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.501
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!96 &96532629939611088
 TrailRenderer:
   serializedVersion: 2
@@ -238,6 +320,20 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114138532362440632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500221935098004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 372fc71ab87eae043b49ce35623e9376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startChargingColor: {r: 0, g: 0, b: 0, a: 0}
+  endChargingColor: {r: 1, g: 1, b: 1, a: 1}
+  fullyChargedColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114177608118846816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,6 +354,7 @@ MonoBehaviour:
   timeAlive: 0
   killCount: 0
   currentLifeKillCount: 0
+  totalDeaths: 0
   respawnTime: 3
   iframes: 3
   myScore: {fileID: 0}
@@ -268,6 +365,7 @@ MonoBehaviour:
   weapon2: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
   weapExp2: 0
   upgradeObject: {fileID: 0}
+  upgradeFactor: 2
   dashTime: 0.15
   dashRecoverTime: 0.3
   canDash: 0
@@ -289,6 +387,7 @@ MonoBehaviour:
   currentShotMod: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
   sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
     type: 2}
+  levelVolumeBonus: 0.05
 --- !u!114 &114348269351053014
 MonoBehaviour:
   m_ObjectHideFlags: 1

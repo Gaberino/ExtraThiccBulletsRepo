@@ -7,6 +7,10 @@ public class SpaceGun : MonoBehaviour {
 	public Transform bulletPrefab;
 	public ShotModifier currentShotMod;
 	public Transform sinBulletPrefab;
+	private AudioSource shootAudioSource;
+	//public AudioClip shootClip;
+	public float levelVolumeBonus;
+	private float originalVolume;
 
 	private int myOwnerID = 0;
 	private float cooldownTime = 1;
@@ -16,6 +20,8 @@ public class SpaceGun : MonoBehaviour {
 	void Start () {
 		//get the player script player id and set myownerID to it
 		myOwnerID = this.GetComponent<PlayerMovement>().playerNumber;
+		shootAudioSource = this.GetComponent<AudioSource>();
+		originalVolume = shootAudioSource.volume;
 	}
 	
 	// Update is called once per frame
@@ -42,6 +48,8 @@ public class SpaceGun : MonoBehaviour {
 
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
 			newBullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
+			shootAudioSource.volume = originalVolume + (currentShotMod.GetLevel(this.GetComponent<PlayerMovement>().weapExp1 + this.GetComponent<PlayerMovement>().weapExp2) * levelVolumeBonus);
+			shootAudioSource.Play();
 		}
 	}
 
@@ -63,6 +71,8 @@ public class SpaceGun : MonoBehaviour {
 			newBB.ownerID = myOwnerID;
 
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
+			shootAudioSource.volume = originalVolume + (currentShotMod.GetLevel(this.GetComponent<PlayerMovement>().weapExp1 + this.GetComponent<PlayerMovement>().weapExp2) * levelVolumeBonus);
+			shootAudioSource.Play();
 		}
 	}
 
@@ -84,6 +94,8 @@ public class SpaceGun : MonoBehaviour {
 			newBB.scale = scaling;
 
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
+			shootAudioSource.volume = originalVolume + (currentShotMod.GetLevel(this.GetComponent<PlayerMovement>().weapExp1 + this.GetComponent<PlayerMovement>().weapExp2) * levelVolumeBonus);
+			shootAudioSource.Play();
 		}
 	}
 }

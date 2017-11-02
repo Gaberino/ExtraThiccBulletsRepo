@@ -19,9 +19,9 @@ public class StayInToWin : MonoBehaviour {
 	void Update () {
 		if (currentGainingPlayer != null && !pointContested) {
 			if (gainingPlayerID == 1) {
-				WinManager.instance.p1StayTime += Time.deltaTime;
+				//WinManager.instance.p1StayTime += Time.deltaTime;
 			} else {
-				WinManager.instance.p2StayTime += Time.deltaTime;
+				//WinManager.instance.p2StayTime += Time.deltaTime;
 			}
 		}
 	}
