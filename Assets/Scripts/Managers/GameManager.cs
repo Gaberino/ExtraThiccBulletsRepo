@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     #region Global variables
     public static GameManager Instance;
     public bool gameRunning;
+	public GameMode currentGameMode;
 
     #region Player Related Variables
 
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour {
         Instance = this;
         if (gameRunning)
         {
+			currentGameMode.Initialize(this);
             for(int i = 0; i < playerCount; i++)
             {
                 if(i >= playerSpawns.Length) { break; }
@@ -71,6 +73,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		currentGameMode.RunGameMode();
         if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
         if(gameRunning)
         {
@@ -111,4 +114,8 @@ public class GameManager : MonoBehaviour {
         return farthestSpawn.position;
     }
     #endregion
+
+	public void YellScoreToMode(int pNum, PlayerMovement killedP){
+		currentGameMode.Addscore(pNum, killedP);
+	}
 }
