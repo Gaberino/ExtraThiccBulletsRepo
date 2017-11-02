@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	private SpaceGun myPlayerGun;
 	[SerializeField] public ShotModifier weap;
-    // Insert SubAction here
+	public SubModifier sub;
     public float weapExp;
 
     public Transform upgradeObject;
@@ -247,14 +247,15 @@ public class PlayerMovement : MonoBehaviour {
     IEnumerator subAction()
     {
         float startTime = Time.time;
+		Debug.Log ("Oh sheet");
         subActioning = true;
         canSubAction = false;
-        // subActionRecoverTime = mySubAction.getRecoverTime(); <----- Uncomment when implemented
+		subActionRecoverTime = sub.cooldown;
         dropUpgradeObject();
-        while(Time.time - startTime < dashTime)
+		while(Time.time - startTime < sub.value)
         {
-            // Do subaction thing
-            yield return new WaitForEndOfFrame();
+			sub.runSubAction (this);
+			yield return new WaitForEndOfFrame();
         }
         subActioning = false;
         yield return new WaitForSeconds(subActionRecoverTime);

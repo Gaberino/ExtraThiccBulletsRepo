@@ -6,36 +6,15 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "SubModifiers/DefaultModifier")]
 public class subDashMod : SubModifier {
+	
+	public float multiplier;
 
-	public float cooldown;
-	public float value;
-	public float dashTime;
-	public float speed;
-
-	public GameObject myPlayer;
-
-	public override void runSubAction (float new_cooldown, float new_value)
+	public override void runSubAction (PlayerMovement xXx_pla_Move_xXx)
 	{
-		base.runSubAction (cooldown, value);
+		Rigidbody2D rbody = xXx_pla_Move_xXx.rbody;
+		Vector2 realLookDir = new Vector2 (xXx_pla_Move_xXx.lookDir.x, xXx_pla_Move_xXx.lookDir.y);
+		rbody.MovePosition (rbody.position + realLookDir * xXx_pla_Move_xXx.speed * multiplier * Time.deltaTime);
 
-		Vector3 lookDir = new Vector3 (myPlayer.transform.localRotation);
-
-		Rigidbody2D rbody = myPlayer.GetComponent<Rigidbody2D> ();
-
-		PlayerMovement myMove = myPlayer.GetComponent<PlayerMovement> ();
-
-		float startTime = Time.time;
-		bool dashing = true;
-		bool canDash = false;
-		myMove.
-		while(Time.time - startTime < dashTime)
-		{
-			rbody.velocity = lookDir * (speed * 3 + 0.1f * value);
-			yield return new WaitForEndOfFrame();
-		}
-		dashing = false;
-		yield return new WaitForSeconds(cooldown);
-		canDash = true;
 	}
 
 }
