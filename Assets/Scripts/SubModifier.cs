@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class SubModifier : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public float cooldown;
+	public float value;
+	public float familyvalues;
+	private float internalcooldown;
+
+	public virtual void runSubAction(float new_cooldown, float new_value){
+		cooldown = new_cooldown;
+		value = new_value;
+		familyvalues = 0;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public float getCooldown(){
+		return cooldown;
 	}
+
+	public void changeValue(float x){
+		value = x;
+	}
+
+
 }
