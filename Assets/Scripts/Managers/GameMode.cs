@@ -34,6 +34,7 @@ public class GameMode : ScriptableObject {
 		for (int i = 0; i < m_playerScores.Length; i++) {
 			m_playerScores[i] = 0f;
 		}
+        m_gameState = 1;
 	}
 
 	public virtual void MainPhase(){

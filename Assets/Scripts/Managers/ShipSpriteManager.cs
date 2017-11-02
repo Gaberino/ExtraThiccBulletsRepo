@@ -44,7 +44,7 @@ public class ShipSpriteManager : MonoBehaviour {
 	}
 
 	void UpdateSprite(){
-		mySR.sprite = shipSprites[(totalPlayerLevel / 2) - 1];
+		mySR.sprite = shipSprites[(totalPlayerLevel) - 1];
 		this.transform.localScale = originalScale + Vector3.one * ((totalPlayerLevel / 2) * perSpriteSizeBuff);
 	}
 
