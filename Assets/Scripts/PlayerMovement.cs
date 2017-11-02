@@ -176,11 +176,12 @@ public class PlayerMovement : MonoBehaviour {
             if (killerID > 0 && killerID <= GameManager.Instance.players.Count)
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
-                myKiller.AddScore();
-				//if (killerID == 1)
-					//WinManager.instance.p1Kills += 1;
-				//else if (killerID == 2)
-					//WinManager.instance.p2Kills += 1;
+                // myKiller.AddScore();
+                GameManager.Instance.YellScoreToMode(killerID, this);
+                //if (killerID == 1)
+                //WinManager.instance.p1Kills += 1;
+                //else if (killerID == 2)
+                //WinManager.instance.p2Kills += 1;
             }
             int weapLevel = weap.GetLevel(weapExp);
             totalDeaths++;
