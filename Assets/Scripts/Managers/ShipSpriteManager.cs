@@ -25,24 +25,26 @@ public class ShipSpriteManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		totalPlayerLevel = myPlayer.weapon1.GetLevel(myPlayer.weapExp1) + myPlayer.weapon2.GetLevel(myPlayer.weapExp2);
+		totalPlayerLevel = myPlayer.weap.GetLevel(myPlayer.weapExp);
 
 		if (lastPlayerLevel != totalPlayerLevel){
 			PlayFX ();
 
 			if (totalPlayerLevel > lastPlayerLevel){
 				ParticleOverlord.instance.SpawnParticle(this.transform.position, "LevelUpParticle");
+            }
+            UpdateSprite();
+            /*
+            if (totalPlayerLevel % 2 == 0){
 			}
-			if (totalPlayerLevel % 2 == 0){
-				UpdateSprite();
-			}
+            */
 			lastPlayerLevel = totalPlayerLevel;
 		}
 
 	}
 
 	void UpdateSprite(){
-		mySR.sprite = shipSprites[(totalPlayerLevel / 2) - 1];
+		mySR.sprite = shipSprites[(totalPlayerLevel) - 1];
 		this.transform.localScale = originalScale + Vector3.one * ((totalPlayerLevel / 2) * perSpriteSizeBuff);
 	}
 

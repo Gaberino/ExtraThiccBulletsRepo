@@ -29,19 +29,17 @@ public class PlayerMovement : MonoBehaviour {
     public float iframes;
     public Text myScore;
 
-    Rigidbody2D rbody;
-    Vector3 moveDir;
-    Vector3 lookDir;
+    public Rigidbody2D rbody;
+    public Vector3 moveDir;
+    public Vector3 lookDir;
 
     bool dead;
     public Transform explosionPrefab;
 
 	private SpaceGun myPlayerGun;
-	[SerializeField] public ShotModifier weapon1;
-    public float weapExp1;
-	[SerializeField] public ShotModifier weapon2;
-    public float weapExp2;
-    bool equip;
+	[SerializeField] public ShotModifier weap;
+	public SubModifier sub;
+    public float weapExp;
 
     public Transform upgradeObject;
 
@@ -49,9 +47,9 @@ public class PlayerMovement : MonoBehaviour {
     public float upgradeFactor;
 
     public float dashTime;
-    public float dashRecoverTime;
-    public bool canDash;
-    public bool dashing;
+    public float subActionRecoverTime;
+    public bool canSubAction;
+    public bool subActioning;
 
     Coroutine iframesRoutine;
 
@@ -65,13 +63,11 @@ public class PlayerMovement : MonoBehaviour {
 		mySR = this.GetComponent<SpriteRenderer>();
         rbody = GetComponent<Rigidbody2D>();
         dead = false;
-        canDash = true;
-        dashing = false;
+        canSubAction = true;
+        subActioning = false;
         timeAlive = 0;
-        weapExp1 = 0;
-        weapExp2 = 0;
-        myPlayerGun.currentShotMod = weapon1;
-        equip = true;
+        weapExp = 0;
+        myPlayerGun.currentShotMod = weap;
         myScore.color = mySR.color;
 	}
 	
@@ -80,32 +76,17 @@ public class PlayerMovement : MonoBehaviour {
 		// float shooting = Input.GetAxisRaw(inputControllerFire);
         if (!dead)
         {
-			timeAlive += Time.deltaTime * (currentLifeKillCount + 1);
             if(upgradeObject != null)
             {
-                if (equip) { weapExp1 += Time.deltaTime * upgradeFactor; }
-                else { weapExp2 += Time.deltaTime * upgradeFactor; }
+                timeAlive += Time.deltaTime * (currentLifeKillCount + 1);
+                weapExp += Time.deltaTime * upgradeFactor;
             }
 
             processMovement();
             processShooting();
-
-            if (myInput.weaponSwapButtonPressed)
-            {
-                if (equip) { myPlayerGun.currentShotMod = weapon2; }
-                else { myPlayerGun.currentShotMod = weapon1; }
-                equip = !equip;
-            }
         }
         int currLevel = 0;
-        if (equip)
-        {
-            myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp1) + " Kills: " + killCount;
-        }
-        else
-        {
-            myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp2) + " Kills: " + killCount;
-        }
+        myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp) + " Kills: " + killCount;
 	}
 
     void processShooting()
@@ -119,9 +100,9 @@ public class PlayerMovement : MonoBehaviour {
             speed = normalSpeed / powerMod;
             if(speed < 1f) { speed = 1f; }
             */
-            if (equip) { myPlayerGun.currentShotMod.ModifyAndShoot(weapExp1, myPlayerGun, mySR.color); }
-            else { myPlayerGun.currentShotMod.ModifyAndShoot(weapExp2, myPlayerGun, mySR.color); }
+            myPlayerGun.currentShotMod.ModifyAndShoot(weapExp, myPlayerGun, mySR.color);
         }
+        
         /*
         else
         {
@@ -144,7 +125,7 @@ public class PlayerMovement : MonoBehaviour {
 
         float currSpeed = speed;
 
-        if(!dashing)
+        if(!subActioning)
         {
             if (horizontal != 0 || vertical != 0) { lookDir = tempMoveDir; }
             else if(horizontalLook != 0 || verticalLook != 0) { lookDir = tempLookDir; }
@@ -160,7 +141,7 @@ public class PlayerMovement : MonoBehaviour {
                 transform.rotation = Quaternion.LookRotation(Vector3.forward, lookDir);
                 rbody.MovePosition(transform.position + tempMoveDir * speed * Time.deltaTime);
             }
-            if (myInput.dashButtonPressed && canDash) { StartCoroutine(dash()); }
+            if (myInput.dashButtonPressed && canSubAction) { StartCoroutine(subAction()); }
         }
     }
 
@@ -195,31 +176,27 @@ public class PlayerMovement : MonoBehaviour {
             if (killerID > 0 && killerID <= GameManager.Instance.players.Count)
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
-                myKiller.AddScore();
-				//if (killerID == 1)
-					//WinManager.instance.p1Kills += 1;
-				//else if (killerID == 2)
-					//WinManager.instance.p2Kills += 1;
+                // myKiller.AddScore();
+                GameManager.Instance.YellScoreToMode(killerID, this);
+                //if (killerID == 1)
+                //WinManager.instance.p1Kills += 1;
+                //else if (killerID == 2)
+                //WinManager.instance.p2Kills += 1;
             }
-            int weap1Level = weapon1.GetLevel(weapExp1);
-            int weap2Level = weapon2.GetLevel(weapExp2);
+            int weapLevel = weap.GetLevel(weapExp);
             totalDeaths++;
 
             float kd = (float)killCount / (float)totalDeaths / 2;
             if(kd > 1) { kd = 1; }
-            int levelsToSubtract = Mathf.CeilToInt(weap1Level * kd);
-            int weap1NewLevel = weap1Level - levelsToSubtract;
-            weapExp1 = weapon1.timeToLevelRatio * weap1NewLevel;
-            if(weapExp1 < 0) { weapExp1 = 0; }
+            int levelsToSubtract = Mathf.CeilToInt(weapLevel * kd);
+            int weapNewLevel = weapLevel - levelsToSubtract;
+            weapExp = weap.timeToLevelRatio * weapNewLevel;
+            if(weapExp < 0) { weapExp = 0; }
 
             /*
             weapExp1 = 0f;
             weapExp2 = 0f;
             */
-            levelsToSubtract = Mathf.CeilToInt(weap2Level * kd);
-            int weap2NewLevel = weap2Level - levelsToSubtract;
-            weapExp2 = weapon2.timeToLevelRatio * weap2NewLevel;
-            if (weapExp2 < 0) { weapExp2 = 0; }
 
             currentLifeKillCount = 0;
             timeAlive = 0;
@@ -268,20 +245,22 @@ public class PlayerMovement : MonoBehaviour {
         iframesRoutine = null;
     }
 
-    IEnumerator dash()
+    IEnumerator subAction()
     {
         float startTime = Time.time;
-        dashing = true;
-        canDash = false;
+		Debug.Log ("Oh sheet");
+        subActioning = true;
+        canSubAction = false;
+		subActionRecoverTime = sub.cooldown;
         dropUpgradeObject();
-        while(Time.time - startTime < dashTime)
+		while(Time.time - startTime < sub.value)
         {
-            rbody.velocity = lookDir * (speed * 3 + 0.1f * powerMod);
-            yield return new WaitForEndOfFrame();
+			sub.runSubAction (this);
+			yield return new WaitForEndOfFrame();
         }
-        dashing = false;
-        yield return new WaitForSeconds(dashRecoverTime);
-        canDash = true;
+        subActioning = false;
+        yield return new WaitForSeconds(subActionRecoverTime);
+        canSubAction = true;
     }
 
     public void AddScore()
@@ -293,16 +272,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public void pickUpWeapon(ShotModifier newShotMod)
     { // Replace currently held weapon and reset experience points
-        if (equip) {
-            if(weapon1 == newShotMod) { return; }
-            weapon1 = newShotMod;
-            weapExp1 = 0;
-        }
-        else {
-            if (weapon2 == newShotMod) { return; }
-            weapon2 = newShotMod;
-            weapExp2 = 0;
-        }
+        if(weap == newShotMod) { return; }
+        weap = newShotMod;
+        weapExp = 0f;
         myPlayerGun.currentShotMod = newShotMod;
     }
 
