@@ -78,7 +78,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111452813903226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.04, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4468489656363398}
@@ -261,7 +261,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Time: 0.4
   m_Parameters:
     serializedVersion: 2
@@ -271,7 +271,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.92233086
+        value: 1
         inSlope: -1.0178288
         outSlope: -1.0178288
         tangentMode: 0
@@ -447,16 +447,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shipSprites:
-  - {fileID: 21300000, guid: ee0a142a1c303c947804f5dc4f340802, type: 3}
-  - {fileID: 21300000, guid: f364533ee9e9b79468af30dda981cd6f, type: 3}
-  - {fileID: 21300000, guid: f6aa2db063c9e8b4698be1002cabaf32, type: 3}
-  - {fileID: 21300000, guid: d83bf5e1461dcf1429d9f31dadfd9552, type: 3}
-  - {fileID: 21300000, guid: 2c04019969da9af4b81d64327e431414, type: 3}
-  - {fileID: 21300000, guid: de3137ef0f8092545aa327a8734f72ca, type: 3}
-  - {fileID: 21300000, guid: f08a7287b6705b34c925098f39b386cb, type: 3}
-  - {fileID: 21300000, guid: 8a1f27da5bf76e3428b92be721efd626, type: 3}
-  - {fileID: 21300000, guid: da7be2f170962ff42b2de929b6495e1b, type: 3}
-  - {fileID: 21300000, guid: d165cda6a21353b42a881875be0674ae, type: 3}
+  - {fileID: 21300000, guid: 1242ae6ff795d334189fa89c1f15164b, type: 3}
+  - {fileID: 21300000, guid: 793a3c46c4dfe39478b128b19de4090d, type: 3}
+  - {fileID: 21300000, guid: 09764acba9374da4a9c8ea37eb8e5f37, type: 3}
+  - {fileID: 21300000, guid: dbba79dbe1eea574b9667054bf29fdf7, type: 3}
+  - {fileID: 21300000, guid: fdcff81f63235d44c93b852076637b4b, type: 3}
+  - {fileID: 21300000, guid: 9dad2375f0ee72542b92b49d11af994d, type: 3}
+  - {fileID: 21300000, guid: d971b7f18b13849409c36c608a0def8d, type: 3}
+  - {fileID: 21300000, guid: 933b2e69d23781544884dc6fa31def0a, type: 3}
+  - {fileID: 21300000, guid: 2a7f17ab16b241140823024de7a98e8f, type: 3}
+  - {fileID: 21300000, guid: ded15f6c1cb30ed4e866896d646eaf2d, type: 3}
   perSpriteSizeBuff: 0.1
   audio_fx: {fileID: 1384093166755910, guid: 38a44bf9637b6407088dafa236008e48, type: 2}
 --- !u!114 &114993906122461406
@@ -595,7 +595,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 60
-  m_Sprite: {fileID: 21300000, guid: ee0a142a1c303c947804f5dc4f340802, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1242ae6ff795d334189fa89c1f15164b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

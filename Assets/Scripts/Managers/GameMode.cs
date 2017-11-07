@@ -7,7 +7,7 @@ public class GameMode : ScriptableObject {
 
 	[SerializeField] protected int m_gameState;
 	[SerializeField] protected List<PlayerMovement> m_players;
-	[SerializeField] protected float[] m_playerScores;
+	[SerializeField] public float[] m_playerScores;
 	public float m_scoreToWin;
 	public int m_gamewinner = 0;
 
@@ -34,6 +34,7 @@ public class GameMode : ScriptableObject {
 		for (int i = 0; i < m_playerScores.Length; i++) {
 			m_playerScores[i] = 0f;
 		}
+        m_gameState = 1;
 	}
 
 	public virtual void MainPhase(){
@@ -47,6 +48,7 @@ public class GameMode : ScriptableObject {
 
 	public virtual void Endphase(){
 		//do something
+		WinManager.instance.DisplayWinmessage(m_gamewinner);
 	}
 
 	public virtual void Addscore(int playerNum, PlayerMovement killedPlayer){ //actual number, not the index in the list
