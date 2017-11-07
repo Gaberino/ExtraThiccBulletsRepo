@@ -32,7 +32,7 @@ public class DavidsAndGoliathGameMode : GameMode {
 	{
 		if (killedPlayer.playerNumber != currentGoliath) {
 			m_playerScores [playerNum - 1] += davidKillPoints;
-			m_players [playerNum - 1].weapExp += expPerDavidOnDavid;
+			//m_players [playerNum - 1].weapExp += expPerDavidOnDavid;
 			killedPlayer.weapExp = 0f;
 		} else if (currentGoliath == 0) {
 			currentGoliath = playerNum;

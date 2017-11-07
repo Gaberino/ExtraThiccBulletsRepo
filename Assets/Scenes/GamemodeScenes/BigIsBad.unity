@@ -956,7 +956,7 @@ MonoBehaviour:
   xInputUpdateRate: 0
   xInputOverrideBufferSize: 0
   xInputBufferSize: 0
-  enableNativeInput: 0
+  enableNativeInput: 1
   nativeInputEnableXInput: 1
   nativeInputPreventSleep: 0
   nativeInputOverrideUpdateRate: 0
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameRunning: 1
-  currentGameMode: {fileID: 11400000, guid: 0cd7d08a21648ac4e8e472fbecb8455f, type: 2}
+  currentGameMode: {fileID: 11400000, guid: 1a8686b3fa7c08b4ba7f84504d12c942, type: 2}
   players: []
   playerCount: 4
   playerPrefab: {fileID: 114177608118846816, guid: 91e5f8a3457e5af428325ad163f5513b,

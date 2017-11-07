@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Name: DandG
   m_EditorClassIdentifier: 
   myGM: {fileID: 0}
-  m_gameState: 0
-  m_players: []
-  m_playerScores: []
+  m_gameState: 1
+  m_players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_playerScores:
+  - 0
+  - 0
+  - 0
+  - 0
   m_scoreToWin: 100
   m_gamewinner: 0
   davidKillPoints: 5
