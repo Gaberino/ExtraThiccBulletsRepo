@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30adab677730742629c60b9884606f7c, type: 3}
   m_Name: SubShieldMod
   m_EditorClassIdentifier: 
-  cooldown: 0
-  value: 0
-  familyvalues: 0
+  cooldown: 3
+  value: 0.00000001
+  familyvalues: 1
   sinwaveshield: {fileID: 1522416713702094, guid: 4b8c72c9926c44a0ba9bd25ba04b7da4,
     type: 2}

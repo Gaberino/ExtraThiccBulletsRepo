@@ -29,8 +29,7 @@ public class ShieldBlank : MonoBehaviour {
 	void Update () {
 		elapsedLife += Time.deltaTime;
 		if (elapsedLife > life) {
-			GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
-			Destroy (newParticle, 1f);
+			
 			Destroy (this.gameObject);
 		}
 
@@ -41,9 +40,11 @@ public class ShieldBlank : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag.Contains ("Boolet")){
 			if(other.GetComponent<SpaceBullet> ().ownerID != ownerID){
-			Destroy (other);
-			GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
-			Destroy (newParticle, 1f);
+
+				GameObject newParticle = Instantiate (hitParticlePrefab, other.transform.position, Quaternion.identity);
+				Destroy (newParticle, 1f);
+				Destroy (other.gameObject);
+
 			}
 		}
 	}
