@@ -13,11 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
   currentLevel: 1
-  timeToLevelRatio: 5
+  timeToLevelRatio: 4
   bulletLifeTimes: 2
-  bulletSpeeds: 11
-  shotCooldown: 0.4
+  bulletSpeeds: 30
+  shotCooldown: 0.3
   bulletScale: 0.5
   bulletShootOffset: {x: 0, y: 1}
+  bulletSpriteToSet: {fileID: 21300000, guid: c244960dc5b08564886a75ab5b06e88a, type: 3}
   perLevelSizeBonus: 0
-  perLevelCooldownReduction: 0.002
+  perLevelCooldownReduction: 0.02

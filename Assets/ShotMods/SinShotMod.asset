@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Name: SinShotMod
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 10
-  timeToLevelRatio: 5
-  bulletLifeTimes: 2.5
-  bulletSpeeds: 5
-  shotCooldown: 1.1
-  bulletScale: 0.04
+  currentLevel: 5
+  timeToLevelRatio: 4
+  bulletLifeTimes: 1.5
+  bulletSpeeds: 11
+  shotCooldown: 2.5
+  bulletScale: 0.1
   bulletShootOffset: {x: 0, y: 1.25}
+  bulletSpriteToSet: {fileID: 21300000, guid: c244960dc5b08564886a75ab5b06e88a, type: 3}
   perLevelSizeBonus: 0.3
   perLevelCooldownReduction: 0.01

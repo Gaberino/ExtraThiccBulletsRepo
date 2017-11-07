@@ -13,16 +13,15 @@ public class StayInToWin : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		myCollider = this.GetComponent<Collider2D> ();
-		currentGainingPlayer = new GameObject ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (currentGainingPlayer != null && !pointContested) {
-			if (currentGainingPlayer == 1) {
-				WinManager.instance.p1StayTime += Time.deltaTime;
+			if (gainingPlayerID == 1) {
+				//WinManager.instance.p1StayTime += Time.deltaTime;
 			} else {
-				WinManager.instance.p2StayTIme += Time.deltaTime;
+				//WinManager.instance.p2StayTime += Time.deltaTime;
 			}
 		}
 	}
@@ -32,7 +31,7 @@ public class StayInToWin : MonoBehaviour {
 			if (currentGainingPlayer == null) {
 
 				currentGainingPlayer = col.gameObject;
-				gainingPlayerID = col.gameObject.GetComponent<PlayerMovementInControl> ().playerNumber; //may need to change the script being grabbed here
+				gainingPlayerID = col.gameObject.GetComponent<PlayerMovement> ().playerNumber; //may need to change the script being grabbed here
 			} else if (currentGainingPlayer != col.gameObject){
 				pointContested = true;
 			}

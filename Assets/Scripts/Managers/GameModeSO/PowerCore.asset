@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77db02d8c5d546e4d9d7a98216376f5f, type: 3}
+  m_Name: PowerCore
+  m_EditorClassIdentifier: 
+  myGM: {fileID: 0}
+  m_gameState: 0
+  m_players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_playerScores:
+  - 0
+  - 0
+  - 0
+  - 0
+  m_scoreToWin: 100
+  m_gamewinner: 0
+  powerCorePrefab: {fileID: 1593583474526916, guid: ba1ab15a1b10aa647a0a0c607c0b7e66,
+    type: 2}
+  powerCoreInitialPos: {x: 0, y: 0}
+  normalKillPoints: 1
+  coreHolderKillPoints: 5
+  coreUpgradeRate: 0
