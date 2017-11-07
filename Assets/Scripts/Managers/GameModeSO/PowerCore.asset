@@ -12,22 +12,22 @@ MonoBehaviour:
   m_Name: PowerCore
   m_EditorClassIdentifier: 
   myGM: {fileID: 0}
-  m_gameState: 0
+  m_gameState: 2
   m_players:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_playerScores:
-  - 0
+  - 100
   - 0
   - 0
   - 0
   m_scoreToWin: 100
-  m_gamewinner: 0
+  m_gamewinner: 1
   powerCorePrefab: {fileID: 1593583474526916, guid: ba1ab15a1b10aa647a0a0c607c0b7e66,
     type: 2}
   powerCoreInitialPos: {x: 0, y: 0}
-  normalKillPoints: 1
-  coreHolderKillPoints: 5
+  normalKillPoints: 5
+  coreHolderKillPoints: 15
   coreUpgradeRate: 0
