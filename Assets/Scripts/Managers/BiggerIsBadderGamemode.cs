@@ -40,6 +40,7 @@ public class BiggerIsBadderGameMode : GameMode {
 			internalTimer += Time.deltaTime;
 			if (internalTimer > 1f) {
 				m_playerScores [currentSmallGuy - 1] += pointsPerSecondAsSmall;
+				internalTimer = 0f;
 			}
 		}
 	}
