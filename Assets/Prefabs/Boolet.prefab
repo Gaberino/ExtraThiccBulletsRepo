@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 82471168535549536}
   m_Layer: 10
   m_Name: Boolet
-  m_TagString: Untagged
+  m_TagString: Boolet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

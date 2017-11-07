@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-[CreateAssetMenu(menuName = "SubModifiers/DefaultModifier")]
+[CreateAssetMenu(menuName = "SubModifiers/subDashMod")]
 public class subDashMod : SubModifier {
 	
 	public float multiplier;
