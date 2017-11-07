@@ -35,6 +35,8 @@ public class BiggerIsBadderGameMode : GameMode {
 				} else {
 					m_players [i].weapExp = 0f;
 				}
+				if (m_playerScores[i] < 0)
+					m_playerScores[i] = 0;
 			}
 
 			internalTimer += Time.deltaTime;
@@ -47,9 +49,10 @@ public class BiggerIsBadderGameMode : GameMode {
 
 	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
 	{
-		if (killedPlayer.playerNumber != currentSmallGuy) {
+		if (killedPlayer.playerNumber != currentSmallGuy && currentSmallGuy > 0) {
 			m_playerScores [killedPlayer.playerNumber - 1] -= bigGuyKillPenalty;
-			m_players [playerNum - 1].weapExp += bigOnBigExp;
+			if (playerNum != currentSmallGuy)
+				m_players [playerNum - 1].weapExp += bigOnBigExp;
 			killedPlayer.weapExp = bigStartExp;
 		} else if (currentSmallGuy == 0) {
 			currentSmallGuy = playerNum;
