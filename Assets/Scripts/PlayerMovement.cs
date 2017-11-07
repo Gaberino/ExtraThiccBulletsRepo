@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour {
             if (killerID > 0 && killerID <= GameManager.Instance.players.Count)
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
-                // myKiller.AddScore();
+                myKiller.AddScore();
                 GameManager.Instance.YellScoreToMode(killerID, this);
                 //if (killerID == 1)
                 //WinManager.instance.p1Kills += 1;
@@ -186,10 +186,12 @@ public class PlayerMovement : MonoBehaviour {
             int weapLevel = weap.GetLevel(weapExp);
             totalDeaths++;
 
-            float kd = (float)killCount / (float)totalDeaths / 2;
+            float kd = (float)killCount / (float)totalDeaths;
+            Debug.Log(kd);
             if(kd > 1) { kd = 1; }
             int levelsToSubtract = Mathf.CeilToInt(weapLevel * kd);
             int weapNewLevel = weapLevel - levelsToSubtract;
+            Debug.Log(transform.name + " new weapon level: " + weapNewLevel);
             weapExp = weap.timeToLevelRatio * weapNewLevel;
             if(weapExp < 0) { weapExp = 0; }
 
@@ -233,7 +235,14 @@ public class PlayerMovement : MonoBehaviour {
         int frameCount = 0;
         while(Time.time - startTime < iframes)
         {
-            if(frameCount%3 == 0) {
+            if (myInput.shootButtonHeld)
+            {
+                mySR.enabled = true;
+                myTip.enabled = true;
+                iframesRoutine = null;
+                yield break;
+            }
+            if (frameCount%3 == 0) {
                 mySR.enabled = !mySR.enabled;
                 myTip.enabled = !myTip.enabled;
             }
