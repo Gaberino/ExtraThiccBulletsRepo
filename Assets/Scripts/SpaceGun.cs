@@ -71,7 +71,8 @@ public class SpaceGun : MonoBehaviour {
 			newBB.ownerID = myOwnerID;
 
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
-			shootAudioSource.volume = originalVolume + (currentShotMod.GetLevel(this.GetComponent<PlayerMovement>().weapExp) * levelVolumeBonus);
+            newBullet.GetComponent<SpriteRenderer>().sprite = bulletSprite;
+            shootAudioSource.volume = originalVolume + (currentShotMod.GetLevel(this.GetComponent<PlayerMovement>().weapExp) * levelVolumeBonus);
 			shootAudioSource.Play();
 		}
 	}
