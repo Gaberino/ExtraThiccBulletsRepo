@@ -8,26 +8,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77db02d8c5d546e4d9d7a98216376f5f, type: 3}
-  m_Name: PowerCore
+  m_Script: {fileID: 11500000, guid: 3489ca0bb98b08345a4310d694352f68, type: 3}
+  m_Name: DandG
   m_EditorClassIdentifier: 
   myGM: {fileID: 0}
-  m_gameState: 2
+  m_gameState: 1
   m_players:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   m_playerScores:
-  - 100
+  - 0
   - 0
   - 0
   - 0
   m_scoreToWin: 100
-  m_gamewinner: 1
-  powerCorePrefab: {fileID: 1593583474526916, guid: ba1ab15a1b10aa647a0a0c607c0b7e66,
-    type: 2}
-  powerCoreInitialPos: {x: 0, y: 0}
-  normalKillPoints: 5
-  coreHolderKillPoints: 15
-  coreUpgradeRate: 0
+  m_gamewinner: 0
+  davidKillPoints: 5
+  goliathKillPoints: 20
+  currentGoliath: 0
+  expPerDavidOnDavid: 10
