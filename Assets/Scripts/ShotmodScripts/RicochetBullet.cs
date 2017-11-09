@@ -43,14 +43,12 @@ public class RicochetBullet : MonoBehaviour {
 			}else if(other.tag == "WinZone")
 			{
 				// poop
-				Collider2D[] hitsArray;
-				hitsArray = new Collider2D[1];
-				Physics2D.OverlapBox().GetContacts(;
+
 			}
 			else if (!pierceTerrain) {
 				bounces -= 1;
 				if (bounces >= 0){
-					//determine 
+					//determine bounce mangle
 				}
 				else {
 					GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
