@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class subTeleMod : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+[CreateAssetMenu(menuName = "SubModifiers/subShieldMod")]
+public class subTeleMod : MonoBehaviour {
+	public GameObject teleport_loc;
+	private Vector3 location;
+
+
+	public override void runSubAction (PlayerMovement xXx_pla_Move_xXx)
+	{
+		teleport_loc.
+		if (){}
+		location = teleport_loc.transform.position;
+
+
+		this.transform.position = location;
+
+
 	}
 }
