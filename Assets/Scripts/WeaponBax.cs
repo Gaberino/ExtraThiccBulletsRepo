@@ -13,7 +13,7 @@ public class WeaponBax : MonoBehaviour {
 	void Start () {
         startTime = Time.time;
         rbody = GetComponent<Rigidbody2D>();
-        rbody.AddForce(new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f)), ForceMode2D.Impulse);
+        // rbody.AddForce(new Vector2(Random.Range(-2.5f, 2.5f), Random.Range(-2.5f, 2.5f)), ForceMode2D.Impulse);
 	}
 	
 	// Update is called once per frame

@@ -20,8 +20,8 @@ public class WinManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		instance = this;
-		myMode = GameManager.Instance.currentGameMode;
-		GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
+        myMode = GameManager.Instance.currentGameMode;
+        GameObject[] playerObjects = GameObject.FindGameObjectsWithTag("Player");
 		Players = new PlayerMovement[playerObjects.Length];
 		winSliders = new Slider[Players.Length];
 		for (int i = 0; i < Players.Length; i++) {
@@ -31,9 +31,9 @@ public class WinManager : MonoBehaviour {
 			///winSliders[i].colors.normalColor = Players[i].GetComponent<SpriteRenderer>().color;
 			winSliders[i].minValue = 0;
 			winSliders[i].maxValue = myMode.m_scoreToWin;
-			//winSliders[i].transform.Find("Background").GetComponent<Image>().color = winSliders[i].image.color;
-		}
-	}
+            //winSliders[i].transform.Find("Background").GetComponent<Image>().color = winSliders[i].image.color;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

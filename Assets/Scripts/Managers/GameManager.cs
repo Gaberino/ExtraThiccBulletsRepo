@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
 
     #region Start and Update
     // Use this for initialization
-    void Start () {
+    void Awake () {
         Instance = this;
         if (gameRunning)
         {
@@ -83,7 +83,10 @@ public class GameManager : MonoBehaviour {
 
     void spawnNewWeapon()
     {
-        WeaponBax newWeapon = Instantiate(weaponBoxPrefab, weaponSpawns[Random.Range(0, weaponSpawns.Length)].position, Quaternion.identity);
+        Vector3 pos = weaponSpawns[Random.Range(0, weaponSpawns.Length)].position;
+        Collider2D coll = Physics2D.OverlapBox(pos, Vector2.one, 0);
+        if(coll != null && coll.GetComponent<WeaponBax>()) { Destroy(coll.gameObject); }
+        WeaponBax newWeapon = Instantiate(weaponBoxPrefab, pos, Quaternion.identity);
         int rand = Random.Range(0, shotMods.Length);
         newWeapon.weaponHeld = shotMods[rand];
         newWeapon.GetComponent<SpriteRenderer>().sprite = shotSprites[rand];
