@@ -7,6 +7,7 @@ public class SpaceGun : MonoBehaviour {
 	public Transform bulletPrefab;
 	public ShotModifier currentShotMod;
 	public Transform sinBulletPrefab;
+	public Transform ricochetBulletPrefab;
 	private AudioSource shootAudioSource;
 	//public AudioClip shootClip;
 	public float levelVolumeBonus;
@@ -93,6 +94,29 @@ public class SpaceGun : MonoBehaviour {
 			newBB.life = bulletLife;
 			newBB.ownerID = myOwnerID;
 			newBB.scale = scaling;
+
+			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
+			shootAudioSource.volume = originalVolume + (currentShotMod.GetLevel(this.GetComponent<PlayerMovement>().weapExp) * levelVolumeBonus);
+			shootAudioSource.Play();
+		}
+	}
+
+	public void ShootBullet(Vector2 spawnOffset, Vector2 moveVector, Color bulletColor, float bulletLife, float cooldown, float scaling, Sprite bulletSprite, int ricochetBounces){
+		if (cooldownElapsed >= cooldownTime){
+			cooldownElapsed = 0;
+			cooldownTime = cooldown;
+
+			this.transform.Find("aim").GetComponent<ShotCooldownVisualizer>().ResetCharge(cooldown);
+			this.transform.Find("Forward").GetComponent<ShotCooldownVisualizer>().ResetCharge(cooldown);
+
+			Transform newBullet = Instantiate(ricochetBulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.up * spawnOffset.x, Quaternion.identity);
+			newBullet.transform.eulerAngles = this.transform.eulerAngles;
+			newBullet.transform.localScale = Vector3.one;
+			RicochetBullet newBB = newBullet.GetComponent<RicochetBullet>();
+			newBB.velocity = moveVector;
+			newBB.life = bulletLife;
+			newBB.ownerID = myOwnerID;
+			newBB.bounces = ricochetBounces;
 
 			newBullet.GetComponent<SpriteRenderer>().color = bulletColor;
 			shootAudioSource.volume = originalVolume + (currentShotMod.GetLevel(this.GetComponent<PlayerMovement>().weapExp) * levelVolumeBonus);

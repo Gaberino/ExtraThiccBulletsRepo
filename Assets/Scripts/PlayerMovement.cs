@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     public int totalDeaths;
     public float respawnTime;
     public float iframes;
-    public Text myScore;
+	public Text myScore;
 
     public Rigidbody2D rbody;
     public Vector3 moveDir;
@@ -54,6 +54,9 @@ public class PlayerMovement : MonoBehaviour {
     public bool subActioning;
 
     Coroutine iframesRoutine;
+	Coroutine injuryRoutine;
+
+	PlayerCanvasManager myCanvasManager;
 
 	private SpriteRenderer mySR;
     [SerializeField] SpriteRenderer myTip;
@@ -61,6 +64,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         health = 1;
+		myCanvasManager = this.GetComponentInChildren<PlayerCanvasManager>();
         myInput = this.GetComponent<PlayerInput>();
 		myPlayerGun = this.GetComponent<SpaceGun>();
 		mySR = this.GetComponent<SpriteRenderer>();
@@ -89,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
             processShooting();
         }
         int currLevel = 0;
-        myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp) + " Kills: " + killCount;
+        //myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp) + " Kills: " + killCount;
 	}
 
     void processShooting()
@@ -145,6 +149,9 @@ public class PlayerMovement : MonoBehaviour {
                 rbody.MovePosition(transform.position + tempMoveDir * speed * Time.deltaTime);
             }
             if (myInput.dashButtonPressed && canSubAction) { StartCoroutine(subAction()); }
+			else if (myInput.dashButtonPressed){
+				myCanvasManager.PopupMessage("Sub Cooling Down", .45f, .1f, 2f, 1f);
+			}
         }
     }
 
@@ -176,6 +183,8 @@ public class PlayerMovement : MonoBehaviour {
     {
         if(iframesRoutine != null) { return; }
         health--;
+		if (injuryRoutine != null) { StopCoroutine(injuryRoutine); }
+		injuryRoutine = StartCoroutine(InjuryFlash(.2f));
         if(health <= 0) { Die(killerID); }
     }
 
@@ -207,6 +216,12 @@ public class PlayerMovement : MonoBehaviour {
             if(kd > 1) { kd = 1; }
             int levelsToSubtract = Mathf.CeilToInt(weapLevel * kd);
             int weapNewLevel = weapLevel - levelsToSubtract;
+			max_health = weapNewLevel;
+			health = weapNewLevel;
+
+			if (max_health < 1) max_health = 1;
+			if (health < 1) health = 1;
+
             weapExp = weap.timeToLevelRatio * weapNewLevel;
             if(weapExp < 0) { weapExp = 0; }
 
@@ -269,6 +284,29 @@ public class PlayerMovement : MonoBehaviour {
         myTip.enabled = true;
         iframesRoutine = null;
     }
+
+	public IEnumerator InjuryFlash(float dur){
+		float startTime = Time.time;
+		int frameCount = 0;
+		while(Time.time - startTime < dur)
+		{
+			if (health <= 0){
+				mySR.enabled = false;
+				injuryRoutine = null;
+				yield break;
+			}
+			
+			if (frameCount%3 == 0) {
+				mySR.enabled = !mySR.enabled;
+				myTip.enabled = !myTip.enabled;
+			}
+			frameCount++;
+			yield return new WaitForEndOfFrame();
+		}
+		mySR.enabled = true;
+		myTip.enabled = true;
+		injuryRoutine = null;
+	}
 
     IEnumerator subAction()
     {
