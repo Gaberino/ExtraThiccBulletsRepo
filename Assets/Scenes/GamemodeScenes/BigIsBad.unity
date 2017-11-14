@@ -1705,6 +1705,7 @@ GameObject:
   - component: {fileID: 808330004}
   - component: {fileID: 808330003}
   - component: {fileID: 808330008}
+  - component: {fileID: 808330009}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1802,6 +1803,18 @@ MonoBehaviour:
     dirtTexture: {fileID: 2800000, guid: a51eb49df0927024e93a1be686f49c26, type: 3}
     dirtIntensity: 0.2
   m_Shader: {fileID: 4800000, guid: e45d4f28262b04d10a075856ab5fdb5e, type: 3}
+--- !u!114 &808330009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808330002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: b698a14f6d525c64ba057071b042755f, type: 2}
 --- !u!1 &817808014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,7 +2536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1111452813903226, guid: 91e5f8a3457e5af428325ad163f5513b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91e5f8a3457e5af428325ad163f5513b, type: 2}
@@ -3618,8 +3631,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1637003016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 206, y: 116, z: 0}
-  m_LocalScale: {x: 0.515, y: 0.515, z: 0.515}
+  m_LocalPosition: {x: 284.5, y: 160, z: 0}
+  m_LocalScale: {x: 0.71125, y: 0.71125, z: 0.71125}
   m_Children:
   - {fileID: 529741951}
   - {fileID: 1466207421}
