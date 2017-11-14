@@ -15,8 +15,8 @@ MonoBehaviour:
   currentLevel: 1
   timeToLevelRatio: 4
   bulletLifeTimes: 2
-  bulletSpeeds: 24
-  shotCooldown: 0.9
+  bulletSpeeds: 30
+  shotCooldown: 0.7
   bulletScale: 0.6
   bulletShootOffset: {x: 0, y: 0.75}
   bulletSpriteToSet: {fileID: 21300000, guid: bb0eada1e61f7ea419f89453eb7af3c1, type: 3}
