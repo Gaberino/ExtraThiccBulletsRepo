@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu (menuName = "GameModes/BiggerIsBadderGameMode")]
-public class BiggerIsBadderGameMode : GameMode {
+public class BiggerIsBadderGamemode : GameMode {
 
 
 	public float smallGuyKillBonus;
