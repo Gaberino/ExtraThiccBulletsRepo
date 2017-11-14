@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour {
     public string inputControllerFire;
     */
     public int playerNumber;
+    public int max_health = 1;
+    public int health;
 
     [SerializeField] private PlayerInput myInput;
 
@@ -58,6 +60,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        health = 1;
         myInput = this.GetComponent<PlayerInput>();
 		myPlayerGun = this.GetComponent<SpaceGun>();
 		mySR = this.GetComponent<SpriteRenderer>();
@@ -169,6 +172,19 @@ public class PlayerMovement : MonoBehaviour {
         */
     }
 
+    public void TakeDamage(int killerID)
+    {
+        if(iframesRoutine != null) { return; }
+        health--;
+        if(health <= 0) { Die(killerID); }
+    }
+
+    public void HPForKill()
+    {
+        health++;
+        if(health > max_health) { health = max_health; }
+    }
+
     public void Die(int killerID)
     {
         if(iframesRoutine == null)
@@ -177,6 +193,7 @@ public class PlayerMovement : MonoBehaviour {
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
                 myKiller.AddScore();
+                myKiller.HPForKill();
                 GameManager.Instance.YellScoreToMode(killerID, this);
                 //if (killerID == 1)
                 //WinManager.instance.p1Kills += 1;
@@ -187,11 +204,9 @@ public class PlayerMovement : MonoBehaviour {
             totalDeaths++;
 
             float kd = (float)killCount / (float)totalDeaths;
-            Debug.Log(kd);
             if(kd > 1) { kd = 1; }
             int levelsToSubtract = Mathf.CeilToInt(weapLevel * kd);
             int weapNewLevel = weapLevel - levelsToSubtract;
-            Debug.Log(transform.name + " new weapon level: " + weapNewLevel);
             weapExp = weap.timeToLevelRatio * weapNewLevel;
             if(weapExp < 0) { weapExp = 0; }
 
@@ -226,6 +241,7 @@ public class PlayerMovement : MonoBehaviour {
         GetComponent<Collider2D>().enabled = true;
         mySR.enabled = true;
         myTip.enabled = true;
+        health = max_health;
         iframesRoutine = StartCoroutine(freshSpawn());
     }
 
@@ -283,7 +299,7 @@ public class PlayerMovement : MonoBehaviour {
     { // Replace currently held weapon and reset experience points
         if(weap == newShotMod) { return; }
         weap = newShotMod;
-        weapExp = 0f;
+        // weapExp = 0f;
         myPlayerGun.currentShotMod = newShotMod;
     }
 

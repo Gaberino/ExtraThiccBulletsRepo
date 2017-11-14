@@ -18,10 +18,12 @@ public class WeaponBax : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
 		if(Time.time - startTime >= lifeTime)
         {
             Destroy(gameObject);
         }
+        */
 	}
 
     void OnTriggerEnter2D(Collider2D coll)

@@ -83,15 +83,38 @@ public class GameManager : MonoBehaviour {
 
     void spawnNewWeapon()
     {
-        Vector3 pos = weaponSpawns[Random.Range(0, weaponSpawns.Length)].position;
-        Collider2D coll = Physics2D.OverlapBox(pos, Vector2.one, 0);
-        if(coll != null && coll.GetComponent<WeaponBax>()) { Destroy(coll.gameObject); }
-        WeaponBax newWeapon = Instantiate(weaponBoxPrefab, pos, Quaternion.identity);
-        int rand = Random.Range(0, shotMods.Length);
-        newWeapon.weaponHeld = shotMods[rand];
-        newWeapon.GetComponent<SpriteRenderer>().sprite = shotSprites[rand];
-        weapSpawnRechargeStart = Time.time;
-        weapRechargeDuration = Random.Range(8f, 12f);
+        List<Vector2> potentialPos = new List<Vector2>();
+        for(int i = 0; i < weaponSpawns.Length; i++) {
+            potentialPos.Add(weaponSpawns[i].position);
+        }
+        shuffle(potentialPos);
+        while(potentialPos.Count > 0)
+        {
+            Vector2 pos = potentialPos[Random.Range(0, potentialPos.Count)];
+            Collider2D coll = Physics2D.OverlapBox(pos, Vector2.one, 0);
+            if(coll != null && coll.GetComponent<WeaponBax>()) {
+                potentialPos.Remove(pos);
+                continue;
+            }
+            WeaponBax newWeapon = Instantiate(weaponBoxPrefab, pos, Quaternion.identity);
+            int rand = Random.Range(0, shotMods.Length);
+            newWeapon.weaponHeld = shotMods[rand];
+            newWeapon.GetComponent<SpriteRenderer>().sprite = shotSprites[rand];
+            weapSpawnRechargeStart = Time.time;
+            weapRechargeDuration = Random.Range(8f, 12f);
+            break;
+        }
+    }
+
+    void shuffle<T>(List<T> arr)
+    {
+        for(int i = 0; i < arr.Count; i++)
+        {
+            T temp = arr[i];
+            int rand = Random.Range(0, arr.Count);
+            arr[i] = arr[rand];
+            arr[rand] = temp;
+        }
     }
 
     public Vector3 getNewSpawnLoc(PlayerMovement playerRespawning)
