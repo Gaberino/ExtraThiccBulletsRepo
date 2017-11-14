@@ -1210,12 +1210,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224807924603940862, guid: cdaff3656b49139418be4c9f098b4ee8,
+    - target: {fileID: 224096682945881656, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224096682945881656, guid: cdaff3656b49139418be4c9f098b4ee8,
+    - target: {fileID: 224807924603940862, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
