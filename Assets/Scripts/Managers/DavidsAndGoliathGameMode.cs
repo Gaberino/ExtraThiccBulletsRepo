@@ -30,7 +30,7 @@ public class DavidsAndGoliathGameMode : GameMode {
 
 	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
 	{
-		if (killedPlayer.playerNumber != currentGoliath) {
+		if (killedPlayer.playerNumber != currentGoliath && currentGoliath != 0) {
 			m_playerScores [playerNum - 1] += davidKillPoints;
 			//m_players [playerNum - 1].weapExp += expPerDavidOnDavid;
 			killedPlayer.weapExp = 0f;

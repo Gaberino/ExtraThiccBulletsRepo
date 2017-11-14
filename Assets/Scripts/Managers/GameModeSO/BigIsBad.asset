@@ -12,22 +12,14 @@ MonoBehaviour:
   m_Name: BigIsBad
   m_EditorClassIdentifier: Assembly-CSharp::BiggerIsBadderGameMode
   myGM: {fileID: 0}
-  m_gameState: 1
-  m_players:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_playerScores:
-  - 12
-  - 0
-  - 0
-  - 0
+  m_gameState: 0
+  m_players: []
+  m_playerScores: []
   m_scoreToWin: 100
-  m_gamewinner: 1
+  m_gamewinner: 0
   smallGuyKillBonus: 20
   bigGuyKillPenalty: 5
-  currentSmallGuy: 1
+  currentSmallGuy: 0
   bigStartExp: 20
   bigOnBigExp: 4
   pointsPerSecondAsSmall: 2

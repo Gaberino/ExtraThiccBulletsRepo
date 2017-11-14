@@ -41,13 +41,13 @@ GameObject:
   - component: {fileID: 212889268398914342}
   - component: {fileID: 50067419938167688}
   - component: {fileID: 114177608118846816}
-  - component: {fileID: 58474411662711994}
   - component: {fileID: 114345421084070646}
   - component: {fileID: 114658805319711308}
   - component: {fileID: 96532629939611088}
   - component: {fileID: 114514471345407456}
   - component: {fileID: 114692962347593534}
   - component: {fileID: 82527073747752242}
+  - component: {fileID: 61868862587092176}
   m_Layer: 8
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -189,8 +189,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58474411662711994
-CircleCollider2D:
+--- !u!61 &61868862587092176
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -202,8 +202,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.3333334, y: 1.3333334}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Size: {x: 0.7, y: 1}
+  m_EdgeRadius: 0
 --- !u!82 &82527073747752242
 AudioSource:
   m_ObjectHideFlags: 1
@@ -402,8 +412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a4d325708443e4ca52cb7d076f8e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  normalSpeed: 10
+  speed: 11
+  normalSpeed: 11
   playerNumber: 1
   myInput: {fileID: 0}
   shootHeld: 0
@@ -458,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
     type: 2}
-  currentShotMod: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
+  currentShotMod: {fileID: 11400000, guid: 4c2cd5de4321db941ac06161c96e7d38, type: 2}
   sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
     type: 2}
   ricochetBulletPrefab: {fileID: 0}
@@ -596,7 +606,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 933b2e69d23781544884dc6fa31def0a, type: 3}
   - {fileID: 21300000, guid: 2a7f17ab16b241140823024de7a98e8f, type: 3}
   - {fileID: 21300000, guid: ded15f6c1cb30ed4e866896d646eaf2d, type: 3}
-  perSpriteSizeBuff: 0.1
+  perSpriteSizeBuff: 0.85
   audio_fx: {fileID: 1384093166755910, guid: 38a44bf9637b6407088dafa236008e48, type: 2}
 --- !u!114 &114705615051541798
 MonoBehaviour:

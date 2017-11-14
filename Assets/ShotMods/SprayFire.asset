@@ -8,18 +8,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07eb645bfbf324cd2a8a37b440b43da7, type: 3}
-  m_Name: TriangleShot
+  m_Script: {fileID: 11500000, guid: 06fd3ed8d07cbb945a8e4cae083edd6f, type: 3}
+  m_Name: SprayFire
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
   currentLevel: 10
   timeToLevelRatio: 4
-  bulletLifeTimes: 2
-  bulletSpeeds: 16
-  shotCooldown: 0.7
-  bulletScale: 0.4
+  bulletLifeTimes: 3
+  bulletSpeeds: 18
+  shotCooldown: 0.25
+  bulletScale: 0.5
   bulletShootOffset: {x: 0, y: 0.75}
-  bulletSpriteToSet: {fileID: 21300000, guid: fe9d3837109d19549860b9a320b3bae7, type: 3}
-  sideShotAngle: 5
-  perLevelSizeBonus: 2
-  perLevelCooldownReduction: 0.04
+  bulletSpriteToSet: {fileID: 21300000, guid: 40931eb1eed709e4ebdb8b1355b8407b, type: 3}
+  maxAngleOffset: 5
+  perLevelCooldownReduction: 0.015

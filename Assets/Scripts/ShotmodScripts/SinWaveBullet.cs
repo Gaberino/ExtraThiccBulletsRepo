@@ -50,7 +50,7 @@ public class SinWaveBullet : MonoBehaviour {
 		if(!other.gameObject.name.Contains("Boolet")){
 			if (other.GetComponent<PlayerMovement> () != null) {
 				if (other.GetComponent<PlayerMovement> ().playerNumber != ownerID) {
-					other.GetComponent<PlayerMovement> ().DamagePlayer (ownerID);
+					other.GetComponent<PlayerMovement> ().TakeDamage (ownerID);
 					GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
 					Destroy (newParticle, 1f);
 					Destroy (this.gameObject);
