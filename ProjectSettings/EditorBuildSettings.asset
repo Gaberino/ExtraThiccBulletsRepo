@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GamemodeScenes/PowerCore2.unity
     guid: c527ba225acc893448710231dab7efdc
+  - enabled: 1
+    path: Assets/Scenes/GamemodeScenes/BigIsBad.unity
+    guid: 731dd3aa993b7d04ab9c5bf06e2c6764
