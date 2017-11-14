@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Name: TriangleShot
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 7
+  currentLevel: 10
   timeToLevelRatio: 4
   bulletLifeTimes: 2
   bulletSpeeds: 16
-  shotCooldown: 0.6
+  shotCooldown: 0.7
   bulletScale: 0.4
   bulletShootOffset: {x: 0, y: 0.75}
   bulletSpriteToSet: {fileID: 21300000, guid: fe9d3837109d19549860b9a320b3bae7, type: 3}
