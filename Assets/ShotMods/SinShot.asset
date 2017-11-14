@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: SinShot
+  m_EditorClassIdentifier: Assembly-CSharp::SinShotMod
+  maxUpgradeLevel: 10
+  currentLevel: 10
+  timeToLevelRatio: 4
+  bulletLifeTimes: 2
+  bulletSpeeds: 18
+  shotCooldown: 2
+  bulletScale: 0.1
+  bulletShootOffset: {x: 0, y: 1.25}
+  bulletSpriteToSet: {fileID: 21300000, guid: a3334d8b7cec6eb4d81ce39635f0442c, type: 3}
+  perLevelSizeBonus: 1
+  perLevelCooldownReduction: 0.01
