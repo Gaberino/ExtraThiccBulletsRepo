@@ -32,6 +32,7 @@ public class ShipSpriteManager : MonoBehaviour {
 
 			if (totalPlayerLevel > lastPlayerLevel){
 				ParticleOverlord.instance.SpawnParticle(this.transform.position, "LevelUpParticle");
+				myPlayer.hitpoints += totalPlayerLevel - lastPlayerLevel;
             }
             UpdateSprite();
             /*

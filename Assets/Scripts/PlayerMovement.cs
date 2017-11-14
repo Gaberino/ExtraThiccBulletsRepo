@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour {
     public int totalDeaths;
     public float respawnTime;
     public float iframes;
+	public int hitpoints = 1;
     public Text myScore;
 
     public Rigidbody2D rbody;
@@ -168,6 +169,15 @@ public class PlayerMovement : MonoBehaviour {
         rbody.MovePosition(transform.position + tempFlyDir * speed * Time.deltaTime);
         */
     }
+	public void DamagePlayer(int killerID)
+	{
+		if(iframesRoutine == null)
+		{
+			hitpoints -= 1;
+			if (hitpoints < 1)
+				Die (killerID);
+		}
+	}
 
     public void Die(int killerID)
     {
@@ -190,6 +200,7 @@ public class PlayerMovement : MonoBehaviour {
             if(kd > 1) { kd = 1; }
             int levelsToSubtract = Mathf.CeilToInt(weapLevel * kd);
             int weapNewLevel = weapLevel - levelsToSubtract;
+			hitpoints = weapNewLevel;
             weapExp = weap.timeToLevelRatio * weapNewLevel;
             if(weapExp < 0) { weapExp = 0; }
 
