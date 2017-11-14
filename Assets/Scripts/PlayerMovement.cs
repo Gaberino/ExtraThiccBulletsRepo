@@ -54,11 +54,14 @@ public class PlayerMovement : MonoBehaviour {
 
     Coroutine iframesRoutine;
 
+	PlayerCanvasManager myCanvasManager;
+
 	private SpriteRenderer mySR;
     [SerializeField] SpriteRenderer myTip;
 
 	// Use this for initialization
 	void Start () {
+		myCanvasManager = this.GetComponentInChildren<PlayerCanvasManager>();
         myInput = this.GetComponent<PlayerInput>();
 		myPlayerGun = this.GetComponent<SpaceGun>();
 		mySR = this.GetComponent<SpriteRenderer>();
@@ -143,6 +146,9 @@ public class PlayerMovement : MonoBehaviour {
                 rbody.MovePosition(transform.position + tempMoveDir * speed * Time.deltaTime);
             }
             if (myInput.dashButtonPressed && canSubAction) { StartCoroutine(subAction()); }
+			else if (myInput.dashButtonPressed){
+				myCanvasManager.PopupMessage("Sub Cooling Down", 1f, .5f, 1f);
+			}
         }
     }
 
