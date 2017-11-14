@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
                 PlayerMovement newPlayer = Instantiate(playerPrefab, playerSpawns[i].position, Quaternion.identity);
                 players.Add(newPlayer);
                 newPlayer.playerNumber = players.Count;
+				ParticleOverlord.instance.SpawnParticle(playerSpawns[i].position, "LevelUpParticle");
                 /*
                 newPlayer.inputControllerHorizontal = "Horizontal_P" + newPlayer.playerNumber;
                 newPlayer.inputControllerVertical = "Vertical_P" + newPlayer.playerNumber;

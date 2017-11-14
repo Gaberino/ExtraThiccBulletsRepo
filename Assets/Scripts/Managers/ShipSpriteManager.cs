@@ -12,8 +12,8 @@ public class ShipSpriteManager : MonoBehaviour {
 
 	public GameObject audio_fx;
 
-	private int totalPlayerLevel = 0;
-	private int lastPlayerLevel = 0;
+	private int totalPlayerLevel = 1;
+	private int lastPlayerLevel = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +32,8 @@ public class ShipSpriteManager : MonoBehaviour {
 
 			if (totalPlayerLevel > lastPlayerLevel){
 				ParticleOverlord.instance.SpawnParticle(this.transform.position, "LevelUpParticle");
-				myPlayer.hitpoints += totalPlayerLevel - lastPlayerLevel;
+				myPlayer.max_health += totalPlayerLevel - lastPlayerLevel;
+				myPlayer.health = myPlayer.max_health;
             }
             UpdateSprite();
             /*

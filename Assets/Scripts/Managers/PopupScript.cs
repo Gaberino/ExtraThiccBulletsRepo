@@ -24,6 +24,7 @@ public class PopupScript : MonoBehaviour {
 		myRectTrans = this.GetComponent<RectTransform>();
 
 		startingLocalScale = myRectTrans.localScale;
+		myText = this.GetComponent<Text>();
 		textStartingColor = myText.color;
 	}
 
@@ -36,8 +37,11 @@ public class PopupScript : MonoBehaviour {
 
 
 			travelTimer += Time.deltaTime;
+
 			if (travelTimer > travelDuration) travelTimer = travelDuration;
+
 			if (travelTimer >= travelDuration) {
+				Debug.Log("UDOUGSOGOSGUDGYU");
 				myText.color = Color.Lerp(textStartingColor, Color.clear, lingerTimer / lingerDuration);
 
 				lingerTimer += Time.deltaTime;

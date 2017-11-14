@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: BigIsBad
+  m_Name: BigIsBadFuck
   m_EditorClassIdentifier: Assembly-CSharp::BiggerIsBadderGameMode
   myGM: {fileID: 0}
   m_gameState: 0
@@ -17,8 +17,8 @@ MonoBehaviour:
   m_playerScores: []
   m_scoreToWin: 100
   m_gamewinner: 0
-  smallGuyKillBonus: 20
-  bigGuyKillPenalty: 5
+  smallGuyKillBonus: 15
+  bigGuyKillPenalty: -5
   currentSmallGuy: 0
   bigStartExp: 20
   bigOnBigExp: 4

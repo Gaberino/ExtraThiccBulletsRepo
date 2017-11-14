@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameRunning: 1
-  currentGameMode: {fileID: 11400000, guid: 1a8686b3fa7c08b4ba7f84504d12c942, type: 2}
+  currentGameMode: {fileID: 11400000, guid: 5fcf5cd87aba1b04e87c2d5d23e2c475, type: 2}
   players: []
   playerCount: 4
   playerPrefab: {fileID: 114177608118846816, guid: 91e5f8a3457e5af428325ad163f5513b,
@@ -1071,7 +1071,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LobbyScene
-  inputButtonName: Cancel
 --- !u!1001 &560883255
 Prefab:
   m_ObjectHideFlags: 0
@@ -2666,7 +2665,47 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1111452813903226, guid: 91e5f8a3457e5af428325ad163f5513b, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 223719509807416704, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114545054413014254, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 224897432343377178, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1.4300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 224897432343377178, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 224897432343377178, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 40.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 224897432343377178, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224897432343377178, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224897432343377178, guid: 91e5f8a3457e5af428325ad163f5513b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 33.979
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91e5f8a3457e5af428325ad163f5513b, type: 2}
@@ -2802,7 +2841,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1693317479
+  randomSeed: -1345658239
   InitialModule:
     serializedVersion: 3
     enabled: 1

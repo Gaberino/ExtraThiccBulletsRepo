@@ -29,8 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     public int totalDeaths;
     public float respawnTime;
     public float iframes;
-	public int hitpoints = 1;
-    public Text myScore;
+	public Text myScore;
 
     public Rigidbody2D rbody;
     public Vector3 moveDir;
@@ -55,6 +54,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool subActioning;
 
     Coroutine iframesRoutine;
+	Coroutine injuryRoutine;
 
 	PlayerCanvasManager myCanvasManager;
 
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
             processShooting();
         }
         int currLevel = 0;
-        myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp) + " Kills: " + killCount;
+        //myScore.text = myPlayerGun.currentShotMod.name + " Lv." + myPlayerGun.currentShotMod.GetLevel(weapExp) + " Kills: " + killCount;
 	}
 
     void processShooting()
@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour {
             }
             if (myInput.dashButtonPressed && canSubAction) { StartCoroutine(subAction()); }
 			else if (myInput.dashButtonPressed){
-				myCanvasManager.PopupMessage("Sub Cooling Down", 1f, .5f, 1f);
+				myCanvasManager.PopupMessage("Sub Cooling Down", .45f, .1f, 2f, 1f);
 			}
         }
     }
@@ -178,20 +178,13 @@ public class PlayerMovement : MonoBehaviour {
         rbody.MovePosition(transform.position + tempFlyDir * speed * Time.deltaTime);
         */
     }
-	public void DamagePlayer(int killerID)
-	{
-		if(iframesRoutine == null)
-		{
-			hitpoints -= 1;
-			if (hitpoints < 1)
-				Die (killerID);
-		}
-	}
 
     public void TakeDamage(int killerID)
     {
         if(iframesRoutine != null) { return; }
         health--;
+		if (injuryRoutine != null) { StopCoroutine(injuryRoutine); }
+		injuryRoutine = StartCoroutine(InjuryFlash(.2f));
         if(health <= 0) { Die(killerID); }
     }
 
@@ -223,7 +216,12 @@ public class PlayerMovement : MonoBehaviour {
             if(kd > 1) { kd = 1; }
             int levelsToSubtract = Mathf.CeilToInt(weapLevel * kd);
             int weapNewLevel = weapLevel - levelsToSubtract;
-			hitpoints = weapNewLevel;
+			max_health = weapNewLevel;
+			health = weapNewLevel;
+
+			if (max_health < 1) max_health = 1;
+			if (health < 1) health = 1;
+
             weapExp = weap.timeToLevelRatio * weapNewLevel;
             if(weapExp < 0) { weapExp = 0; }
 
@@ -286,6 +284,29 @@ public class PlayerMovement : MonoBehaviour {
         myTip.enabled = true;
         iframesRoutine = null;
     }
+
+	public IEnumerator InjuryFlash(float dur){
+		float startTime = Time.time;
+		int frameCount = 0;
+		while(Time.time - startTime < dur)
+		{
+			if (health <= 0){
+				mySR.enabled = false;
+				injuryRoutine = null;
+				yield break;
+			}
+			
+			if (frameCount%3 == 0) {
+				mySR.enabled = !mySR.enabled;
+				myTip.enabled = !myTip.enabled;
+			}
+			frameCount++;
+			yield return new WaitForEndOfFrame();
+		}
+		mySR.enabled = true;
+		myTip.enabled = true;
+		injuryRoutine = null;
+	}
 
     IEnumerator subAction()
     {

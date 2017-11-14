@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 222901939980125590}
   - component: {fileID: 114198218158906480}
   - component: {fileID: 114938352403944168}
+  - component: {fileID: 114021889429330076}
   m_Layer: 8
   m_Name: Popup
   m_TagString: Untagged
@@ -29,6 +30,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114021889429330076
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1835800468722022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2412f09440cc9d8448263c4c02b3b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  execute: 0
+  travelDuration: 1
+  lingerDuration: 1
+  relDistanceToTravel: 1
+  scaleToReach: 1
 --- !u!114 &114198218158906480
 MonoBehaviour:
   m_ObjectHideFlags: 1

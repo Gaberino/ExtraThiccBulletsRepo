@@ -8,11 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21e12441f2c04b4ba058f14e365d3d0, type: 3}
+  m_Script: {fileID: 0}
   m_Name: DefaultShot
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultShotMod
   maxUpgradeLevel: 10
-  currentLevel: 10
+  currentLevel: 1
   timeToLevelRatio: 4
   bulletLifeTimes: 2
   bulletSpeeds: 30
