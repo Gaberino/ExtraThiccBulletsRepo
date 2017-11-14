@@ -494,7 +494,7 @@ MonoBehaviour:
   lookDir: {x: 0, y: 0, z: 0}
   explosionPrefab: {fileID: 4351143469828082, guid: 305e6463302aab842ab7073618406168,
     type: 2}
-  weap: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
+  weap: {fileID: 11400000, guid: 6794dca813df0084a8973d52b0af5f71, type: 2}
   sub: {fileID: 11400000, guid: 848ee8d69804449219a13bf3d44bdf5d, type: 2}
   weapExp: 0
   upgradeObject: {fileID: 0}
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
     type: 2}
-  currentShotMod: {fileID: 11400000, guid: 9b2645c468c95bb4093f307cc9dc69d8, type: 2}
+  currentShotMod: {fileID: 11400000, guid: 6794dca813df0084a8973d52b0af5f71, type: 2}
   sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
     type: 2}
   ricochetBulletPrefab: {fileID: 0}

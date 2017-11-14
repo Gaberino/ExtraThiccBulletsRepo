@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: DefaultShot
+  m_Name: DefLeppard
   m_EditorClassIdentifier: Assembly-CSharp::DefaultShotMod
   maxUpgradeLevel: 10
   currentLevel: 1

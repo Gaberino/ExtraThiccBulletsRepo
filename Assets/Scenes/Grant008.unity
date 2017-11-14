@@ -3828,8 +3828,8 @@ MonoBehaviour:
   - {fileID: 501240486}
   shotMods:
   - {fileID: 11400000, guid: a7fc68d3b7ffac844b8017d4fa6e57a7, type: 2}
-  - {fileID: 11400000, guid: f58cb3ff91798a743976c1dfa470666a, type: 2}
-  - {fileID: 11400000, guid: 69d6a55f4b4ee4417b52bfdc375426e1, type: 2}
+  - {fileID: 11400000, guid: 6907b8fb819dea34b931eac5bf90453e, type: 2}
+  - {fileID: 11400000, guid: d3b458a15485de147ba52a5cdd94ad72, type: 2}
   - {fileID: 11400000, guid: 4c2cd5de4321db941ac06161c96e7d38, type: 2}
   - {fileID: 11400000, guid: eb2ceac2cf7624a28ac70157dfdbef51, type: 2}
   shotSprites:
