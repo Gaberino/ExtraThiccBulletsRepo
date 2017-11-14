@@ -4,11 +4,10 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "ShotModifiers/SinShotMod")]
-public class SinShotMod : ShotModifier {
+public class SinShot : ShotModifier {
 
 	//public MonoBehaviour addOnBehavior;
-
-	public float perLevelSizeBonus = 1;
+    
 	public float perLevelCooldownReduction = 1;
 
 	public override void ModifyAndShoot (float playerLife, SpaceGun originGun, Color bColor)
