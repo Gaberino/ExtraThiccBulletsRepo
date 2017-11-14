@@ -78,7 +78,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111452813903226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4468489656363398}
@@ -358,6 +358,8 @@ MonoBehaviour:
   speed: 11
   normalSpeed: 11
   playerNumber: 1
+  max_health: 1
+  health: 0
   myInput: {fileID: 0}
   shootHeld: 0
   strafeControls: 0
@@ -374,7 +376,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 4351143469828082, guid: 305e6463302aab842ab7073618406168,
     type: 2}
   weap: {fileID: 11400000, guid: 58dca96c3b73f424c8f53859cb7c6219, type: 2}
-  sub: {fileID: 11400000, guid: d39609c717e3b4bc3b880ba8ec5da318, type: 2}
+  sub: {fileID: 11400000, guid: 848ee8d69804449219a13bf3d44bdf5d, type: 2}
   weapExp: 0
   upgradeObject: {fileID: 0}
   upgradeFactor: 2
@@ -467,7 +469,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 933b2e69d23781544884dc6fa31def0a, type: 3}
   - {fileID: 21300000, guid: 2a7f17ab16b241140823024de7a98e8f, type: 3}
   - {fileID: 21300000, guid: ded15f6c1cb30ed4e866896d646eaf2d, type: 3}
-  perSpriteSizeBuff: 0.85
+  perSpriteSizeBuff: 1.6
   audio_fx: {fileID: 1384093166755910, guid: 38a44bf9637b6407088dafa236008e48, type: 2}
 --- !u!114 &114993906122461406
 MonoBehaviour:

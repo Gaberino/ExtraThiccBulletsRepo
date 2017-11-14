@@ -15,11 +15,11 @@ MonoBehaviour:
   currentLevel: 10
   timeToLevelRatio: 4
   bulletLifeTimes: 4
-  bulletSpeeds: 16
+  bulletSpeeds: 20
   shotCooldown: 1.1
   bulletScale: 0.6
   bulletShootOffset: {x: 0.35, y: 0.75}
   bulletSpriteToSet: {fileID: 21300000, guid: 0250e4d59ef4285448271ad780602097, type: 3}
-  perLevelShotBonus: 2
+  perLevelShotBonus: 3
   perLevelCooldownReduction: 0.01
   spreadAmount: 0.5
