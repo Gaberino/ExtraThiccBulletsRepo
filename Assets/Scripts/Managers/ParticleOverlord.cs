@@ -9,7 +9,7 @@ public class ParticleOverlord : MonoBehaviour {
 	public GameObject[] GameParticles;
 	private IDictionary<string, GameObject> ParticleDictionary;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (instance == null){
 			instance = this;
 		}
