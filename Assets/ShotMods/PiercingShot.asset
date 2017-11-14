@@ -8,18 +8,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 1d09515bc505bed47985188b4b5af439, type: 3}
   m_Name: PiercingShot
-  m_EditorClassIdentifier: Assembly-CSharp::PiercingShotMod
+  m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 10
+  currentLevel: 1
   timeToLevelRatio: 4
   bulletLifeTimes: 2
   bulletSpeeds: 30
   shotCooldown: 0.7
   bulletScale: 0.6
+  perLevelSizeBonus: 0.1
   bulletShootOffset: {x: 0, y: 0.75}
   bulletSpriteToSet: {fileID: 21300000, guid: bb0eada1e61f7ea419f89453eb7af3c1, type: 3}
-  perLevelSizeBonus: 0.5
   perLevelCooldownReduction: 0.002
   perLevelSpeedBonus: 2
