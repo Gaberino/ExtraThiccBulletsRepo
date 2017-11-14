@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "ShotModifiers/SinShotMod")]
-public class SinShotMod : ShotModifier {
+public class SinShot : ShotModifier {
 
 	//public MonoBehaviour addOnBehavior;
     

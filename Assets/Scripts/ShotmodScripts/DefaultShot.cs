@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(menuName = "ShotModifiers/DefaultModifier")]
-public class DefaultShotMod : ShotModifier {
+public class DefaultShot : ShotModifier {
     
 	public float perLevelCooldownReduction = 1;
 
