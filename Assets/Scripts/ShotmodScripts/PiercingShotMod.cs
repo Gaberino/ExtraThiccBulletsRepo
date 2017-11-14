@@ -5,8 +5,7 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "ShotModifiers/PiercingShotMod")]
 public class PiercingShotMod : ShotModifier {
-
-	public float perLevelSizeBonus = 1;
+    
 	public float perLevelCooldownReduction = 1;
 	public float perLevelSpeedBonus = 1f;
 

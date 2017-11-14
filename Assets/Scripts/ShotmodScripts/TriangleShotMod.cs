@@ -7,7 +7,6 @@ using UnityEngine;
 public class TriangleShotMod: ShotModifier {
 
 	public float sideShotAngle = 5f;
-	public float perLevelSizeBonus = 1;
 	public float perLevelCooldownReduction = 1;
 
 	public override void ModifyAndShoot (float playerLife, SpaceGun originGun, Color bColor)
