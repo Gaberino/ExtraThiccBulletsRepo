@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: DefMod
   m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
-  currentLevel: 10
+  currentLevel: 1
   timeToLevelRatio: 4
   bulletLifeTimes: 2
-  bulletSpeeds: 30
+  bulletSpeeds: 25
   shotCooldown: 0.4
   bulletScale: 0.6
   bulletShootOffset: {x: 0, y: 1}
