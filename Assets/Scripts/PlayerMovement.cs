@@ -230,6 +230,7 @@ public class PlayerMovement : MonoBehaviour {
             weapExp2 = 0f;
             */
 
+			CamControl.instance.AddShake();
             currentLifeKillCount = 0;
             timeAlive = 0;
             dropUpgradeObject();
