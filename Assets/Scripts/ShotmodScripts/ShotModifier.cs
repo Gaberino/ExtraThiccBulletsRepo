@@ -11,7 +11,8 @@ public class ShotModifier : ScriptableObject {
 	public float bulletSpeeds = 1f;
 	public float shotCooldown = 1f;
 	public float bulletScale = 1f;
-	public Vector2 bulletShootOffset;
+    public float perLevelSizeBonus = 1f;
+    public Vector2 bulletShootOffset;
 	public Sprite bulletSpriteToSet;
 
 	public virtual void ModifyAndShoot(float playerLife, SpaceGun originGun, Color bColor){

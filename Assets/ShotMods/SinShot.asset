@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 620a23ab1c24d42b0b7f84112f8972a6, type: 3}
   m_Name: SinShot
-  m_EditorClassIdentifier: Assembly-CSharp::SinShotMod
+  m_EditorClassIdentifier: 
   maxUpgradeLevel: 10
   currentLevel: 10
   timeToLevelRatio: 4
@@ -18,7 +18,7 @@ MonoBehaviour:
   bulletSpeeds: 18
   shotCooldown: 2
   bulletScale: 0.1
+  perLevelSizeBonus: 1
   bulletShootOffset: {x: 0, y: 1.25}
   bulletSpriteToSet: {fileID: 21300000, guid: a3334d8b7cec6eb4d81ce39635f0442c, type: 3}
-  perLevelSizeBonus: 1
   perLevelCooldownReduction: 0.01
