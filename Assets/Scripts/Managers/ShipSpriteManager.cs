@@ -30,10 +30,10 @@ public class ShipSpriteManager : MonoBehaviour {
 		if (lastPlayerLevel != totalPlayerLevel){
 			PlayFX ();
 
+			myPlayer.max_health = totalPlayerLevel;
+			myPlayer.health = myPlayer.max_health;
 			if (totalPlayerLevel > lastPlayerLevel){
 				ParticleOverlord.instance.SpawnParticle(this.transform.position, "LevelUpParticle");
-				myPlayer.max_health += totalPlayerLevel - lastPlayerLevel;
-				myPlayer.health = myPlayer.max_health;
             }
             UpdateSprite();
             /*

@@ -963,7 +963,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 289897525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1176,7 +1176,7 @@ Prefab:
     - target: {fileID: 224449625276552016, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 210
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 224449625276552016, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
@@ -1216,7 +1216,7 @@ Prefab:
     - target: {fileID: 224449625276552016, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 210
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 224449625276552016, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
@@ -1258,12 +1258,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224096682945881656, guid: cdaff3656b49139418be4c9f098b4ee8,
+    - target: {fileID: 224807924603940862, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224807924603940862, guid: cdaff3656b49139418be4c9f098b4ee8,
+    - target: {fileID: 224096682945881656, guid: cdaff3656b49139418be4c9f098b4ee8,
         type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3979,7 +3979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LobbyScene
-  inputButtonName: Cancel
 --- !u!114 &2113126864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4075,8 +4074,8 @@ MonoBehaviour:
   - {fileID: 501240486}
   shotMods:
   - {fileID: 11400000, guid: a7fc68d3b7ffac844b8017d4fa6e57a7, type: 2}
-  - {fileID: 11400000, guid: f58cb3ff91798a743976c1dfa470666a, type: 2}
-  - {fileID: 11400000, guid: 69d6a55f4b4ee4417b52bfdc375426e1, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 4c2cd5de4321db941ac06161c96e7d38, type: 2}
   - {fileID: 11400000, guid: eb2ceac2cf7624a28ac70157dfdbef51, type: 2}
   shotSprites:
