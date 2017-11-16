@@ -343,8 +343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea203f2560fc5ee449dcbd21510f1376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minIntensity: 20
-  maxIntensity: 30
+  minIntensity: 0.1
+  maxIntensity: 0.5
+  capIntensity: 1
+  currIntensity: 0
+  shakeDuration: 0.3
   shakeReturn: 0.1
 --- !u!1001 &111259548
 Prefab:
@@ -2688,8 +2691,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594414947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 336, y: 189, z: 0}
-  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
+  m_LocalPosition: {x: 342.5, y: 192.5, z: 0}
+  m_LocalScale: {x: 0.85625, y: 0.85625, z: 0.85625}
   m_Children:
   - {fileID: 333108877}
   - {fileID: 183544703}
