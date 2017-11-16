@@ -99,12 +99,12 @@ GameObject:
   - component: {fileID: 4748554189602312}
   - component: {fileID: 96745213454702186}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1777306792428512
 GameObject:
   m_ObjectHideFlags: 1

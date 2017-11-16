@@ -94,9 +94,15 @@ public class GameManager : MonoBehaviour {
             Vector2 pos = potentialPos[Random.Range(0, potentialPos.Count)];
             Collider2D coll = Physics2D.OverlapBox(pos, Vector2.one, 0);
             if(coll != null && coll.GetComponent<WeaponBax>()) {
+                Debug.Log("Oh ho ho");
                 potentialPos.Remove(pos);
+                if(potentialPos.Count == 0) {
+                    weapSpawnRechargeStart = Time.time;
+                    weapRechargeDuration = Random.Range(8f, 12f);
+                }
                 continue;
             }
+            Debug.Log("Make me a thingy!");
             WeaponBax newWeapon = Instantiate(weaponBoxPrefab, pos, Quaternion.identity);
             int rand = Random.Range(0, shotMods.Length);
             newWeapon.weaponHeld = shotMods[rand];
