@@ -30,18 +30,18 @@ public class CamControl : MonoBehaviour {
 
 	}
 
-	public void AddShake(){
+	public void AddShake(float intensityModifer){
         Debug.Log("Shook AF");
         if(shakeEffect != null) { StopCoroutine(shakeEffect); }
-        shakeEffect = StartCoroutine(shakeCamera());
+		shakeEffect = StartCoroutine(shakeCamera(intensityModifer));
 	}
 
-    IEnumerator shakeCamera()
+	IEnumerator shakeCamera(float intensityMod)
     {
         float startTime = Time.time;
         currIntensity += Random.Range(minIntensity, maxIntensity);
         if(currIntensity < capIntensity) { currIntensity = capIntensity; }
-        float startIntensity = currIntensity;
+		float startIntensity = currIntensity + intensityMod;
         while(Time.time - startTime < shakeDuration) {
             transform.position = startPos + (Vector3)(Random.insideUnitCircle * currIntensity);
             currIntensity = (1f - ((Time.time - startTime) / shakeDuration)) * startIntensity;

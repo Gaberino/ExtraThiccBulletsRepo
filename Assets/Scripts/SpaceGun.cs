@@ -39,7 +39,7 @@ public class SpaceGun : MonoBehaviour {
 			this.transform.Find("aim").GetComponent<ShotCooldownVisualizer>().ResetCharge(cooldown);
 			this.transform.Find("Forward").GetComponent<ShotCooldownVisualizer>().ResetCharge(cooldown);
 
-			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * spawnOffset.y + this.transform.right * spawnOffset.x, Quaternion.identity);
+			Transform newBullet = Instantiate(bulletPrefab, this.transform.position + this.transform.up * (spawnOffset.y + transform.localScale.y / 2) + this.transform.right * spawnOffset.x, Quaternion.identity);
 			newBullet.transform.eulerAngles = this.transform.eulerAngles;
 			newBullet.transform.localScale = Vector3.one * scaling;
 			SpaceBullet newBB = newBullet.GetComponent<SpaceBullet>();

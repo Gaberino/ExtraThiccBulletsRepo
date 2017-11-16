@@ -48,6 +48,7 @@ public class ShipSpriteManager : MonoBehaviour {
 	void UpdateSprite(){
 		mySR.sprite = shipSprites[(totalPlayerLevel) - 1];
 		this.transform.localScale = originalScale + Vector3.one * ((totalPlayerLevel / 2) * perSpriteSizeBuff);
+		this.GetComponentInChildren<TrailRenderer>().widthMultiplier = .6f * totalPlayerLevel / 2;
 	}
 
 	void PlayFX(){

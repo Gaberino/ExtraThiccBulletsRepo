@@ -15,14 +15,14 @@ public class ParallelShot : ShotModifier {
 		base.ModifyAndShoot(playerLife, originGun, bColor);
 
 		float cooldownToSet = shotCooldown - (perLevelCooldownReduction * currentLevel);
-		float scaleToSet = bulletScale;
+		float scaleToSet = bulletScale + (perLevelSizeBonus * currentLevel);
 
 		int numToShoot = currentLevel * perLevelShotBonus;
 
 		for (int i = -numToShoot / 2; i < numToShoot / 2; i++){
 			if (i < (numToShoot / 2) - 1)
-				originGun.ShootBullet(bulletShootOffset + (Vector2.right * spreadAmount * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, 0, scaleToSet, bulletSpriteToSet);
-			else originGun.ShootBullet(bulletShootOffset + (Vector2.right * spreadAmount * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet);
+				originGun.ShootBullet(bulletShootOffset + (Vector2.right * (spreadAmount + scaleToSet / 2) * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, 0, scaleToSet, bulletSpriteToSet);
+			else originGun.ShootBullet(bulletShootOffset + (Vector2.right * (spreadAmount + scaleToSet / 2) * i), originGun.transform.up * bulletSpeeds, bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet);
 		}
 	}
 }
