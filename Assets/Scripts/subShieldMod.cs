@@ -10,7 +10,7 @@ public class subShieldMod : SubModifier {
 	public override void runSubAction (PlayerMovement xXx_pla_Move_xXx)
 	{
 		GameObject shield = Instantiate (sinwaveshield, xXx_pla_Move_xXx.transform.position, Quaternion.identity);
-        shield.transform.parent = xXx_pla_Move_xXx.transform;
+		shield.transform.parent = xXx_pla_Move_xXx.transform;
 	}
 
 }

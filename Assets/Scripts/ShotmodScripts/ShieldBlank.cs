@@ -20,8 +20,7 @@ public class ShieldBlank : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		myRB = this.GetComponent<Rigidbody2D> ();
-		origScale = new Vector3 (1, 1, 1);
-		this.transform.localScale = origScale;
+		origScale = transform.localScale;
 
 	}
 	

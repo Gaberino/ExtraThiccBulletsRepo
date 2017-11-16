@@ -142,6 +142,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &1822742512084052
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4468489656363398}
+  - component: {fileID: 212741927101306312}
+  - component: {fileID: 114993906122461406}
+  m_Layer: 0
+  m_Name: teleportcrosshairs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!4 &4146472188254632
 Transform:
   m_ObjectHideFlags: 1
@@ -149,7 +166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111452813903226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.7, y: 5.33, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4181829024175698}
@@ -501,7 +518,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 4351143469828082, guid: 305e6463302aab842ab7073618406168,
     type: 2}
   weap: {fileID: 11400000, guid: a7feb9444b3cc0a42b3019bdb7fe8ddc, type: 2}
-  sub: {fileID: 11400000, guid: 777d1240b981146f19e616f1574ad592, type: 2}
+  sub: {fileID: 11400000, guid: 848ee8d69804449219a13bf3d44bdf5d, type: 2}
   weapExp: 0
   upgradeObject: {fileID: 0}
   upgradeFactor: 3

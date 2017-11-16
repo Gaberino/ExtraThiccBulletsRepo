@@ -212,7 +212,6 @@ public class PlayerMovement : MonoBehaviour {
             int weapLevel = weap.GetLevel(weapExp);
             totalDeaths++;
 
-			CamControl.instance.AddShake((float)weapLevel);
 
             float kd = (float)killCount / (float)totalDeaths;
             if(kd > 1) { kd = 1; }
