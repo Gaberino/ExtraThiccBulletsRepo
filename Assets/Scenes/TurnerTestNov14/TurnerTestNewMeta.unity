@@ -1067,6 +1067,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minIntensity: 20
   maxIntensity: 30
+  capIntensity: 0
+  currIntensity: 0
+  shakeDuration: 0
   shakeReturn: 0.1
 --- !u!1001 &290739698
 Prefab:

@@ -104,7 +104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1777306792428512
 GameObject:
   m_ObjectHideFlags: 1
@@ -529,7 +529,7 @@ MonoBehaviour:
   sub: {fileID: 11400000, guid: 777d1240b981146f19e616f1574ad592, type: 2}
   weapExp: 0
   upgradeObject: {fileID: 0}
-  upgradeFactor: 2
+  upgradeFactor: 3
   dashTime: 0.15
   subActionRecoverTime: 0
   canSubAction: 0
@@ -585,7 +585,7 @@ MonoBehaviour:
   sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
     type: 2}
   ricochetBulletPrefab: {fileID: 0}
-  levelVolumeBonus: 0.05
+  levelVolumeBonus: 0.07
 --- !u!114 &114348269351053014
 MonoBehaviour:
   m_ObjectHideFlags: 1
