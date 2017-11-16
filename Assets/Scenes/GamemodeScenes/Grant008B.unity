@@ -3827,7 +3827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameRunning: 1
-  currentGameMode: {fileID: 11400000, guid: 0cd7d08a21648ac4e8e472fbecb8455f, type: 2}
+  currentGameMode: {fileID: 11400000, guid: f3b623b8d0c2dc9479b6d5b24d3002d2, type: 2}
   players: []
   playerCount: 4
   playerPrefab: {fileID: 114177608118846816, guid: 91e5f8a3457e5af428325ad163f5513b,
