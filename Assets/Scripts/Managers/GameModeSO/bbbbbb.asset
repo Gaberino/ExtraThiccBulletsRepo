@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d11b47f84c4a448b6eaf093258529e, type: 3}
+  m_Name: bbbbbb
+  m_EditorClassIdentifier: 
+  myGM: {fileID: 0}
+  m_gameState: 0
+  m_players: []
+  m_playerScores: []
+  m_scoreToWin: 100
+  m_gamewinner: 0
+  smallGuyKillBonus: 20
+  bigGuyKillPenalty: 5
+  currentSmallGuy: 0
+  bigStartExp: 20
+  bigOnBigExp: 4
+  pointsPerSecondAsSmall: 2
