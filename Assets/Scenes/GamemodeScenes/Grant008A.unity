@@ -2691,8 +2691,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594414947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 338.5, y: 190.5, z: 0}
-  m_LocalScale: {x: 0.84625, y: 0.84625, z: 0.84625}
+  m_LocalPosition: {x: 336, y: 189, z: 0}
+  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
   m_Children:
   - {fileID: 333108877}
   - {fileID: 183544703}
@@ -3857,7 +3857,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7fc68d3b7ffac844b8017d4fa6e57a7, type: 2}
   - {fileID: 11400000, guid: 4f38b1e20ab7feb40af5529c1421ec8e, type: 2}
   - {fileID: 11400000, guid: 4a50b00df187da8489f5025c83ac2197, type: 2}
-  - {fileID: 11400000, guid: 4c2cd5de4321db941ac06161c96e7d38, type: 2}
+  - {fileID: 11400000, guid: 28a0776ac99eb1c448e1d398fd891671, type: 2}
   - {fileID: 11400000, guid: eb2ceac2cf7624a28ac70157dfdbef51, type: 2}
   shotSprites:
   - {fileID: 21300000, guid: a9e74c071398d7e49a89fc86003912c8, type: 3}
