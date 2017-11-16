@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 1111452813903226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4468489656363398}
   - {fileID: 4735338016533764}
@@ -503,6 +503,7 @@ MonoBehaviour:
   subActionRecoverTime: 0
   canSubAction: 0
   subActioning: 0
+  myCanvasManager: {fileID: 0}
   myTip: {fileID: 212753851196911136}
 --- !u!114 &114332976459789206
 MonoBehaviour:
@@ -717,7 +718,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 933b2e69d23781544884dc6fa31def0a, type: 3}
   - {fileID: 21300000, guid: 2a7f17ab16b241140823024de7a98e8f, type: 3}
   - {fileID: 21300000, guid: ded15f6c1cb30ed4e866896d646eaf2d, type: 3}
-  perSpriteSizeBuff: 1.6
+  perSpriteSizeBuff: 1.25
   audio_fx: {fileID: 1384093166755910, guid: 38a44bf9637b6407088dafa236008e48, type: 2}
 --- !u!114 &114993906122461406
 MonoBehaviour:

@@ -30,19 +30,23 @@ public class DavidsAndGoliathGameMode : GameMode {
 
 	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
 	{
-		if (killedPlayer.playerNumber != currentGoliath && currentGoliath != 0) {
+		if (killedPlayer.playerNumber != currentGoliath && currentGoliath != 0) { //david on david or goliath on david
 			m_playerScores [playerNum - 1] += davidKillPoints;
 			//m_players [playerNum - 1].weapExp += expPerDavidOnDavid;
 			killedPlayer.weapExp = 0f;
-		} else if (currentGoliath == 0) {
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidKillPoints, .5f, .25f, 1f, 1.2f); 
+		} else if (currentGoliath == 0) { //first kill
 			currentGoliath = playerNum;
 			m_players [playerNum - 1].weapExp = 10000f;
+			m_playerScores [playerNum - 1] += davidKillPoints;
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("IT BEGINS", .25f, 1f, 1f, 1f); 
 		}
-		else {
+		else { //david kills goliath
 			m_playerScores[playerNum - 1] += goliathKillPoints;
 			currentGoliath = playerNum;
 			m_players [playerNum - 1].weapExp = 10000f;
 			killedPlayer.weapExp = 0f;
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("GOLIATHIZED", .25f, 1f, 1f, 1f); 
 		}
 	}
 }

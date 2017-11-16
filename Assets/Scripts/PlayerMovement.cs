@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour {
     Coroutine iframesRoutine;
 	Coroutine injuryRoutine;
 
-	PlayerCanvasManager myCanvasManager;
+	public PlayerCanvasManager myCanvasManager;
 
 	private SpriteRenderer mySR;
     [SerializeField] SpriteRenderer myTip;
@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour {
             }
             if (myInput.dashButtonPressed && canSubAction) { StartCoroutine(subAction()); }
 			else if (myInput.dashButtonPressed){
-				myCanvasManager.PopupMessage("Sub Cooling Down", .45f, .1f, 2f, 1f);
+				myCanvasManager.PopupMessage("Sub Offline", .45f, .1f, 2f, 1f);
 			}
         }
     }
@@ -340,6 +340,7 @@ public class PlayerMovement : MonoBehaviour {
         weap = newShotMod;
         // weapExp = 0f;
         myPlayerGun.currentShotMod = newShotMod;
+		myCanvasManager.PopupMessage(newShotMod.name, .5f, .25f, 2f, 1f);
     }
 
     void OnTriggerEnter2D(Collider2D coll)

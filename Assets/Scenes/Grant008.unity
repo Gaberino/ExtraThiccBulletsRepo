@@ -927,7 +927,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 42d77fc09a544544296384f9b675b030, type: 3}
-  m_Color: {r: 1, g: 0.51724136, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.51724136, b: 0, a: 0.472}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1296,7 +1296,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 42d77fc09a544544296384f9b675b030, type: 3}
-  m_Color: {r: 1, g: 0.51724136, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.51724136, b: 0, a: 0.472}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1452,7 +1452,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 42d77fc09a544544296384f9b675b030, type: 3}
-  m_Color: {r: 1, g: 0.51724136, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.51724136, b: 0, a: 0.472}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1794,7 +1794,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 42d77fc09a544544296384f9b675b030, type: 3}
-  m_Color: {r: 1, g: 0.51724136, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.51724136, b: 0, a: 0.472}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2270,7 +2270,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 42d77fc09a544544296384f9b675b030, type: 3}
-  m_Color: {r: 1, g: 0.51724136, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.51724136, b: 0, a: 0.472}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2688,8 +2688,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594414947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 336, y: 189, z: 0}
-  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
+  m_LocalPosition: {x: 271, y: 152.5, z: 0}
+  m_LocalScale: {x: 0.6775, y: 0.6775, z: 0.6775}
   m_Children:
   - {fileID: 333108877}
   - {fileID: 183544703}
@@ -2989,7 +2989,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 42d77fc09a544544296384f9b675b030, type: 3}
-  m_Color: {r: 1, g: 0.51724136, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.51724136, b: 0, a: 0.472}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3827,7 +3827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameRunning: 1
-  currentGameMode: {fileID: 11400000, guid: 0cd7d08a21648ac4e8e472fbecb8455f, type: 2}
+  currentGameMode: {fileID: 11400000, guid: f3b623b8d0c2dc9479b6d5b24d3002d2, type: 2}
   players: []
   playerCount: 4
   playerPrefab: {fileID: 114177608118846816, guid: 91e5f8a3457e5af428325ad163f5513b,
