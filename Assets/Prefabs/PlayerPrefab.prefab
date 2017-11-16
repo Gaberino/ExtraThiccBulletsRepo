@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4748554189602312}
   - component: {fileID: 96745213454702186}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,8 +149,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1111452813903226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 15.7, y: 5.33, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4181829024175698}
   - {fileID: 4735338016533764}
@@ -192,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1520335120120216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.48, z: 0}
+  m_LocalPosition: {x: 0, y: -0.503, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4146472188254632}
@@ -358,7 +358,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Time: 0.4
+  m_Time: 0.6
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 0.6
@@ -367,9 +367,15 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
+        value: 0
+        inSlope: 21.728174
+        outSlope: 21.728174
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.06761998
         value: 1
-        inSlope: -1.0178288
-        outSlope: -1.0178288
+        inSlope: -0.15020627
+        outSlope: -0.15020627
         tangentMode: 0
       - serializedVersion: 2
         time: 1
@@ -503,6 +509,7 @@ MonoBehaviour:
   subActionRecoverTime: 0
   canSubAction: 0
   subActioning: 0
+  myCanvasManager: {fileID: 0}
   myTip: {fileID: 212753851196911136}
 --- !u!114 &114332976459789206
 MonoBehaviour:
@@ -731,7 +738,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 933b2e69d23781544884dc6fa31def0a, type: 3}
   - {fileID: 21300000, guid: 2a7f17ab16b241140823024de7a98e8f, type: 3}
   - {fileID: 21300000, guid: ded15f6c1cb30ed4e866896d646eaf2d, type: 3}
-  perSpriteSizeBuff: 0.75
+  perSpriteSizeBuff: 1.25
   audio_fx: {fileID: 1384093166755910, guid: 38a44bf9637b6407088dafa236008e48, type: 2}
 --- !u!212 &212288976245786514
 SpriteRenderer:

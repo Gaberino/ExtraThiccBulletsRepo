@@ -17,8 +17,8 @@ MonoBehaviour:
   bulletLifeTimes: 2
   bulletSpeeds: 30
   shotCooldown: 0.7
-  bulletScale: 0.6
-  perLevelSizeBonus: 0.1
+  bulletScale: 2
+  perLevelSizeBonus: 0.2
   bulletShootOffset: {x: 0, y: 0.75}
   bulletSpriteToSet: {fileID: 21300000, guid: bb0eada1e61f7ea419f89453eb7af3c1, type: 3}
   perLevelCooldownReduction: 0.002
