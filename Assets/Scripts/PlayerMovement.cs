@@ -212,6 +212,8 @@ public class PlayerMovement : MonoBehaviour {
             int weapLevel = weap.GetLevel(weapExp);
             totalDeaths++;
 
+			CamControl.instance.AddShake((float)weapLevel);
+
             float kd = (float)killCount / (float)totalDeaths;
             if(kd > 1) { kd = 1; }
             int levelsToSubtract = Mathf.CeilToInt(weapLevel * kd);
@@ -230,7 +232,7 @@ public class PlayerMovement : MonoBehaviour {
             weapExp2 = 0f;
             */
 
-			CamControl.instance.AddShake();
+
             currentLifeKillCount = 0;
             timeAlive = 0;
             dropUpgradeObject();
