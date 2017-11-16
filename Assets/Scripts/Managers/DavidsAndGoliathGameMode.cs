@@ -13,6 +13,9 @@ public class DavidsAndGoliathGameMode : GameMode {
 
 	public float expPerDavidOnDavid;
 
+	public SubModifier davidSub;
+	public SubModifier goliathSub;
+
 	public override void StartPhase ()
 	{
 		base.StartPhase ();
@@ -34,19 +37,28 @@ public class DavidsAndGoliathGameMode : GameMode {
 			m_playerScores [playerNum - 1] += davidKillPoints;
 			//m_players [playerNum - 1].weapExp += expPerDavidOnDavid;
 			killedPlayer.weapExp = 0f;
+			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
+			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidKillPoints, .5f, .25f, 1f, 1.2f); 
 		} else if (currentGoliath == 0) { //first kill
+			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
+			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			currentGoliath = playerNum;
 			m_players [playerNum - 1].weapExp = 10000f;
 			m_playerScores [playerNum - 1] += davidKillPoints;
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("IT BEGINS", .25f, 1f, 1f, 1f); 
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("IT BEGINS", .25f, 1f, 1f, 1f);
+			m_players[playerNum - 1].sub = goliathSub;
 		}
 		else { //david kills goliath
 			m_playerScores[playerNum - 1] += goliathKillPoints;
 			currentGoliath = playerNum;
 			m_players [playerNum - 1].weapExp = 10000f;
+			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
+			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			killedPlayer.weapExp = 0f;
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("GOLIATHIZED", .25f, 1f, 1f, 1f); 
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("GOLIATHIZED", .25f, 1f, 1f, 1f);
+			m_players[playerNum - 1].sub = goliathSub;
+			killedPlayer.sub = davidSub;
 		}
 	}
 }

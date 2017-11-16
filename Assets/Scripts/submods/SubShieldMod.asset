@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldown: 3
   value: 0.00000001
-  familyvalues: 1
+  familyvalues: 0.36
   sinwaveshield: {fileID: 1522416713702094, guid: 4b8c72c9926c44a0ba9bd25ba04b7da4,
     type: 2}
