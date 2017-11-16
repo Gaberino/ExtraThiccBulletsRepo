@@ -3852,6 +3852,7 @@ MonoBehaviour:
   - {fileID: 1302186253}
   - {fileID: 1653128417}
   - {fileID: 501240486}
+  readyColor: {r: 0.9034481, g: 0, b: 1, a: 1}
   shotMods:
   - {fileID: 11400000, guid: a7fc68d3b7ffac844b8017d4fa6e57a7, type: 2}
   - {fileID: 11400000, guid: 4f38b1e20ab7feb40af5529c1421ec8e, type: 2}
