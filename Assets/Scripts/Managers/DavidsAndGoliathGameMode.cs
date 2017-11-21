@@ -6,7 +6,8 @@ using UnityEngine;
 public class DavidsAndGoliathGameMode : GameMode {
 
 
-	public float davidKillPoints;
+	public float davidOnDavidKillPoints;
+	public float goliathOnDavidKillPoints;
 	public float goliathKillPoints;
 
 	public int currentGoliath = 0;
@@ -34,18 +35,21 @@ public class DavidsAndGoliathGameMode : GameMode {
 	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
 	{
 		if (killedPlayer.playerNumber != currentGoliath && currentGoliath != 0) { //david on david or goliath on david
-			m_playerScores [playerNum - 1] += davidKillPoints;
+			
 			//m_players [playerNum - 1].weapExp += expPerDavidOnDavid;
 			killedPlayer.weapExp = 0f;
 			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidKillPoints, .5f, .25f, 1f, 1.2f); 
+
+
+			m_playerScores [playerNum - 1] += davidOnDavidKillPoints;
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidOnDavidKillPoints, .5f, .25f, 1f, 1.2f); 
 		} else if (currentGoliath == 0) { //first kill
 			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			currentGoliath = playerNum;
 			m_players [playerNum - 1].weapExp = 10000f;
-			m_playerScores [playerNum - 1] += davidKillPoints;
+			m_playerScores [playerNum - 1] += davidOnDavidKillPoints;
 			m_players[playerNum - 1].myCanvasManager.PopupMessage("IT BEGINS", .25f, 1f, 1f, 1f);
 			m_players[playerNum - 1].sub = goliathSub;
 		}
@@ -56,7 +60,7 @@ public class DavidsAndGoliathGameMode : GameMode {
 			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			killedPlayer.weapExp = 0f;
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("GOLIATHIZED", .25f, 1f, 1f, 1f);
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("" + goliathKillPoints, .25f, 1f, 1f, 1f);
 			m_players[playerNum - 1].sub = goliathSub;
 			killedPlayer.sub = davidSub;
 		}
