@@ -67,10 +67,12 @@ public class GameManager : MonoBehaviour {
                 newPlayerInput.playerNum = newPlayer.playerNumber - 1;
                 // newPlayer.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f));
                 newPlayer.GetComponent<SpriteRenderer>().color = playerColors[i];
+                /*
                 GameObject newScoreCard = Instantiate(playerScoreCard);
                 newScoreCard.transform.SetParent(scoreBoard.transform, false);
                 newPlayer.myScore = newScoreCard.GetComponent<Text>();
 				newPlayer.myScore.text = "Lv.1 Score 0";
+                */
             }
             weapSpawnRechargeStart = Time.time;
             StartCoroutine(spawnNewWeapon());
