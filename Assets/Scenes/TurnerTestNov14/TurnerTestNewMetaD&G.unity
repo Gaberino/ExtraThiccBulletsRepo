@@ -455,7 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789fefb4701349e39fe3359aa25f9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.17
   distanceToMove: 0.9
 --- !u!1001 &165241444
 Prefab:
@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789fefb4701349e39fe3359aa25f9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.17
   distanceToMove: 0.9
 --- !u!1001 &226452797
 Prefab:
@@ -945,7 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789fefb4701349e39fe3359aa25f9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.17
   distanceToMove: -0.9
 --- !u!1 &282133266
 GameObject:
@@ -2777,7 +2777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789fefb4701349e39fe3359aa25f9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.17
   distanceToMove: 0.9
 --- !u!1 &1193102185
 GameObject:
@@ -3023,7 +3023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789fefb4701349e39fe3359aa25f9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.17
   distanceToMove: -0.9
 --- !u!1001 &1289976598
 Prefab:
@@ -4662,7 +4662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b789fefb4701349e39fe3359aa25f9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
+  speed: 0.17
   distanceToMove: -0.9
 --- !u!1001 &1807373659
 Prefab:
