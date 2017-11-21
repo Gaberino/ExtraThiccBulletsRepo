@@ -8,6 +8,8 @@ public class WeaponBax : MonoBehaviour {
     public float lifeTime;
     float startTime;
 
+    public Transform myBirthplace;
+
     Rigidbody2D rbody;
 	// Use this for initialization
 	void Start () {
@@ -33,6 +35,7 @@ public class WeaponBax : MonoBehaviour {
         {
             player.pickUpWeapon(weaponHeld);
             ParticleOverlord.instance.SpawnParticle(this.transform.position, "PickUpParticle", player.GetComponent<SpriteRenderer>().color);
+            GameManager.Instance.weaponSpawns.Add(myBirthplace);
             Destroy(gameObject);
         }
     }
