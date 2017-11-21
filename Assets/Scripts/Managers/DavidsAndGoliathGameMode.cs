@@ -8,6 +8,7 @@ public class DavidsAndGoliathGameMode : GameMode {
 
 	public float davidOnDavidKillPoints;
 	public float goliathOnDavidKillPoints;
+	public float davidHitGoliathPoints;
 	public float goliathKillPoints;
 
 	public int currentGoliath = 0;
@@ -32,7 +33,7 @@ public class DavidsAndGoliathGameMode : GameMode {
 		}
 	}
 
-	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
+	public override void killAddScore (int playerNum, PlayerMovement killedPlayer)
 	{
 		if (killedPlayer.playerNumber != currentGoliath && currentGoliath != 0) { //david on david or goliath on david
 			
@@ -41,9 +42,14 @@ public class DavidsAndGoliathGameMode : GameMode {
 			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 
-
-			m_playerScores [playerNum - 1] += davidOnDavidKillPoints;
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidOnDavidKillPoints, .5f, .25f, 1f, 1.2f); 
+			if (playerNum == currentGoliath) {
+				m_playerScores [playerNum - 1] += goliathOnDavidKillPoints;
+				m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + goliathOnDavidKillPoints, .5f, .25f, 1f, 1.2f); 
+			}
+			else {
+				m_playerScores [playerNum - 1] += davidOnDavidKillPoints;
+				m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidOnDavidKillPoints, .5f, .25f, 1f, 1.2f); 
+			}
 		} else if (currentGoliath == 0) { //first kill
 			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
@@ -63,6 +69,15 @@ public class DavidsAndGoliathGameMode : GameMode {
 			m_players[playerNum - 1].myCanvasManager.PopupMessage("" + goliathKillPoints, .25f, 1f, 1f, 1f);
 			m_players[playerNum - 1].sub = goliathSub;
 			killedPlayer.sub = davidSub;
+		}
+	}
+
+	public override void hitPlayerAddScore (int originPlayer, int hitPlayer)
+	{
+		if (hitPlayer == currentGoliath){
+
+			m_playerScores[originPlayer - 1] += davidHitGoliathPoints;
+			m_players[originPlayer - 1].myCanvasManager.PopupMessage("+" + davidHitGoliathPoints, .5f, .25f, 1f, 1.2f);
 		}
 	}
 }

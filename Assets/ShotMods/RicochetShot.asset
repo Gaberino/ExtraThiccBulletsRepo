@@ -11,15 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e957f537cb0996c40bbf0d0dfdf4dd2d, type: 3}
   m_Name: RicochetShot
   m_EditorClassIdentifier: 
-  maxUpgradeLevel: 0
+  maxUpgradeLevel: 10
   currentLevel: 1
-  timeToLevelRatio: 2
+  timeToLevelRatio: 4
   bulletLifeTimes: 1
-  bulletSpeeds: 1
+  bulletSpeeds: 10
   shotCooldown: 1
-  bulletScale: 1
-  perLevelSizeBonus: 1
+  bulletScale: 0.05
+  perLevelSizeBonus: 0.05
   bulletShootOffset: {x: 0, y: 0}
-  bulletSpriteToSet: {fileID: 0}
+  bulletSpriteToSet: {fileID: 21300000, guid: c244960dc5b08564886a75ab5b06e88a, type: 3}
   perLevelSpeedBonus: 1
   perLevelBounceNum: 1
