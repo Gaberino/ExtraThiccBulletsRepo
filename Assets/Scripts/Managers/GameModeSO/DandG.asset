@@ -21,11 +21,13 @@ MonoBehaviour:
   m_playerScores:
   - 0
   - 0
-  - 0
+  - 5
   - 0
   m_scoreToWin: 100
   m_gamewinner: 0
   davidKillPoints: 5
   goliathKillPoints: 20
-  currentGoliath: 0
+  currentGoliath: 3
   expPerDavidOnDavid: 10
+  davidSub: {fileID: 11400000, guid: 848ee8d69804449219a13bf3d44bdf5d, type: 2}
+  goliathSub: {fileID: 11400000, guid: 848ee8d69804449219a13bf3d44bdf5d, type: 2}
