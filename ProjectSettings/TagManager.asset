@@ -48,3 +48,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: ImportantShit
+    uniqueID: 681869439
+    locked: 0
