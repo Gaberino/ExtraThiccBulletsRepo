@@ -155,6 +155,6 @@ public class GameManager : MonoBehaviour {
     #endregion
 
 	public void YellScoreToMode(int pNum, PlayerMovement killedP){
-		currentGameMode.Addscore(pNum, killedP);
+		currentGameMode.killAddScore(pNum, killedP);
 	}
 }
