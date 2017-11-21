@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TurnerTestNov14/TurnerTestNewMetaD&G.unity
+    guid: fcc55336422a04315a8066227113f537
+  - enabled: 0
     path: Assets/Scenes/GamemodeScenes/LobbyScene.unity
     guid: e4d5474885ecd284d8425b9db50aef63
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GamemodeScenes/Grant008C.unity
     guid: 60d4d360c659f414f8d2cd80a052de8b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GamemodeScenes/Grant008A.unity
     guid: 3bc61003780df44439a717d8467421db
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GamemodeScenes/Grant008B.unity
     guid: b8986c67f5eea6e45accc6926cbd19cc

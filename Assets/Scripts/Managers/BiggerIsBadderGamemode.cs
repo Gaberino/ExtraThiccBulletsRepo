@@ -47,7 +47,7 @@ public class BiggerIsBadderGamemode : GameMode {
 		}
 	}
 
-	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
+	public override void killAddScore (int playerNum, PlayerMovement killedPlayer)
 	{
 		if (killedPlayer.playerNumber != currentSmallGuy && currentSmallGuy > 0) {
 			m_playerScores [killedPlayer.playerNumber - 1] -= bigGuyKillPenalty;

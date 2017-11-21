@@ -51,7 +51,11 @@ public class GameMode : ScriptableObject {
 		WinManager.instance.DisplayWinmessage(m_gamewinner);
 	}
 
-	public virtual void Addscore(int playerNum, PlayerMovement killedPlayer){ //actual number, not the index in the list
+	public virtual void killAddScore(int playerNum, PlayerMovement killedPlayer){ //actual number, not the index in the list
 		
+	}
+
+	public virtual void hitPlayerAddScore(int originPlayer, int hitPlayer){
+
 	}
 }

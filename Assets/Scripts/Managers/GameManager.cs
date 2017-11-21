@@ -18,13 +18,17 @@ public class GameManager : MonoBehaviour {
     public PlayerMovement playerPrefab;
     public Transform[] playerSpawns;
     public Color[] playerColors;
-    public Transform[] weaponSpawns;
+
+    public List<Transform> weaponSpawns;
+    public Color readyColor;
+
     public ShotModifier[] shotMods;
     public Sprite[] shotSprites;
     public WeaponBax weaponBoxPrefab;
 
     float weapSpawnRechargeStart;
     float weapRechargeDuration = 5f;
+    
 
     #endregion
 
@@ -63,12 +67,15 @@ public class GameManager : MonoBehaviour {
                 newPlayerInput.playerNum = newPlayer.playerNumber - 1;
                 // newPlayer.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f), Random.Range(0.3f, 0.9f));
                 newPlayer.GetComponent<SpriteRenderer>().color = playerColors[i];
+                /*
                 GameObject newScoreCard = Instantiate(playerScoreCard);
                 newScoreCard.transform.SetParent(scoreBoard.transform, false);
                 newPlayer.myScore = newScoreCard.GetComponent<Text>();
 				newPlayer.myScore.text = "Lv.1 Score 0";
+                */
             }
             weapSpawnRechargeStart = Time.time;
+            StartCoroutine(spawnNewWeapon());
         }
 	}
 	
@@ -78,32 +85,37 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.R)) { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
         if(gameRunning)
         {
-            if(Time.time - weapSpawnRechargeStart >= weapRechargeDuration) { spawnNewWeapon(); }
+            // if(Time.time - weapSpawnRechargeStart >= weapRechargeDuration) { spawnNewWeapon(); }
         }
 	}
 
-    void spawnNewWeapon()
+    IEnumerator spawnNewWeapon()
     {
-        List<Vector2> potentialPos = new List<Vector2>();
-        for(int i = 0; i < weaponSpawns.Length; i++) {
-            potentialPos.Add(weaponSpawns[i].position);
-        }
-        shuffle(potentialPos);
-        while(potentialPos.Count > 0)
+        while (true)
         {
-            Vector2 pos = potentialPos[Random.Range(0, potentialPos.Count)];
-            Collider2D coll = Physics2D.OverlapBox(pos, Vector2.one, 0);
-            if(coll != null && coll.GetComponent<WeaponBax>()) {
-                potentialPos.Remove(pos);
+            if (weaponSpawns.Count == 0) {
+                yield return new WaitForEndOfFrame();
                 continue;
             }
-            WeaponBax newWeapon = Instantiate(weaponBoxPrefab, pos, Quaternion.identity);
+            Transform nextSpawn = weaponSpawns[Random.Range(0, weaponSpawns.Count)];
+            SpriteRenderer spawnSR = nextSpawn.GetComponent<SpriteRenderer>();
+            Color originColor = spawnSR.color;
+            float startTime = Time.time;
+            while (Time.time - startTime < weapRechargeDuration)
+            {
+                // visualize thing happening;
+                float prog = (Time.time - startTime) / weapRechargeDuration;
+                spawnSR.color = Color.Lerp(originColor, readyColor, prog);
+                yield return new WaitForEndOfFrame();
+            }
+            WeaponBax newWeapon = Instantiate(weaponBoxPrefab, nextSpawn.position, Quaternion.identity);
             int rand = Random.Range(0, shotMods.Length);
             newWeapon.weaponHeld = shotMods[rand];
             newWeapon.GetComponent<SpriteRenderer>().sprite = shotSprites[rand];
-            weapSpawnRechargeStart = Time.time;
+            newWeapon.myBirthplace = nextSpawn;
+            spawnSR.color = originColor;
+            weaponSpawns.Remove(nextSpawn);
             weapRechargeDuration = Random.Range(8f, 12f);
-            break;
         }
     }
 
@@ -143,6 +155,6 @@ public class GameManager : MonoBehaviour {
     #endregion
 
 	public void YellScoreToMode(int pNum, PlayerMovement killedP){
-		currentGameMode.Addscore(pNum, killedP);
+		currentGameMode.killAddScore(pNum, killedP);
 	}
 }

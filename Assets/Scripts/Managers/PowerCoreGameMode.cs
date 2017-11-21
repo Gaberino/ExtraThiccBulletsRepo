@@ -20,7 +20,7 @@ public class PowerCoreGameMode : GameMode {
 		//this is where I would set core upgrade rate...IF I HAD ONE
 	}
 
-	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
+	public override void killAddScore (int playerNum, PlayerMovement killedPlayer)
 	{
 		if (killedPlayer.upgradeObject != null){
 			m_playerScores[playerNum - 1] += coreHolderKillPoints;

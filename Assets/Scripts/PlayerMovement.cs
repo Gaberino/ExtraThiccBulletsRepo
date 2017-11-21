@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     public int totalDeaths;
     public float respawnTime;
     public float iframes;
-	public Text myScore;
+	// public Text myScore;
 
     public Rigidbody2D rbody;
     public Vector3 moveDir;
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour {
         timeAlive = 0;
         weapExp = 0;
         myPlayerGun.currentShotMod = weap;
-        myScore.color = mySR.color;
+        // myScore.color = mySR.color;
 	}
 	
 	// Update is called once per frame
@@ -183,6 +183,12 @@ public class PlayerMovement : MonoBehaviour {
     {
         if(iframesRoutine != null) { return; }
         health--;
+        if (killerID > 0 && killerID <= GameManager.Instance.players.Count) {
+                PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
+                myKiller.AddScore();
+                myKiller.HPForKill();
+                GameManager.Instance.YellScoreToMode(killerID, this);
+        }
 		if (injuryRoutine != null) { StopCoroutine(injuryRoutine); }
 		injuryRoutine = StartCoroutine(InjuryFlash(.2f));
         if(health <= 0) { Die(killerID); }
@@ -202,17 +208,12 @@ public class PlayerMovement : MonoBehaviour {
             {
                 PlayerMovement myKiller = GameManager.Instance.players[killerID - 1];
                 myKiller.AddScore();
-                myKiller.HPForKill();
+                // myKiller.HPForKill();
                 GameManager.Instance.YellScoreToMode(killerID, this);
-                //if (killerID == 1)
-                //WinManager.instance.p1Kills += 1;
-                //else if (killerID == 2)
-                //WinManager.instance.p2Kills += 1;
             }
             int weapLevel = weap.GetLevel(weapExp);
             totalDeaths++;
 
-			CamControl.instance.AddShake((float)weapLevel);
 
             float kd = (float)killCount / (float)totalDeaths;
             if(kd > 1) { kd = 1; }
@@ -226,12 +227,6 @@ public class PlayerMovement : MonoBehaviour {
 
             weapExp = weap.timeToLevelRatio * weapNewLevel;
             if(weapExp < 0) { weapExp = 0; }
-
-            /*
-            weapExp1 = 0f;
-            weapExp2 = 0f;
-            */
-
 
             currentLifeKillCount = 0;
             timeAlive = 0;

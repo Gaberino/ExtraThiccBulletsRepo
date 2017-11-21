@@ -6,12 +6,17 @@ using UnityEngine;
 public class DavidsAndGoliathGameMode : GameMode {
 
 
-	public float davidKillPoints;
+	public float davidOnDavidKillPoints;
+	public float goliathOnDavidKillPoints;
+	public float davidHitGoliathPoints;
 	public float goliathKillPoints;
 
 	public int currentGoliath = 0;
 
 	public float expPerDavidOnDavid;
+
+	public SubModifier davidSub;
+	public SubModifier goliathSub;
 
 	public override void StartPhase ()
 	{
@@ -28,25 +33,51 @@ public class DavidsAndGoliathGameMode : GameMode {
 		}
 	}
 
-	public override void Addscore (int playerNum, PlayerMovement killedPlayer)
+	public override void killAddScore (int playerNum, PlayerMovement killedPlayer)
 	{
 		if (killedPlayer.playerNumber != currentGoliath && currentGoliath != 0) { //david on david or goliath on david
-			m_playerScores [playerNum - 1] += davidKillPoints;
+			
 			//m_players [playerNum - 1].weapExp += expPerDavidOnDavid;
 			killedPlayer.weapExp = 0f;
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidKillPoints, .5f, .25f, 1f, 1.2f); 
+			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
+			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
+
+			if (playerNum == currentGoliath) {
+				m_playerScores [playerNum - 1] += goliathOnDavidKillPoints;
+				m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + goliathOnDavidKillPoints, .5f, .25f, 1f, 1.2f); 
+			}
+			else {
+				m_playerScores [playerNum - 1] += davidOnDavidKillPoints;
+				m_players[playerNum - 1].myCanvasManager.PopupMessage("+" + davidOnDavidKillPoints, .5f, .25f, 1f, 1.2f); 
+			}
 		} else if (currentGoliath == 0) { //first kill
+			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
+			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			currentGoliath = playerNum;
 			m_players [playerNum - 1].weapExp = 10000f;
-			m_playerScores [playerNum - 1] += davidKillPoints;
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("IT BEGINS", .25f, 1f, 1f, 1f); 
+			m_playerScores [playerNum - 1] += davidOnDavidKillPoints;
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("IT BEGINS", .25f, 1f, 1f, 1f);
+			m_players[playerNum - 1].sub = goliathSub;
 		}
 		else { //david kills goliath
 			m_playerScores[playerNum - 1] += goliathKillPoints;
 			currentGoliath = playerNum;
 			m_players [playerNum - 1].weapExp = 10000f;
+			CamControl.instance.AddShake((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
+			CamControl.instance.BlastBloom((float)killedPlayer.weap.GetLevel(killedPlayer.weapExp));
 			killedPlayer.weapExp = 0f;
-			m_players[playerNum - 1].myCanvasManager.PopupMessage("GOLIATHIZED", .25f, 1f, 1f, 1f); 
+			m_players[playerNum - 1].myCanvasManager.PopupMessage("" + goliathKillPoints, .25f, 1f, 1f, 1f);
+			m_players[playerNum - 1].sub = goliathSub;
+			killedPlayer.sub = davidSub;
+		}
+	}
+
+	public override void hitPlayerAddScore (int originPlayer, int hitPlayer)
+	{
+		if (hitPlayer == currentGoliath){
+
+			m_playerScores[originPlayer - 1] += davidHitGoliathPoints;
+			m_players[originPlayer - 1].myCanvasManager.PopupMessage("+" + davidHitGoliathPoints, .5f, .25f, 1f, 1.2f);
 		}
 	}
 }
