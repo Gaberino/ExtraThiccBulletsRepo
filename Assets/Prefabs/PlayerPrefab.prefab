@@ -325,7 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4389328076540644, guid: e9e7db192ce191a479f5e1e85460a560,
     type: 2}
-  currentShotMod: {fileID: 11400000, guid: a7feb9444b3cc0a42b3019bdb7fe8ddc, type: 2}
+  currentShotMod: {fileID: 11400000, guid: 720934b0a4ece554eaacac88c3bb11e2, type: 2}
   sinBulletPrefab: {fileID: 4389328076540644, guid: 197f062f5bd5d4eebb135e4b4ce1c34c,
     type: 2}
   ricochetBulletPrefab: {fileID: 0}

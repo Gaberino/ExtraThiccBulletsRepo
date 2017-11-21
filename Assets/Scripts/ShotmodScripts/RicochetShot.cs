@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ShotModifiers/RichochetShot")]
 public class RicochetShot : ShotModifier {
 
-	public float perLevelBounceBonus;
 	public float perLevelSpeedBonus = 1f;
+	public int perLevelBounceNum = 1;
 
 	public override void ModifyAndShoot (float playerLife, SpaceGun originGun, Color bColor)
 	{
@@ -15,8 +15,8 @@ public class RicochetShot : ShotModifier {
 		if (maxUpgradeLevel != 0 && currentLevel > maxUpgradeLevel) currentLevel = maxUpgradeLevel;
 
 		float cooldownToSet = shotCooldown;
-		float scaleToSet = bulletScale;
+		float scaleToSet = bulletScale = (perLevelSizeBonus * currentLevel);
 
-		originGun.ShootBullet(bulletShootOffset, originGun.transform.up * (bulletSpeeds + (currentLevel * perLevelSpeedBonus)), bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet, true);
+		originGun.ShootBullet(bulletShootOffset, originGun.transform.up * (bulletSpeeds + (currentLevel * perLevelSpeedBonus)), bColor, bulletLifeTimes, cooldownToSet, scaleToSet, bulletSpriteToSet, perLevelBounceNum * currentLevel);
 	}
 }

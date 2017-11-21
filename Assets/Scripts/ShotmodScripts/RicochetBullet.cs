@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class RicochetBullet : MonoBehaviour {
 
-	//spacebullets have kinematic 2d rigidbodies
+	//spacebullets have dynamic 2d rigidbodies
 
 	public GameObject hitParticlePrefab;
 	public Vector2 velocity;
 	public float life;
-	public bool pierceTerrain = false;
 	public int ownerID = 0;
 	public float elapsedLife = 0;
-	public int bounces = 0;
+	public int bounces = 1;
 	Rigidbody2D myRB;
 
+	///bool appliedVel = false;
 	void Start(){
 		myRB = this.GetComponent<Rigidbody2D>();
+		myRB.velocity = velocity;
 	}
 
 	// Update is called once per frame
@@ -28,13 +29,14 @@ public class RicochetBullet : MonoBehaviour {
 			Destroy (newParticle, 1f);
 			Destroy (this.gameObject);
 		}
-		myRB.position += velocity * Time.deltaTime;
+		//myRB.position += velocity * Time.deltaTime;
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
 		if(!other.gameObject.name.Contains("Boolet")){
 			if (other.GetComponent<PlayerMovement> () != null) {
 				if (other.GetComponent<PlayerMovement> ().playerNumber != ownerID) {
+					GameManager.Instance.currentGameMode.hitPlayerAddScore(ownerID, other.GetComponent<PlayerMovement>().playerNumber);
 					other.GetComponent<PlayerMovement> ().Die (ownerID);
 					GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
 					Destroy (newParticle, 1f);
@@ -45,17 +47,14 @@ public class RicochetBullet : MonoBehaviour {
 				// poop
 
 			}
-			else if (!pierceTerrain) {
-				bounces -= 1;
-				if (bounces >= 0){
-					//determine bounce mangle
-				}
-				else {
-					GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
-					Destroy (newParticle, 1f);
-					Destroy (this.gameObject);
-				}
-			}
+		}
+	}
+	void OnCollisionEnter2D(){
+		bounces -= 1;
+		if (bounces < 1){
+			GameObject newParticle = Instantiate (hitParticlePrefab, this.transform.position, Quaternion.identity);
+			Destroy (newParticle, 1f);
+			Destroy (this.gameObject);
 		}
 	}
 }
