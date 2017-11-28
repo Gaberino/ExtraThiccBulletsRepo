@@ -7,8 +7,7 @@ using UnityEngine;
 public class subTeleMod : SubModifier {
 
 	public float tele_dist;
-
-	private Vector2 new_pos;
+ 	private Vector2 new_pos;
 
 	public override void runSubAction (PlayerMovement xXx_pla_Move_xXx)
 	{
